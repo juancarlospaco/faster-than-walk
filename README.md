@@ -6,15 +6,13 @@
 
 | Library                       | Speed    |
 |-------------------------------|----------|
-| os.walk (std lib)             |  `0.37`  |
-| Faster_than_csv               |  `0.10`  |
-
-- This Lib is ~130 Lines of Code.
+| os.walk (std lib)             | `225.89` |
+| Faster_than_csv               | `75.0`   |
 
 <details>
 
 - Benchmarks run on Docker from Dockerfile on this repo.
-- Speed is IRL time to complete 10000 full recursive directory walks.
+- Speed is IRL time to complete 10000 full recursive directory walks to `/usr/share/`.
 - Stats as of year 2019.
 
 </details>
@@ -27,9 +25,9 @@ import faster_than_walk as ftw
 print(ftw.walks("sample.csv"))  # See Docs for more info.
 ```
 
-- `faster_than_walk.walks()` Recursive directory walk from path to list of strings.
-- `faster_than_walk.walks_glob()` Recursive directory walk from Glob Pattern to list of strings.
-- `faster_than_walk.walks_simple()` Recursive directory walk from path to list of strings.
+- `faster_than_walk.walks(folderpath: str, extensions: list, followlinks=false, yieldfiles=true, debugs=false)` Recursive directory walk from path to list of strings.
+- `faster_than_walk.walks_glob(globpattern: str)` Recursive directory walk from standard POSIX like Glob Pattern string to list of strings.
+- `faster_than_walk.walks_simple(folderpath: str)` Recursive directory walk from path to list of strings.
 
 
 # Docker
