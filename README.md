@@ -6,7 +6,7 @@
 
 | Library                       | Speed    |
 |-------------------------------|----------|
-| os.walk (std lib)             | `225.89` |
+| os.walk (std lib)             | `225.98` |
 | faster_than_walk              | `75.0`   |
 
 <details>
