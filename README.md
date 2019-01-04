@@ -93,6 +93,10 @@ I dunno.
 
 `debugs = True`
 
+- How to use a Glob Pattern ?.
+
+`globpattern = "*.txt"`
+
 - Whats a Glob Pattern ?.
 
 https://en.wikipedia.org/wiki/Glob_%28programming%29
