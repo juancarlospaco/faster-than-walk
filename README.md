@@ -7,7 +7,7 @@
 | Library                       | Speed    |
 |-------------------------------|----------|
 | os.walk (std lib)             | `225.89` |
-| Faster_than_csv               | `75.0`   |
+| faster_than_walk              | `75.0`   |
 
 <details>
 
@@ -26,7 +26,7 @@ print(ftw.walks("sample.csv"))  # See Docs for more info.
 ```
 
 - `faster_than_walk.walks(folderpath: str, extensions: list, followlinks=false, yieldfiles=true, debugs=false)` Recursive directory walk from path to list of strings.
-- `faster_than_walk.walks_glob(globpattern: str)` Recursive directory walk from standard POSIX like Glob Pattern string to list of strings.
+- `faster_than_walk.walks_glob(globpattern: str)` Recursive directory walk from standard POSIX like Glob Pattern string to list of strings, allows Recursive and Non-Recursive Globs.
 - `faster_than_walk.walks_simple(folderpath: str)` Recursive directory walk from path to list of strings.
 
 
