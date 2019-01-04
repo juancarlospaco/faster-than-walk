@@ -22,7 +22,12 @@
 
 ```python
 import faster_than_walk as ftw
-print(ftw.walks("/path/to/some/folder"))  # See Docs for more info.
+
+print(ftw.walks_simple("/path/to/some/folder")) # From path string
+print(ftw.walks("/path/to/some/folder"))        # From path string
+print(ftw.walks("/path/to/some/folder", [".py", ".txt"])) # Filter by Extension
+print(ftw.walks_glob("*.txt"))           # POSIX Globs string
+print(ftw.walks_glob("**/*.txt"))        # Recursive standard POSIX Globs
 ```
 
 - `faster_than_walk.walks(folderpath: str, extensions: list, followlinks=false, yieldfiles=true, debugs=false)` Recursive directory walk from path to list of strings.
