@@ -99,6 +99,10 @@ I dunno.
 
 `globpattern = "*.txt"`
 
+- How to use a Recursive Glob Pattern ?.
+
+`globpattern = "**/*.txt"`
+
 - Whats a Glob Pattern ?.
 
 https://en.wikipedia.org/wiki/Glob_%28programming%29
