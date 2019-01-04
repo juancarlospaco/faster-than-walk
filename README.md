@@ -81,6 +81,8 @@ I dunno.
 
 `extensions = [".py", ".txt", ".tar.gz"]`
 
+(Glob Pattern may be faster for several file extensions than the extensions argument)
+
 - How to force Follow SymLinks ?.
 
 `followlinks = True`
