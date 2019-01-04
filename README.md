@@ -26,6 +26,8 @@ import faster_than_walk as ftw
 print(ftw.walks_simple("/path/to/some/folder")) # From path string
 print(ftw.walks("/path/to/some/folder"))        # From path string
 print(ftw.walks("/path/to/some/folder", [".py", ".txt"])) # Filter by Extension
+print(ftw.walks("/path/to/some/folder", [".py"], followlinks=True)) # Follow SymLinks
+print(ftw.walks("/path/to/some/folder", [".py"], followlinks=True, yieldfiles=False)) # Folders only
 print(ftw.walks_glob("*.txt"))           # POSIX Globs string
 print(ftw.walks_glob("**/*.txt"))        # Recursive standard POSIX Globs
 ```
