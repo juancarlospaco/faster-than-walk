@@ -22,7 +22,7 @@
 
 ```python
 import faster_than_walk as ftw
-print(ftw.walks("sample.csv"))  # See Docs for more info.
+print(ftw.walks("/path/to/some/folder"))  # See Docs for more info.
 ```
 
 - `faster_than_walk.walks(folderpath: str, extensions: list, followlinks=false, yieldfiles=true, debugs=false)` Recursive directory walk from path to list of strings.
@@ -76,3 +76,19 @@ I dunno. (Not supported)
 - How can be faster than `os.walk` ?.
 
 I dunno.
+
+- How to Filter by File Extensions ?.
+
+`extensions = [".py", ".txt", ".tar.gz"]`
+
+- How to force Follow SymLinks ?.
+
+`followlinks = True`
+
+- How to force return Folders only and Not Files ?.
+
+`yieldfiles = False`
+
+- How to enable Debug ?.
+
+`debugs = True`
