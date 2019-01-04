@@ -10,7 +10,7 @@
 ## - ``faster_than_walk.walks_glob()`` Recursive directory walk from Glob Pattern to list of strings.
 ## - ``faster_than_walk.walks_simple()`` Recursive directory walk from path to list of strings.
 import os, strutils, nimpy
-{.passL: "-s", passC: "-flto -ffast-math", optimization: speed.}
+{.passL: "-s", optimization: speed.}
 
 proc walks*(folderpath: string, extensions: seq[string] = @[""], followlinks : bool = false, yieldfiles: bool = true, debugs: bool = false): seq[string] {.exportpy.} =
   ## Faster os.walk(), followlinks follows SymLinks, yieldfiles yields files else folders, return 1 list of strings.
