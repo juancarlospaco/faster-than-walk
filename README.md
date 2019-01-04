@@ -103,6 +103,10 @@ I dunno.
 
 `globpattern = "**/*.txt"`
 
+- I need to `import glob` on my code to use a Glob Pattern ?.
+
+No.
+
 - Whats a Glob Pattern ?.
 
 https://en.wikipedia.org/wiki/Glob_%28programming%29
