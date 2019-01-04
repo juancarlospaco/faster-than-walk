@@ -92,3 +92,7 @@ I dunno.
 - How to enable Debug ?.
 
 `debugs = True`
+
+- Whats a Glob Pattern ?.
+
+https://en.wikipedia.org/wiki/Glob_%28programming%29
