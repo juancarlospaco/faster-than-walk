@@ -37,6 +37,11 @@ print(ftw.walks_glob("**/*.txt"))        # Recursive standard POSIX Globs
 - `faster_than_walk.walks_simple(folderpath: str)` Recursive directory walk from path to list of strings.
 
 
+# Install
+
+- `pip install faster_than_walk`
+
+
 # Docker
 
 - Make a quick test drive on Docker!.
