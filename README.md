@@ -32,9 +32,41 @@ print(ftw.walks_glob("*.txt"))           # Standard POSIX Globs
 print(ftw.walks_glob("**/*.txt"))        # Recursive standard POSIX Globs
 ```
 
-- `faster_than_walk.walks(folderpath: str, extensions: list, followlinks=false, yieldfiles=true, debugs=false)` Recursive directory walk from path to list of strings.
-- `faster_than_walk.walks_glob(globpattern: str)` Recursive directory walk from standard POSIX like Glob Pattern string to list of strings, allows Recursive and Non-Recursive Globs.
-- `faster_than_walk.walks_simple(folderpath: str)` Recursive directory walk from path to list of strings.
+
+# walks()
+<details>
+
+**Description:**
+Takes a path string, makes a full recursive walk of folders and returns a list with the result.
+Recursive directory walk from path to list of strings.
+
+**Arguments:**
+- `folderpath` A local path, `str` type, required, must not be empty string.
+- `extensions` list of file Extensions, `list` type, optional, list must contain `str`, must not be empty list.
+- `followlinks` Set to `True` to follow SymLinks, `bool` type, optional.
+- `yieldfiles` Set to `False` to return folders only, `bool` type, optional.
+- `debugs` Set to `True` for Debug mode, `bool` type, optional, not needed for normal usage.
+
+**Returns:**
+Result, `list` type, values of the list are `str` type.
+
+</details>
+
+
+# walks_glob()
+<details>
+
+**Description:**
+Takes a path string, makes a full recursive walk of folders and returns a list with the result.
+Recursive directory walk from standard POSIX like Glob Pattern string to list of strings, allows Recursive and Non-Recursive Globs.
+
+**Arguments:**
+- `globpattern` A standard POSIX like Glob Pattern string, `str` type, required, must not be empty string.
+
+**Returns:**
+Result, `list` type, values of the list are `str` type.
+
+</details>
 
 
 [**For more Examples check the Examples.**](https://github.com/juancarlospaco/faster-than-walk/blob/master/examples/example.py)
