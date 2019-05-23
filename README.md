@@ -228,3 +228,15 @@ No.
 Unmmodified raw output of Python `timeit` module.
 
 Please send Pull Request to Python to improve the output of `timeit`.
+
+- How does this compare to `scandir` ?.
+
+**Scandir:**
+- Not Recursive.
+- Returns iterator.
+- Items yielded in random order.
+
+**ftw:**
+- Recursive.
+- Returns `list`.
+- Items preserve order.
