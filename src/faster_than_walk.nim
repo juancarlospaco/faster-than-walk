@@ -1,9 +1,10 @@
 import nimpy
-from os import walkDirRec, walkPattern, pcFile, pcDir, pcLinkToDir
 from strutils import normalize, endsWith
+from os import walkDirRec, walkPattern, pcFile, pcDir, pcLinkToDir, walkFiles, walkDirs, walkDir
 
 
-proc walks*(folderpath: string, extensions: seq[string] = @[""], followlinks : bool = false, yieldfiles: bool = true, debugs: bool = false): seq[string] {.exportpy.} =
+proc walks*(folderpath: string, extensions: seq[string] = @[""],
+  followlinks : bool = false, yieldfiles: bool = true, debugs: bool = false): seq[string] {.exportpy.} =
   ## Faster os.walk(), followlinks follows SymLinks, yieldfiles yields files else folders, return 1 list of strings.
   let extused = extensions != @[""] and extensions.len > 1 # Optimization.
   for item in walkDirRec(folderpath, {if yieldfiles: pcFile else: pcDir}, {if followlinks: pcLinkToDir else: pcDir}):
@@ -26,3 +27,21 @@ proc walks_simple*(folderpath: string): seq[string] {.exportpy.} =
   ## Faster os.walk(), it only takes the path, return 1 list of strings.
   for item in walkDirRec(folderpath):
     result.add item
+
+
+proc walks_files*(globpattern: string): seq[string] {.exportpy.} =
+  ## Faster os.walk(), similar to walks but optimized for Files only.
+  for item in walkFiles(globpattern):
+    result.add item
+
+
+proc walks_dirs*(globpattern: string): seq[string] {.exportpy.} =
+  ## Faster os.walk(), similar to walks but optimized for Folders only.
+  for item in walkDirs(globpattern):
+    result.add item
+
+
+proc listdirs*(folderpath: string, relative: bool = false): seq[string] {.exportpy.} =
+  ## Faster os.listdir(), not recursive.
+  for item in walkDir(folderpath, relative):
+    result.add item.path
