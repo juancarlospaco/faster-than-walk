@@ -1,6 +1,4 @@
 import nimpy
-from strutils import normalize, endsWith
-from os import walkDirRec, walkPattern, pcFile, pcDir, pcLinkToDir, walkFiles, walkDirs, walkDir
 
 
 proc walks*(folderpath: string, extensions: seq[string] = @[""],
