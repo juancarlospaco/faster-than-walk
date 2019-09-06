@@ -23,25 +23,21 @@ proc walks_glob*(globpattern: string): seq[string] {.exportpy.} =
     result.add item
 
 
-proc walks_simple*(folderpath: string): seq[string] {.exportpy.} =
+proc walks_simple*(folderpath: string, recursive: bool = true, relative: bool = false): seq[string] {.exportpy.} =
   ## Faster os.walk(), it only takes the path, return 1 list of strings.
-  for item in walkDirRec(folderpath):
-    result.add item
+  if likely(recursive):
+    for item in walkDirRec(folderpath):
+      result.add item
+  else:
+    for item in walkDir(folderpath, relative):
+      result.add item.path
 
 
-proc walks_files*(globpattern: string): seq[string] {.exportpy.} =
-  ## Faster os.walk(), similar to walks but optimized for Files only.
-  for item in walkFiles(globpattern):
-    result.add item
-
-
-proc walks_dirs*(globpattern: string): seq[string] {.exportpy.} =
-  ## Faster os.walk(), similar to walks but optimized for Folders only.
-  for item in walkDirs(globpattern):
-    result.add item
-
-
-proc listdirs*(folderpath: string, relative: bool = false): seq[string] {.exportpy.} =
-  ## Faster os.listdir(), not recursive.
-  for item in walkDir(folderpath, relative):
-    result.add item.path
+proc walks_files*(globpattern: string, folders_only: bool = false): seq[string] {.exportpy.} =
+  ## Faster os.walk(), similar to walks but optimized for Files or Folders only.
+  if unlikely(folders_only):
+    for item in walkDirs(globpattern):
+      result.add item
+  else:
+    for item in walkFiles(globpattern):
+      result.add item
