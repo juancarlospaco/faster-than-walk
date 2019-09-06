@@ -69,6 +69,41 @@ Result, `list` type, values of the list are `str` type.
 </details>
 
 
+# walks_simple()
+<details>
+
+**Description:**
+Takes a path string, makes a full recursive walk of folders and returns a list with the result.
+Recursive directory walk from path to list of strings.
+
+**Arguments:**
+- `folderpath` A local path, `str` type, required, must not be empty string.
+- `recursive` Set to `True` to be Recursive, `bool` type, optional.
+- `relative` Set to `True` to Relative paths, `bool` type, optional.
+
+**Returns:**
+Result, `list` type, values of the list are `str` type.
+
+</details>
+
+
+# walks_files()
+<details>
+
+**Description:**
+Takes a path string, makes a full recursive walk of folders and returns a list with the result.
+Recursive directory walk from path to list of strings.
+
+**Arguments:**
+- `globpattern` A standard POSIX like Glob Pattern string, `str` type, required, must not be empty string.
+- `folders_only` Set to `True` to be only return Folders, `bool` type, optional.
+
+**Returns:**
+Result, `list` type, values of the list are `str` type.
+
+</details>
+
+
 [**For more Examples check the Examples.**](https://github.com/juancarlospaco/faster-than-walk/blob/master/examples/example.py)
 
 Instead of having a pair of functions with a lot of arguments that you should provide to make it work,
