@@ -13,6 +13,7 @@
 
 - Benchmarks run on Docker from Dockerfile on this repo.
 - Speed is IRL time to complete 10000 full recursive directory walks to `/usr/share/`.
+- This depends a lot on I/O but overall most of times is faster.
 - Stats as of year 2019.
 - x86_64 64Bit AMD, SSD, Arch Linux.
 
