@@ -4,6 +4,16 @@
 
 [![screenshot](https://source.unsplash.com/eH_ftJYhaTY/800x402)](https://youtu.be/QiKwnlyhKrk?t=5)
 
+![](https://img.shields.io/github/languages/top/juancarlospaco/faster-than-walk?style=for-the-badge)
+![](https://img.shields.io/github/languages/count/juancarlospaco/faster-than-walk?logoColor=green&style=for-the-badge)
+![](https://img.shields.io/github/stars/juancarlospaco/faster-than-walk?style=for-the-badge "Star faster-than-walk on GitHub!")
+![](https://img.shields.io/maintenance/yes/2019?style=for-the-badge "2019")
+![](https://img.shields.io/github/languages/code-size/juancarlospaco/faster-than-walk?style=for-the-badge)
+![](https://img.shields.io/github/issues-raw/juancarlospaco/faster-than-walk?style=for-the-badge "Bugs")
+![](https://img.shields.io/github/issues-pr-raw/juancarlospaco/faster-than-walk?style=for-the-badge "PRs")
+![](https://img.shields.io/github/commit-activity/y/juancarlospaco/faster-than-walk?style=for-the-badge)
+![](https://img.shields.io/github/last-commit/juancarlospaco/faster-than-walk?style=for-the-badge "Commits")
+
 | Library                       | Speed    |
 |-------------------------------|----------|
 | os.walk (std lib)             | `225.98` |
@@ -156,6 +166,11 @@ More Faster Libraries...
 - Python 3.
 - GCC.
 - 64 Bit.
+
+
+# Stars
+
+![Star faster-than-walk on GitHub](https://starchart.cc/juancarlospaco/faster-than-walk.svg "Star faster-than-walk on GitHub!")
 
 
 # FAQ
