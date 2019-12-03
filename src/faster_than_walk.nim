@@ -1,8 +1,7 @@
-import nimpy
+import os, strutils, nimpy
 
 
-proc walk*(folderpath: string, extensions: seq[string] = @[""],
-  followlinks : bool = false, yieldfiles: bool = true, debugs: bool = false): seq[string] {.exportpy.} =
+proc walk*(folderpath: string, extensions: seq[string] = @[""], followlinks : bool = false, yieldfiles: bool = true, debugs: bool = false): seq[string] {.exportpy.} =
   ## Faster os.walk(), followlinks follows SymLinks, yieldfiles yields files else folders, return 1 list of strings.
   let extused = extensions != @[""] and extensions.len > 1 # Optimization.
   for item in walkDirRec(folderpath, {if yieldfiles: pcFile else: pcDir}, {if followlinks: pcLinkToDir else: pcDir}):
