@@ -301,8 +301,10 @@ Please send Pull Request to Python to improve the output of `timeit`.
 - Not Recursive.
 - Returns iterator.
 - Items yielded in random order.
+- Lenght of return unknown, you can not assert it return something or nothing.
 
 **ftw:**
 - Recursive.
 - Returns `list`.
 - Items preserve order.
+- Lenght of return known, you can assert it returns something.

@@ -23,7 +23,7 @@ def run_all_benchmarks(repetitions=10_000, output_file="results.csv", **kwargs):
     timer_type = kwargs.get('timer')
 
     tests.append(('os.walk', 'import os', "list(os.walk('/usr/share'))"))
-    tests.append(('faster_than_walk', 'import faster_than_walk', "faster_than_walk.walks_simple('/usr/share')"))
+    tests.append(('faster_than_walk', 'import faster_than_walk', "faster_than_walk.walk_simple('/usr/share')"))
 
     for test in tests:
         my_result = run_test(test[0], repetitions, test[1], test[2], timer=timer_type)
