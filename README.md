@@ -35,16 +35,16 @@
 ```python
 import faster_than_walk as ftw
 
-print(ftw.walks("/path/to/some/folder"))                   # From path string
-print(ftw.walks("/path/to/some/folder", [".py", ".txt"]))  # Filter by Extension
-print(ftw.walks("/path/to/some/folder", [".py"], followlinks=True))  # Follow SymLinks
-print(ftw.walks("/path/to/some/folder", [".py"], followlinks=True, yieldfiles=False)) # Folders only
-print(ftw.walks_glob("*.txt"))           # Standard POSIX Globs
-print(ftw.walks_glob("**/*.txt"))        # Recursive standard POSIX Globs
+print(ftw.walk("/path/to/some/folder"))                   # From path string
+print(ftw.walk("/path/to/some/folder", [".py", ".txt"]))  # Filter by Extension
+print(ftw.walk("/path/to/some/folder", [".py"], followlinks=True))  # Follow SymLinks
+print(ftw.walk("/path/to/some/folder", [".py"], followlinks=True, yieldfiles=False)) # Folders only
+print(ftw.walk_glob("*.txt"))           # Standard POSIX Globs
+print(ftw.walk_glob("**/*.txt"))        # Recursive standard POSIX Globs
 ```
 
 
-# walks()
+# walk()
 <details>
 
 **Description:**
@@ -64,7 +64,7 @@ Result, `list` type, values of the list are `str` type.
 </details>
 
 
-# walks_glob()
+# walk_glob()
 <details>
 
 **Description:**
@@ -80,7 +80,7 @@ Result, `list` type, values of the list are `str` type.
 </details>
 
 
-# walks_simple()
+# walk_simple()
 <details>
 
 **Description:**
@@ -98,7 +98,7 @@ Result, `list` type, values of the list are `str` type.
 </details>
 
 
-# walks_files()
+# walk_files()
 <details>
 
 **Description:**
