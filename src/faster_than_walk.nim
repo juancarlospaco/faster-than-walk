@@ -26,7 +26,7 @@ proc walk_simple*(folderpath: string, recursive: bool = true, relative: bool = f
     for item in walkDir(folderpath, relative): result.add item.path
 
 
-proc walks_files*(globpattern: string, folders_only: bool = false): seq[string] {.exportpy.} =
+proc walk_files*(globpattern: string, folders_only: bool = false): seq[string] {.exportpy.} =
   ## Faster os.walk(), similar to walks but optimized for Files or Folders only.
   if unlikely(folders_only):
     for item in walkDirs(globpattern): result.add item
