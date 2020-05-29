@@ -7,7 +7,7 @@
 ![](https://img.shields.io/github/languages/top/juancarlospaco/faster-than-walk?style=for-the-badge)
 ![](https://img.shields.io/github/languages/count/juancarlospaco/faster-than-walk?logoColor=green&style=for-the-badge)
 ![](https://img.shields.io/github/stars/juancarlospaco/faster-than-walk?style=for-the-badge "Star faster-than-walk on GitHub!")
-![](https://img.shields.io/maintenance/yes/2019?style=for-the-badge "2019")
+![](https://img.shields.io/maintenance/yes/2020?style=for-the-badge)
 ![](https://img.shields.io/github/languages/code-size/juancarlospaco/faster-than-walk?style=for-the-badge)
 ![](https://img.shields.io/github/issues-raw/juancarlospaco/faster-than-walk?style=for-the-badge "Bugs")
 ![](https://img.shields.io/github/issues-pr-raw/juancarlospaco/faster-than-walk?style=for-the-badge "PRs")
@@ -17,7 +17,7 @@
 | Library                       | Speed    |
 |-------------------------------|----------|
 | os.walk (std lib)             | `225.98` |
-| faster_than_walk              | `70.0`   |
+| faster_than_walk              | `69.0`   |
 
 <details>
 
