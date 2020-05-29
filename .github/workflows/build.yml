@@ -53,12 +53,12 @@ jobs:
     - name: Compile DEBUG Mode
       run: |
         export PATH=$HOME/.nimble/bin:$PATH
-        nim c --app:lib --out:faster_than_walk.so src/faster_than_walk.nim
+        nim c --app:lib --out:faster_than_walk.so faster_than_walk.nim
 
     - name: Compile RELEASE Mode
       run: |
         export PATH=$HOME/.nimble/bin:$PATH
-        nim c --app:lib -d:release -d:danger --out:faster_than_walk.so src/faster_than_walk.nim
+        nim c --app:lib -d:release -d:danger --out:faster_than_walk.so faster_than_walk.nim
 
     - name: Strip Binary
       run: strip --strip-all faster_than_walk.so
