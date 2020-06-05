@@ -50,12 +50,12 @@ withDir("dist"):
     writeFile("zip-safe", "")
 
   withDir("lin"):
-    selfExec "compileToC --nimcache:. " & rootFolder / "src/faster_than_csv.nim"
+    selfExec "compileToC --nimcache:. " & rootFolder / "src/faster_than_walk.nim"
     rmFile(packageName & ".json")
     cpFile(nimbaseH, "nimbase.h")
 
   withDir("win"):
-    selfExec "compileToC --nimcache:. --os:windows --gcc.exe:" & gccWin32 & " --gcc.linkerexe:" & gccWin32 & " " & rootFolder / "src/faster_than_csv.nim"
+    selfExec "compileToC --nimcache:. --os:windows --gcc.exe:" & gccWin32 & " --gcc.linkerexe:" & gccWin32 & " " & rootFolder / "src/faster_than_walk.nim"
     rmFile(packageName & ".json")
     cpFile(nimbaseH, "nimbase.h")
 
