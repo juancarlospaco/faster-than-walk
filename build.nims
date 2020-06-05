@@ -17,8 +17,7 @@ const rootFolder = system.getCurrentDir()
 --opt:speed
 --cpu:amd64
 --forceBuild
---define:ssl
---threads:on
+--threads:off
 --compileOnly
 --define:danger
 --define:release
