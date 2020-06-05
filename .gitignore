@@ -1,5 +1,8 @@
 *.c
 *.h
-dist/*.zip
+*.dll
+*.so
+*.pyd
+dist/
 __pycache__/
-faster_than_walk.egg-info/
+*.egg-info/
