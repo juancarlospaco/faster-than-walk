@@ -17,10 +17,12 @@ const rootFolder = system.getCurrentDir()
 --opt:speed
 --cpu:amd64
 --forceBuild
+--define:lto
 --threads:off
 --compileOnly
 --define:danger
 --define:release
+--stackTrace:off
 --exceptions:goto
 --gc:markAndSweep
 --tlsEmulation:off

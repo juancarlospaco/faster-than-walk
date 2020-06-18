@@ -3,13 +3,15 @@ import os, strutils, nimpy
 
 proc walk*(folderpath: string, extensions: seq[string] = @[""], followlinks : bool = false, yieldfiles: bool = true, debugs: bool = false): seq[string] {.exportpy.} =
   ## Faster os.walk(), followlinks follows SymLinks, yieldfiles yields files else folders, return 1 list of strings.
-  let extused = extensions != @[""] and extensions.len > 0 # Optimization.
+  let extused = create(bool, sizeOf(bool))  # Optimization.
+  extused[] = extensions != @[""] and extensions.len > 0
   for item in walkDirRec(folderpath, {if yieldfiles: pcFile else: pcDir}, {if followlinks: pcLinkToDir else: pcDir}):
     if unlikely(debugs): echo item
-    if unlikely(extused):
+    if unlikely(extused[]):
       for ext in extensions:
         if item.normalize.endsWith(ext): result.add item
     else: result.add item
+  zeroMem(extused, sizeOf(extused.type))    # Optimization.s
 
 
 proc walk_glob*(globpattern: string): seq[string] {.exportpy.} =
