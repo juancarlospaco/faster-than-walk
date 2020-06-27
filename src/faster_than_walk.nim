@@ -11,7 +11,7 @@ proc walk*(folderpath: string, extensions: seq[string] = @[""], followlinks : bo
       for ext in extensions:
         if item.normalize.endsWith(ext): result.add item
     else: result.add item
-  zeroMem(extused, sizeOf(extused.type))    # Optimization.s
+  dealloc extused  # Optimization.
 
 
 proc walk_glob*(globpattern: string): seq[string] {.exportpy.} =
