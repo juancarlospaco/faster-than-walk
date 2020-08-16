@@ -20,12 +20,12 @@ jobs:
     - name: Set Environment Variables
       uses: allenevans/set-env@v1.0.0
       with:
-        PYTHONDONTWRITEBYTECODE: 1
-        CHOOSENIM_NO_ANALYTICS: 1
+        PACKAGE_NAME: "faster_than_walk"
         TWINE_NON_INTERACTIVE: 1
+        CHOOSENIM_NO_ANALYTICS: 1
+        PYTHONDONTWRITEBYTECODE: 1
         TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
         TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-        MAIN_MODULE: "faster_than_requests.nim"
         #TWINE_REPOSITORY_URL: "https://test.pypi.org/legacy/"
         #TWINE_REPOSITORY: "https://test.pypi.org/legacy/"
 
@@ -58,20 +58,26 @@ jobs:
     - name: Cache Nim
       uses: actions/cache@v1
       with:
-        path: Nim/
+        path: $PWD/Nim/
         key: ${{ runner.os }}-nim
 
     - name: Cache Nimble
       uses: actions/cache@v1
       with:
-        path: $PWD/.nimble
+        path: $PWD/.nimble/
         key: ${{ runner.os }}-nimble
 
+    - name: Prepare Folders
+      run: mkdir --parents dist/lin/ dist/win/ dist/mac/ dist/$PACKAGE_NAME.egg-info
 
-    # - name: Prepare Files
-    #   run: |
-    #     mkdir --verbose --parents dist/
-    #     rm --verbose --force --recursive dist/*.zip
+    - name: Prepare Files
+      run: |
+        touch dist/zip-safe dist/top_level.txt dist/requires.txt dist/dependency_links.txt
+        cp --force $PWD/Nim/lib/nimbase.h dist/lin/nimbase.h
+        cp --force $PWD/Nim/lib/nimbase.h dist/win/nimbase.h
+        cp --force $PWD/Nim/lib/nimbase.h dist/mac/nimbase.h
+
+
 
     # - name: Publish to PYPI
     #   run: |
