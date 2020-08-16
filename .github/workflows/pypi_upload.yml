@@ -10,7 +10,7 @@ jobs:
     strategy:
       matrix:
         platform: [ubuntu-latest, macos-latest, windows-latest]
-    name: '${{ matrix.target.os }}-${{ matrix.target.cpu }} (${{ matrix.branch }})'
+    name: 'Build ${{ matrix.platform }}'
     runs-on: ${{ matrix.platform }}
     steps:
     - uses: actions/checkout@v1
