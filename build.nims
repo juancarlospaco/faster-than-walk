@@ -4,13 +4,13 @@ import os
 rmDir("dist")
 mkDir("dist")
 
-const version = "1.8"
+const version = "1.9"
 const packageName = "faster_than_walk"
 const gccWin32 = system.findExe("x86_64-w64-mingw32-gcc")
 assert gccWin32.len > 0, "x86_64-w64-mingw32-gcc not found"
 const zipExe = system.findExe("zip")
 assert zipExe.len > 0, "zip command not found"
-const nimbaseH = getHomeDir() / ".choosenim/toolchains/nim-" & NimVersion / "lib/nimbase.h"
+const nimbaseH = getHomeDir() / ".choosenim/toolchains/nim-#devel" / "lib/nimbase.h"
 const rootFolder = system.getCurrentDir()
 
 --app:lib
@@ -25,9 +25,9 @@ const rootFolder = system.getCurrentDir()
 --stackTrace:off
 --exceptions:goto
 --gc:markAndSweep
---tlsEmulation:off
 --define:noSignalHandler
 --excessiveStackTrace:off
+--define:nimBinaryStdFiles
 --outdir:getTempDir() # Save the *.so to /tmp, so is not on the package
 
 # writeFile("upload2pypi.sh", "twine upload --verbose --repository-url 'https://test.pypi.org/legacy/' --comment 'Powered by https://Nim-lang.org' dist/*.zip\n")
@@ -51,11 +51,13 @@ withDir("dist"):
     writeFile("zip-safe", "")
 
   withDir("lin"):
+    --tlsEmulation:off
     selfExec "compileToC --nimcache:. " & rootFolder / "src/faster_than_walk.nim"
     rmFile(packageName & ".json")
     cpFile(nimbaseH, "nimbase.h")
 
   withDir("win"):
+    --tlsEmulation:on
     selfExec "compileToC --nimcache:. --os:windows --gcc.exe:" & gccWin32 & " --gcc.linkerexe:" & gccWin32 & " " & rootFolder / "src/faster_than_walk.nim"
     rmFile(packageName & ".json")
     cpFile(nimbaseH, "nimbase.h")
