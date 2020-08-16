@@ -29,12 +29,6 @@ jobs:
         #TWINE_REPOSITORY_URL: "https://test.pypi.org/legacy/"
         #TWINE_REPOSITORY: "https://test.pypi.org/legacy/"
 
-    - name: Cache nimble
-      uses: actions/cache@v1
-      with:
-        path: ~/.nimble
-        key: ${{ runner.os }}-nimble
-
     - name: Update Python PIP
       run: pip3 install --quiet --user --upgrade --disable-pip-version-check pip setuptools twine nimporter
 
@@ -43,28 +37,36 @@ jobs:
         git clone -q --depth 1 https://github.com/nim-lang/Nim.git
         echo "::add-path::$PWD/Nim/bin"
 
-    - name: Build Nim
+    - name: Build Nim (Unix)
       if: runner.os == 'Linux' || runner.os == 'macOS'
       run: |
         cd Nim
         ./build_all.sh
 
-    - name: Build Nim
+    - name: Build Nim (Windows)
       if: runner.os == 'Windows'
       run: |
         cd Nim
         ./build_all.bat
-
-    - name: Cache Nim
-      uses: actions/cache@v1
-      with:
-        path: Nim/
 
     - name: Nimble Refresh
       run: nimble -y refresh
 
     - name: Nimble Install dependencies
       run: nimble -y install nimpy
+
+    - name: Cache Nim
+      uses: actions/cache@v1
+      with:
+        path: Nim/
+        key: ${{ runner.os }}-nim
+
+    - name: Cache Nimble
+      uses: actions/cache@v1
+      with:
+        path: $PWD/.nimble
+        key: ${{ runner.os }}-nimble
+
 
     # - name: Prepare Files
     #   run: |
