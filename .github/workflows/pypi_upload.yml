@@ -56,16 +56,31 @@ jobs:
       run: nimble -y install nimpy
 
     - name: Prepare Folders
-      run: mkdir -p "dist/lin/" "dist/win/" "dist/mac/" "dist/$PACKAGE_NAME.egg-info"
-
-    - name: Prepare Files
       run: |
-        touch dist/LICENSE dist/zip-safe dist/top_level.txt dist/requires.txt dist/dependency_links.txt
-        cp --force $PWD/Nim/lib/nimbase.h dist/lin/nimbase.h
-        cp --force $PWD/Nim/lib/nimbase.h dist/win/nimbase.h
-        cp --force $PWD/Nim/lib/nimbase.h dist/mac/nimbase.h
+        mkdir "dist"
+        mkdir "dist/lin"
+        mkdir "dist/win"
+        mkdir "dist/mac"
+        mkdir "dist/$PACKAGE_NAME.egg-info"
 
+    - name: Prepare Files (Unix)
+      if: runner.os == 'Linux' || runner.os == 'macOS'
+      run: touch dist/LICENSE dist/zip-safe dist/top_level.txt dist/requires.txt dist/dependency_links.txt
 
+    - name: Prepare Files (Windows)
+      if: runner.os == 'Windows'
+      run: |
+        type nul > dist/LICENSE
+        type nul > dist/zip-safe
+        type nul > dist/top_level.txt
+        type nul > dist/requires.txt
+        type nul > dist/dependency_links.txt
+
+    - name: Prepare Headers
+      run: |
+        cp $PWD/Nim/lib/nimbase.h dist/lin/nimbase.h
+        cp $PWD/Nim/lib/nimbase.h dist/win/nimbase.h
+        cp $PWD/Nim/lib/nimbase.h dist/mac/nimbase.h
 
     - name: Cache Nim
       uses: actions/cache@v1
