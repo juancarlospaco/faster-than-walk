@@ -20,8 +20,6 @@ jobs:
     - name: Set Environment Variables
       uses: allenevans/set-env@v1.0.0
       with:
-        overwrite: true
-        PATH: '$PATH:$PWD/Nim/bin'
         PYTHONDONTWRITEBYTECODE: 1
         CHOOSENIM_NO_ANALYTICS: 1
         TWINE_NON_INTERACTIVE: 1
@@ -41,7 +39,9 @@ jobs:
       run: pip3 install --quiet --user --upgrade --disable-pip-version-check pip setuptools twine nimporter
 
     - name: Clone Nim
-      run: git clone -q --depth 1 https://github.com/nim-lang/Nim.git
+      run: |
+        git clone -q --depth 1 https://github.com/nim-lang/Nim.git
+        echo "::add-path::$PWD/Nim/bin"
 
     - name: Build Nim
       if: runner.os == 'Linux' || runner.os == 'macOS'
