@@ -38,13 +38,23 @@ jobs:
     - name: Update Python PIP
       run: pip3 install --upgrade --disable-pip-version-check pip setuptools twine nimporter
 
-    - name: Compile Nim (Linux / Mac)
-      if: runner.os == 'Linux' || runner.os == 'macOS'
+    - name: Clone Nim
       run: |
         git clone https://github.com/nim-lang/Nim.git
         cd Nim
         git checkout devel
+
+    - name: Build Nim
+      if: runner.os == 'Linux' || runner.os == 'macOS'
+      run: |
+        cd Nim
         ./build_all.sh
+
+    - name: Build Nim
+      if: runner.os == 'Windows'
+      run: |
+        cd Nim
+        ./build_all.bat
 
 
     - name: Nimble Refresh
