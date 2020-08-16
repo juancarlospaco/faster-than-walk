@@ -16,9 +16,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - uses: actions/setup-python@v1
-    - uses: jiro4989/setup-nim-action@v1.0.2
-      with:
-        nim-version: '1.2.6'
 
     - name: Set Environment Variables
       uses: allenevans/set-env@v1.0.0
@@ -40,6 +37,15 @@ jobs:
 
     - name: Update Python PIP
       run: pip3 install --upgrade --disable-pip-version-check pip setuptools twine nimporter
+
+    - name: Compile Nim (Linux / Mac)
+      if: runner.os == 'Linux' || runner.os == 'macOS'
+      run: |
+        git clone https://github.com/nim-lang/Nim.git
+        cd Nim
+        git checkout devel
+        ./build_all.sh
+
 
     - name: Nimble Refresh
       run: nimble -y refresh
