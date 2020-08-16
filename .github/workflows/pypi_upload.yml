@@ -55,6 +55,18 @@ jobs:
     - name: Nimble Install dependencies
       run: nimble -y install nimpy
 
+    - name: Prepare Folders
+      run: mkdir --parents dist/lin/ dist/win/ dist/mac/ dist/$PACKAGE_NAME.egg-info
+
+    - name: Prepare Files
+      run: |
+        touch dist/LICENSE dist/zip-safe dist/top_level.txt dist/requires.txt dist/dependency_links.txt
+        cp --force $PWD/Nim/lib/nimbase.h dist/lin/nimbase.h
+        cp --force $PWD/Nim/lib/nimbase.h dist/win/nimbase.h
+        cp --force $PWD/Nim/lib/nimbase.h dist/mac/nimbase.h
+
+
+
     - name: Cache Nim
       uses: actions/cache@v1
       with:
@@ -66,18 +78,6 @@ jobs:
       with:
         path: $PWD/.nimble/
         key: ${{ runner.os }}-nimble
-
-    - name: Prepare Folders
-      run: mkdir --parents dist/lin/ dist/win/ dist/mac/ dist/$PACKAGE_NAME.egg-info
-
-    - name: Prepare Files
-      run: |
-        touch dist/zip-safe dist/top_level.txt dist/requires.txt dist/dependency_links.txt
-        cp --force $PWD/Nim/lib/nimbase.h dist/lin/nimbase.h
-        cp --force $PWD/Nim/lib/nimbase.h dist/win/nimbase.h
-        cp --force $PWD/Nim/lib/nimbase.h dist/mac/nimbase.h
-
-
 
     # - name: Publish to PYPI
     #   run: |
