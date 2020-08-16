@@ -21,6 +21,7 @@ jobs:
       uses: allenevans/set-env@v1.0.0
       with:
         PACKAGE_NAME: "faster_than_walk"
+        MAIN_MODULE: "src/faster_than_walk.nim"
         TWINE_NON_INTERACTIVE: 1
         CHOOSENIM_NO_ANALYTICS: 1
         PYTHONDONTWRITEBYTECODE: 1
@@ -56,31 +57,28 @@ jobs:
       run: nimble -y install nimpy
 
     - name: Prepare Folders
+      if: runner.os == 'Linux'
+      run: mkdir -p dist/lin dist/win dist/mac dist/$PACKAGE_NAME.egg-info
+
+    - name: Prepare Files
+      if: runner.os == 'Linux'
       run: |
-        mkdir "dist"
-        mkdir "dist/lin"
-        mkdir "dist/win"
-        mkdir "dist/mac"
-        mkdir "dist/$PACKAGE_NAME.egg-info"
+        touch dist/LICENSE dist/$PACKAGE_NAME.egg-info/zip-safe dist/$PACKAGE_NAME.egg-info/top_level.txt dist/$PACKAGE_NAME.egg-info/requires.txt dist/$PACKAGE_NAME.egg-info/dependency_links.txt
+        cp --force $PWD/Nim/lib/nimbase.h dist/lin/nimbase.h
+        cp --force $PWD/Nim/lib/nimbase.h dist/win/nimbase.h
+        cp --force $PWD/Nim/lib/nimbase.h dist/mac/nimbase.h
 
-    - name: Prepare Files (Unix)
-      if: runner.os == 'Linux' || runner.os == 'macOS'
-      run: touch dist/LICENSE dist/zip-safe dist/top_level.txt dist/requires.txt dist/dependency_links.txt
+    - name: Compile (Linux)
+      if: runner.os == 'Linux'
+      run: nim compileToC --nimcache:dist/lin/ $MAIN_MODULE
 
-    - name: Prepare Files (Windows)
+    - name: Compile (Windows)
       if: runner.os == 'Windows'
-      run: |
-        type nul > dist/LICENSE
-        type nul > dist/zip-safe
-        type nul > dist/top_level.txt
-        type nul > dist/requires.txt
-        type nul > dist/dependency_links.txt
+      run: nim compileToC --nimcache:dist/win/ $MAIN_MODULE
 
-    - name: Prepare Headers
-      run: |
-        cp $PWD/Nim/lib/nimbase.h dist/lin/nimbase.h
-        cp $PWD/Nim/lib/nimbase.h dist/win/nimbase.h
-        cp $PWD/Nim/lib/nimbase.h dist/mac/nimbase.h
+    - name: Compile (Mac)
+      if: runner.os == 'macOS'
+      run: nim compileToC --nimcache:dist/mac/ $MAIN_MODULE
 
     - name: Cache Nim
       uses: actions/cache@v1
