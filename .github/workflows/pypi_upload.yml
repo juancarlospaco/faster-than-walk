@@ -36,7 +36,7 @@ jobs:
         key: ${{ runner.os }}-nimble
 
     - name: Update Python PIP
-      run: pip3 install --upgrade --disable-pip-version-check pip setuptools twine nimporter
+      run: pip3 install --user --upgrade --disable-pip-version-check pip setuptools twine nimporter
 
     - name: Clone Nim
       run: |
