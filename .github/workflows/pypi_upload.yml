@@ -36,13 +36,10 @@ jobs:
         key: ${{ runner.os }}-nimble
 
     - name: Update Python PIP
-      run: pip3 install --user --upgrade --disable-pip-version-check pip setuptools twine nimporter
+      run: pip3 install --quiet --user --upgrade --disable-pip-version-check pip setuptools twine nimporter
 
     - name: Clone Nim
-      run: |
-        git clone https://github.com/nim-lang/Nim.git
-        cd Nim
-        git checkout devel
+      run: git clone -q --depth 1 https://github.com/nim-lang/Nim.git
 
     - name: Build Nim
       if: runner.os == 'Linux' || runner.os == 'macOS'
@@ -56,6 +53,10 @@ jobs:
         cd Nim
         ./build_all.bat
 
+    - name: Cache Nim
+      uses: actions/cache@v1
+      with:
+        path: Nim/
 
     - name: Nimble Refresh
       run: nimble -y refresh
