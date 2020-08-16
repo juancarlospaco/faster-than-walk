@@ -20,6 +20,7 @@ jobs:
     - name: Set Environment Variables
       uses: allenevans/set-env@v1.0.0
       with:
+        PATH: '$PATH:$PWD/Nim/bin'
         PYTHONDONTWRITEBYTECODE: 1
         CHOOSENIM_NO_ANALYTICS: 1
         TWINE_NON_INTERACTIVE: 1
