@@ -105,7 +105,7 @@ jobs:
       if: runner.os == 'Linux'
       run: |
         cd dist
-        rm *.zip
+        rm --force *.zip
         zip -9 -T -v -r $PACKAGE_NAME-$PACKAGE_VERSION.zip *
 
 
@@ -116,7 +116,7 @@ jobs:
 
     - uses: stefanzweifel/git-auto-commit-action@v4.4.1
       with:
-        commit_message: Fully Automated Luxury Nim-Python package
+        commit_message: Fully Automated Luxury Python
         file_pattern: "dist/*"
         commit_user_name: juancarlospaco
         commit_author: Juan Carlos
@@ -125,17 +125,12 @@ jobs:
         push_options: "--force"
 
 
-    - name: Cache dist
-      uses: actions/cache@v1
-      with:
-        path: $PWD/dist/
-        key: dist
-
     - name: Cache Nim
       uses: actions/cache@v1
       with:
         path: $PWD/Nim/
         key: ${{ runner.os }}-nim
+
 
     - name: Cache Nimble
       uses: actions/cache@v1
@@ -143,7 +138,6 @@ jobs:
         path: $PWD/.nimble/
         key: ${{ runner.os }}-nimble
 
-    # - name: Publish to PYPI
-    #   run: |
-    #     python3 setup.py --verbose sdist --formats=zip
-    #     twine upload --verbose --disable-progress-bar dist/*.zip
+
+    # - name: Publish to PYPI (Test Server)
+    #   run: twine upload --verbose --disable-progress-bar --repository-url 'https://test.pypi.org/legacy/' --comment 'Powered by https://Nim-lang.org' dist/*.zip
