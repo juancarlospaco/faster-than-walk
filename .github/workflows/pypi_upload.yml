@@ -114,9 +114,9 @@ jobs:
         zip -9 -T -v -r $PACKAGE_NAME-$PACKAGE_VERSION.zip *
 
 
-    - name: Install locally for Testing
-      run: |
-        pip3 install --user --disable-pip-version-check dist/$PACKAGE_NAME-$PACKAGE_VERSION.zip --no-binary :all:
+    # - name: Install locally for Testing
+    #   run: |
+    #     pip3 install --user --disable-pip-version-check dist/$PACKAGE_NAME-$PACKAGE_VERSION.zip --no-binary :all:
 
 
     - uses: EndBug/add-and-commit@v4
