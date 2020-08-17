@@ -103,7 +103,20 @@ jobs:
 
     - name: Clean out
       if: runner.os == 'Linux'
-      run: rm --force dist/lin/$PACKAGE_NAME.json dist/win/$PACKAGE_NAME.json dist/mac/$PACKAGE_NAME.json dist/lin/*.o dist/win/*.o dist/mac/*.o
+      run: rm --force --verbose dist/lin/*.json dist/win/*.json dist/mac/*.json dist/lin/*.o dist/win/*.o dist/mac/*.o
+
+
+    - name: Compress to ZIP
+      if: runner.os == 'Linux'
+      run: |
+        cd dist
+        rm --force --verbose *.zip
+        zip -9 -T -v -r $PACKAGE_NAME-$PACKAGE_VERSION.zip *
+
+
+    - name: Install locally for Testing
+      run: |
+        pip3 install --user --disable-pip-version-check dist/$PACKAGE_NAME-$PACKAGE_VERSION.zip --no-binary :all:
 
 
     - uses: EndBug/add-and-commit@v4
@@ -111,22 +124,9 @@ jobs:
         add: 'dist'
         author_name: Juan Carlos
         force: true
-        message: 'Fully Automate Luxury Python'
+        message: 'Fully Automated Luxury Python'
         # The arguments for the `git rm` command (see the paragraph below for more info)
         #remove: "./dir/old_file.js"
-
-
-    - name: Compress to ZIP
-      if: runner.os == 'Linux'
-      run: |
-        cd dist
-        rm --force *.zip
-        zip -9 -T -v -r $PACKAGE_NAME-$PACKAGE_VERSION.zip *
-
-
-    - name: Install locally for Testing
-      run: |
-        pip3 install --user --disable-pip-version-check dist/$PACKAGE_NAME-$PACKAGE_VERSION.zip --no-binary :all:
 
 
     - name: Cache Nim
