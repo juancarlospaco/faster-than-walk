@@ -113,9 +113,10 @@ jobs:
       run: |
         pip3 install --user --disable-pip-version-check dist/$PACKAGE_NAME-$PACKAGE_VERSION.zip --no-binary :all:
 
+
     - uses: stefanzweifel/git-auto-commit-action@v4.4.1
       with:
-        commit_message: Fully Automated Luxury Nim Python package
+        commit_message: Fully Automated Luxury Nim-Python package
         file_pattern: "dist/*"
         commit_user_name: juancarlospaco
         commit_author: Juan Carlos
