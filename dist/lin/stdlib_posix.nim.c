@@ -6,7 +6,6 @@
 /* section: NIM_merge_HEADERS */
 
 #include "nimbase.h"
-#include <dlfcn.h>
 #undef LANGUAGE_C
 #undef MIPSEB
 #undef MIPSEL
@@ -25,16 +24,5 @@
 #define nimfr_(x, y)
 #define nimln_(x, y)
 
-/* section: NIM_merge_PROCS */
-N_LIB_PRIVATE N_NIMCALL(void*, symAddr__ALH9bdNwXEzg7MPq4PA9csvw)(void* lib, NCSTRING name) {
-	void* result;
-	result = (void*)0;
-	result = dlsym(lib, name);
-	return result;
-}
-N_LIB_PRIVATE N_NIMCALL(void*, loadLib__3W0xEugBG13TxVu4hk9b9b5g)(void) {
-	void* result;
-	result = (void*)0;
-	result = dlopen(NIM_NIL, RTLD_NOW);
-	return result;
-}
+/* section: NIM_merge_VARS */
+N_LIB_PRIVATE int MAP_POPULATE__VA0iC4AP6fJAacff09cx89ag = ((int) 0);
