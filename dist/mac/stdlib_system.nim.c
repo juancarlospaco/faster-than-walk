@@ -188,7 +188,6 @@ struct NimStringDesc {
   TGenericSeq Sup;
 NIM_CHAR data[SEQ_DECL_SIZE];
 };
-typedef long tyArray__TcvIiMAJvcwzNLsZkfnFnQ[25];
 struct tyObject_Cell__1zcF9cV8XIAtbN8h5HRUB8g {
 NI refcount;
 TNimType* typ;
@@ -1531,7 +1530,7 @@ N_LIB_PRIVATE N_NOINLINE(void, raiseOutOfMem__mMRdr4sgmnykA9aWeM9aDZlw_2)(void) 
 	}
 	LA3_: ;
 	nimln_(48, "mmdisp.nim");
-	rawWrite(stderr, "out of memory\012");
+	rawWrite(__stderrp, "out of memory\012");
 	nimln_(49, "mmdisp.nim");
 	exit(((NI) 1));
 	popFrame();
@@ -1541,7 +1540,7 @@ static N_INLINE(void*, osAllocPages__HMOhWrY1QMa49a2BcJwSDZQsystem)(NI size) {
 	nimfr_("osAllocPages", "osalloc.nim");
 	result = (void*)0;
 	nimln_(230, "osalloc.nim");
-	result = mmap(NIM_NIL, ((size_t) (size)), ((int) 3), ((int) 34), ((int) -1), ((NI) 0));
+	result = mmap(NIM_NIL, ((size_t) (size)), ((int) 3), ((int) 4098), ((int) -1), ((NI) 0));
 	nimln_(232, "osalloc.nim");
 	{
 		NIM_BOOL T3_;
@@ -1563,7 +1562,7 @@ static N_INLINE(void*, osTryAllocPages__HMOhWrY1QMa49a2BcJwSDZQ_2system)(NI size
 	nimfr_("osTryAllocPages", "osalloc.nim");
 	result = (void*)0;
 	nimln_(236, "osalloc.nim");
-	result = mmap(NIM_NIL, ((size_t) (size)), ((int) 3), ((int) 34), ((int) -1), ((NI) 0));
+	result = mmap(NIM_NIL, ((size_t) (size)), ((int) 3), ((int) 4098), ((int) -1), ((NI) 0));
 	nimln_(238, "osalloc.nim");
 	{
 		if (!(result == ((void*) (((NI) -1))))) goto LA3_;
@@ -3894,7 +3893,7 @@ N_LIB_PRIVATE N_NIMCALL(void, reraiseException)(void) {
 	LA1_: ;
 }
 N_LIB_PRIVATE N_NIMCALL(void, writeToStdErr__a2kDfqdSc1eYf0ZCWOGinQ)(NCSTRING msg) {
-	rawWrite(stderr, msg);
+	rawWrite(__stderrp, msg);
 }
 N_LIB_PRIVATE N_NIMCALL(void, showErrorMessage__zsORN9crdKxsL9cHrQcdHSMw)(NCSTRING data) {
 	NIM_BOOL volatile toWrite;
@@ -3906,7 +3905,7 @@ N_LIB_PRIVATE N_NIMCALL(void, showErrorMessage__zsORN9crdKxsL9cHrQcdHSMw)(NCSTRI
 		NimStringDesc* T5_;
 		if (!!((errorMessageWriter__ZXnv0JyrWe3HTd07wpSr7A == NIM_NIL))) goto LA3_;
 		pushSafePoint(&TM__Q5wkpxktOdTGvlSRo9bzt9aw_20);
-		TM__Q5wkpxktOdTGvlSRo9bzt9aw_20.status = setjmp(TM__Q5wkpxktOdTGvlSRo9bzt9aw_20.context);
+		TM__Q5wkpxktOdTGvlSRo9bzt9aw_20.status = _setjmp(TM__Q5wkpxktOdTGvlSRo9bzt9aw_20.context);
 		if (TM__Q5wkpxktOdTGvlSRo9bzt9aw_20.status == 0) {
 		T5_ = (NimStringDesc*)0;
 		T5_ = cstrToNimstr(data);
@@ -4032,7 +4031,7 @@ N_LIB_PRIVATE N_NIMCALL(void, raiseExceptionAux__na8C8pUZ9cLQWVwk35l5vfw)(Except
 	{
 		if (!!((excHandler__rqLlY5bs9atDw2OXYqJEn5g == NIM_NIL))) goto LA21_;
 		pushCurrentException(e);
-		longjmp((*excHandler__rqLlY5bs9atDw2OXYqJEn5g).context, ((int) 1));
+		_longjmp((*excHandler__rqLlY5bs9atDw2OXYqJEn5g).context, ((int) 1));
 	}
 	goto LA19_;
 	LA21_: ;
@@ -4280,7 +4279,7 @@ N_LIB_PRIVATE N_CDECL(void, markStackAndRegisters__U6T7JWtDLrWhtmhXSoy9a6g)(tyOb
 		int T4_;
 		nimln_(378, "gc_common.nim");
 		T4_ = (int)0;
-		T4_ = setjmp(registers);
+		T4_ = _setjmp(registers);
 		if (!(T4_ == ((NI32) 0))) goto LA5_;
 		{
 			tyObject_GcStack__7fytPA5bBsob6See21YMRA* stack;
@@ -5134,7 +5133,7 @@ N_LIB_PRIVATE N_NIMCALL(void, nimRegisterThreadLocalMarker)(tyProc__T4eqaYlFJYZU
 	LA3_: ;
 	{
 		nimln_(476, "gc_common.nim");
-		rawWrite(stderr, "[GC] cannot register thread local variable; too many thread loc"
+		rawWrite(__stderrp, "[GC] cannot register thread local variable; too many thread loc"
 "al variables");
 		nimln_(477, "gc_common.nim");
 		exit(((NI) 1));
@@ -5165,7 +5164,7 @@ N_LIB_PRIVATE N_NIMCALL(void, nimRegisterGlobalMarker)(tyProc__T4eqaYlFJYZUv9aG9
 	LA3_: ;
 	{
 		nimln_(468, "gc_common.nim");
-		rawWrite(stderr, "[GC] cannot register global variable; too many global variables");
+		rawWrite(__stderrp, "[GC] cannot register global variable; too many global variables");
 		nimln_(469, "gc_common.nim");
 		exit(((NI) 1));
 	}
@@ -5418,7 +5417,7 @@ N_LIB_PRIVATE N_NIMCALL(NimStringDesc*, substr__2yh9cer0ymNRHlOOg8P7IuA)(NimStri
 N_LIB_PRIVATE N_NIMCALL(void, nimLeaveFinally)(void) {
 	{
 		if (!!((excHandler__rqLlY5bs9atDw2OXYqJEn5g == NIM_NIL))) goto LA3_;
-		longjmp((*excHandler__rqLlY5bs9atDw2OXYqJEn5g).context, ((int) 1));
+		_longjmp((*excHandler__rqLlY5bs9atDw2OXYqJEn5g).context, ((int) 1));
 	}
 	goto LA1_;
 	LA3_: ;

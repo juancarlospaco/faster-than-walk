@@ -83,7 +83,7 @@ N_LIB_PRIVATE N_NIMCALL(void*, loadLib__3W0xEugBG13TxVu4hk9b9b5g)(void) {
 	nimfr_("loadLib", "dynlib.nim");
 	result = (void*)0;
 	nimln_(127, "dynlib.nim");
-	result = dlopen(NIM_NIL, ((int) 2));
+	result = dlopen(NIM_NIL, RTLD_NOW);
 	popFrame();
 	return result;
 }

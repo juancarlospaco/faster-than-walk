@@ -167,7 +167,6 @@ STRING_LITERAL(TM__yu6cxgKBBXbNsTkT9cyMd4g_13, "os.nim(2059, 11) `path != \"\"` 
 /* section: NIM_merge_VARS */
 N_LIB_PRIVATE NIM_BOOL envComputed__LLyFo9bsdu1ZXMDvAe8DhrQ;
 N_LIB_PRIVATE tySequence__sM4lkSb7zS6F7OVMvW9cffQ* environment__mlhK49b6YMgc9cgrcYkKq9a3g;
-extern NCSTRING* environ;
 extern TFrame* framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw;
 extern TFrame* framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw;
 extern TFrame* framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw;

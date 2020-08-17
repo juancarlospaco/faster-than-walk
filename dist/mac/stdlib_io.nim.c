@@ -6,7 +6,7 @@
 /* section: NIM_merge_HEADERS */
 
 #include "nimbase.h"
-#include <dlfcn.h>
+#include <stdio.h>
 #undef LANGUAGE_C
 #undef MIPSEB
 #undef MIPSEL
@@ -33,7 +33,24 @@
   #  define nimln_(n, file) \
       FR_.line = n; FR_.filename = file;
   
+/* section: NIM_merge_FORWARD_TYPES */
+typedef struct NimStringDesc NimStringDesc;
+typedef struct TGenericSeq TGenericSeq;
+
+/* section: NIM_merge_TYPES */
+struct TGenericSeq {
+NI len;
+NI reserved;
+};
+struct NimStringDesc {
+  TGenericSeq Sup;
+NIM_CHAR data[SEQ_DECL_SIZE];
+};
+
 /* section: NIM_merge_PROC_HEADERS */
+N_LIB_PRIVATE N_NOINLINE(void, raiseIndexError2)(NI i, NI n);
+static N_INLINE(NCSTRING, nimToCStringConv)(NimStringDesc* s);
+N_LIB_PRIVATE N_NOINLINE(void, raiseOverflow)(void);
 static N_INLINE(void, nimFrame)(TFrame* s);
 N_LIB_PRIVATE N_NOINLINE(void, callDepthLimitReached__mMRdr4sgmnykA9aWeM9aDZlw)(void);
 static N_INLINE(void, popFrame)(void);
@@ -47,6 +64,27 @@ extern TFrame* framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw;
 extern TFrame* framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw;
 
 /* section: NIM_merge_PROCS */
+static N_INLINE(NCSTRING, nimToCStringConv)(NimStringDesc* s) {
+	NCSTRING result;
+	result = (NCSTRING)0;
+	{
+		NIM_BOOL T3_;
+		T3_ = (NIM_BOOL)0;
+		T3_ = (s == NIM_NIL);
+		if (T3_) goto LA4_;
+		T3_ = ((*s).Sup.len == ((NI) 0));
+		LA4_: ;
+		if (!T3_) goto LA5_;
+		result = "";
+	}
+	goto LA1_;
+	LA5_: ;
+	{
+		result = ((NCSTRING) ((*s).data));
+	}
+	LA1_: ;
+	return result;
+}
 static N_INLINE(void, nimFrame)(TFrame* s) {
 	{
 		if (!(framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw == NIM_NIL)) goto LA3_;
@@ -69,21 +107,49 @@ static N_INLINE(void, nimFrame)(TFrame* s) {
 static N_INLINE(void, popFrame)(void) {
 	framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw = (*framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw).prev;
 }
-N_LIB_PRIVATE N_NIMCALL(void*, symAddr__ALH9bdNwXEzg7MPq4PA9csvw)(void* lib, NCSTRING name) {
-	void* result;
-	nimfr_("symAddr", "dynlib.nim");
-	result = (void*)0;
-	nimln_(129, "dynlib.nim");
-	result = dlsym(lib, name);
+N_LIB_PRIVATE N_NIMCALL(void, echoBinSafe)(NimStringDesc** args, NI argsLen_0) {
+	int T6_;
+	int T7_;
+	nimfr_("echoBinSafe", "io.nim");
+	nimln_(781, "io.nim");
+	flockfile(__stdoutp);
+	{
+		NimStringDesc** s;
+		NI i;
+		s = (NimStringDesc**)0;
+		nimln_(8, "iterators.nim");
+		i = ((NI) 0);
+		{
+			nimln_(9, "iterators.nim");
+			while (1) {
+				void* T4_;
+				int T5_;
+				NI TM__MnCJ0VAmeZ9aTATUB39cx60Q_2;
+				if (!(i < argsLen_0)) goto LA3;
+				nimln_(784, "io.nim");
+				if ((NU)(i) >= (NU)(argsLen_0)){ raiseIndexError2(i,argsLen_0-1); }
+				s = (&args[i]);
+				nimln_(788, "io.nim");
+				T4_ = (void*)0;
+				T4_ = ((void*) (nimToCStringConv((*s))));
+				T5_ = (int)0;
+				T5_ = fwrite(T4_, ((size_t) (((*s) ? (*s)->Sup.len : 0))), ((size_t) 1), __stdoutp);
+				(void)(T5_);
+				nimln_(11, "iterators.nim");
+				if (nimAddInt(i, ((NI) 1), &TM__MnCJ0VAmeZ9aTATUB39cx60Q_2)) { raiseOverflow(); };
+				i = (NI)(TM__MnCJ0VAmeZ9aTATUB39cx60Q_2);
+			} LA3: ;
+		}
+	}
+	nimln_(790, "io.nim");
+	T6_ = (int)0;
+	T6_ = fwrite(((void*) ("\012")), ((size_t) 1), ((size_t) 1), __stdoutp);
+	(void)(T6_);
+	nimln_(791, "io.nim");
+	T7_ = (int)0;
+	T7_ = fflush(__stdoutp);
+	(void)(T7_);
+	nimln_(793, "io.nim");
+	funlockfile(__stdoutp);
 	popFrame();
-	return result;
-}
-N_LIB_PRIVATE N_NIMCALL(void*, loadLib__3W0xEugBG13TxVu4hk9b9b5g)(void) {
-	void* result;
-	nimfr_("loadLib", "dynlib.nim");
-	result = (void*)0;
-	nimln_(127, "dynlib.nim");
-	result = dlopen(NIM_NIL, ((int) 2));
-	popFrame();
-	return result;
 }
