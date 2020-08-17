@@ -8,7 +8,7 @@ on: [push]
 jobs:
   build:
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         platform: [ubuntu-latest, macos-latest, windows-latest]
     name: ${{ matrix.platform }}
@@ -85,6 +85,20 @@ jobs:
     - name: Nim Check
       if: runner.os == 'Linux' || runner.os == 'macOS'
       run: nim check --styleCheck:hint $MAIN_MODULE
+
+
+    - name: Compile Debug & import (Unix)
+      if: runner.os == 'Linux' || runner.os == 'macOS'
+      run: |
+        nim c --app:lib --out:faster_than_walk.so src/faster_than_walk.nim
+        python3 -c "import $PACKAGE_NAME"
+
+
+    - name: Compile Debug & import (Windows)
+      if: runner.os == 'Windows'
+      run: |
+        nim c --app:lib --out:faster_than_walk.pyd src/faster_than_walk.nim
+        python3 -c "import $PACKAGE_NAME"
 
 
     - name: Compile (Unix)
