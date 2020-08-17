@@ -98,7 +98,7 @@ jobs:
 
     - name: Clean out
       if: runner.os == 'Linux'
-      run: rm --force dist/lin/$PACKAGE_NAME.json dist/win/$PACKAGE_NAME.json dist/mac/$PACKAGE_NAME.json
+      run: rm --force dist/lin/$PACKAGE_NAME.json dist/win/$PACKAGE_NAME.json dist/mac/$PACKAGE_NAME.json dist/lin/*.o dist/win/*.o dist/mac/*.o
 
 
     - name: Compress to ZIP
