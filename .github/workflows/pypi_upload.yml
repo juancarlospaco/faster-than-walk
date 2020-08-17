@@ -94,6 +94,9 @@ jobs:
         cd dist
         zip -9 -T -v -r $PACKAGE_NAME-$PACKAGE_VERSION.zip *
 
+    - name: Install locally for Testing
+      run: pip --user install dist/*.zip --no-binary :all:
+
     - name: Cache dist
       uses: actions/cache@v1
       with:
