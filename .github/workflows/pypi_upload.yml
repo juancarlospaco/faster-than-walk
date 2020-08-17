@@ -73,12 +73,12 @@ jobs:
       if: runner.os == 'Linux'
       run: |
         touch dist/LICENSE dist/$PACKAGE_NAME.egg-info/zip-safe dist/$PACKAGE_NAME.egg-info/top_level.txt dist/$PACKAGE_NAME.egg-info/requires.txt dist/$PACKAGE_NAME.egg-info/dependency_links.txt
-        cp --force $PWD/setup.py dist/setup.py
-        cp --force $PWD/setup.cfg dist/setup.cfg
+        cp --force $PWD/setup.py          dist/setup.py
+        cp --force $PWD/setup.cfg         dist/setup.cfg
         cp --force $PWD/Nim/lib/nimbase.h dist/lin/nimbase.h
         cp --force $PWD/Nim/lib/nimbase.h dist/win/nimbase.h
         cp --force $PWD/Nim/lib/nimbase.h dist/mac/nimbase.h
-        cp --force $PWD/PKG-INFO dist/$PACKAGE_NAME.egg-info/PKG-INFO
+        cp --force $PWD/PKG-INFO          dist/$PACKAGE_NAME.egg-info/PKG-INFO
 
 
     - name: Compile (Linux)
@@ -105,12 +105,23 @@ jobs:
       if: runner.os == 'Linux'
       run: |
         cd dist
+        rm *.zip
         zip -9 -T -v -r $PACKAGE_NAME-$PACKAGE_VERSION.zip *
 
 
     - name: Install locally for Testing
       run: |
-        pip3 install --user dist/$PACKAGE_NAME-$PACKAGE_VERSION.zip --no-binary :all:
+        pip3 install --user --disable-pip-version-check dist/$PACKAGE_NAME-$PACKAGE_VERSION.zip --no-binary :all:
+
+    - uses: stefanzweifel/git-auto-commit-action@v4.4.1
+      with:
+        commit_message: Fully Automated Luxury Nim Python package
+        file_pattern: "dist/*"
+        commit_user_name: juancarlospaco
+        commit_author: Juan Carlos
+        branch: master
+        commit_options: "--no-verify"
+        push_options: "--force"
 
 
     - name: Cache dist
