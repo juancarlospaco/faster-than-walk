@@ -21,6 +21,7 @@ jobs:
       uses: allenevans/set-env@v1.0.0
       with:
         PACKAGE_NAME: "faster_than_walk"
+        PACKAGE_VERSION: "1.9"
         MAIN_MODULE: "src/faster_than_walk.nim"
         TWINE_NON_INTERACTIVE: 1
         CHOOSENIM_NO_ANALYTICS: 1
@@ -64,9 +65,12 @@ jobs:
       if: runner.os == 'Linux'
       run: |
         touch dist/LICENSE dist/$PACKAGE_NAME.egg-info/zip-safe dist/$PACKAGE_NAME.egg-info/top_level.txt dist/$PACKAGE_NAME.egg-info/requires.txt dist/$PACKAGE_NAME.egg-info/dependency_links.txt
+        cp --force $PWD/setup.py dist/setup.py
+        cp --force $PWD/setup.cfg dist/setup.cfg
         cp --force $PWD/Nim/lib/nimbase.h dist/lin/nimbase.h
         cp --force $PWD/Nim/lib/nimbase.h dist/win/nimbase.h
         cp --force $PWD/Nim/lib/nimbase.h dist/mac/nimbase.h
+        cp --force $PWD/PKG-INFO dist/$PACKAGE_NAME.egg-info/PKG-INFO
 
     - name: Compile (Linux)
       if: runner.os == 'Linux'
@@ -79,6 +83,16 @@ jobs:
     - name: Compile (Mac)
       if: runner.os == 'macOS'
       run: nim compileToC --nimcache:dist/mac/ $MAIN_MODULE
+
+    - name: Clean out
+      if: runner.os == 'Linux'
+      run: rm --force dist/lin/$PACKAGE_NAME.json dist/win/$PACKAGE_NAME.json dist/mac/$PACKAGE_NAME.json
+
+    - name: Compress to ZIP
+      if: runner.os == 'Linux'
+      run: |
+        cd dist
+        zip -9 -T -v -r $PACKAGE_NAME-$PACKAGE_VERSION.zip *
 
     - name: Cache dist
       uses: actions/cache@v1
