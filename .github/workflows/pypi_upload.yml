@@ -74,11 +74,17 @@ jobs:
 
     - name: Compile (Windows)
       if: runner.os == 'Windows'
-      run: nim compileToC --nimcache:dist/win/ %MAIN_MODULE%
+      run: nim compileToC --nimcache:dist/win/ src/faster_than_walk.nim
 
     - name: Compile (Mac)
       if: runner.os == 'macOS'
       run: nim compileToC --nimcache:dist/mac/ $MAIN_MODULE
+
+    - name: Cache dist
+      uses: actions/cache@v1
+      with:
+        path: $PWD/dist/
+        key: dist
 
     - name: Cache Nim
       uses: actions/cache@v1
