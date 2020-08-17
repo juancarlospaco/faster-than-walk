@@ -21,17 +21,9 @@
 #undef unix
 
 /* section: NIM_merge_FRAME_DEFINES */
-  #  define nimfr_(proc, file) \
-      TFrame FR_; \
-      FR_.procname = proc; FR_.filename = file; FR_.line = 0; FR_.len = 0; nimFrame(&FR_);
+#define nimfr_(x, y)
+#define nimln_(x, y)
 
-  #  define nimfrs_(proc, file, slots, length) \
-      struct {TFrame* prev;NCSTRING procname;NI line;NCSTRING filename; NI len; VarSlot s[slots];} FR_; \
-      FR_.procname = proc; FR_.filename = file; FR_.line = 0; FR_.len = length; nimFrame((TFrame*)&FR_);
-
-  #  define nimln_(n, file) \
-      FR_.line = n; FR_.filename = file;
-  
 /* section: NIM_merge_FORWARD_TYPES */
 typedef struct tyObject_TimezonecolonObjectType___F8OvqlxXyGXRSiK9c1fCDVw tyObject_TimezonecolonObjectType___F8OvqlxXyGXRSiK9c1fCDVw;
 typedef struct tyObject_ZonedTime__WigfH9apQAxJ69bBPh3wB8RQ tyObject_ZonedTime__WigfH9apQAxJ69bBPh3wB8RQ;
@@ -114,9 +106,6 @@ static N_NIMCALL(void, Marker_tyRef__9a5v4OQPlGqsA25ioN8hFYA)(void* p, NI op);
 static N_NIMCALL(void, TM__6NbDwwj5FY059b1gz2AsAZQ_4)(void);
 N_LIB_PRIVATE N_NIMCALL(void, nimRegisterThreadLocalMarker)(tyProc__T4eqaYlFJYZUv9aG9b1TV0bQ markerProc);
 static N_NIMCALL(void, TM__6NbDwwj5FY059b1gz2AsAZQ_5)(void);
-static N_INLINE(void, nimFrame)(TFrame* s);
-N_LIB_PRIVATE N_NOINLINE(void, callDepthLimitReached__mMRdr4sgmnykA9aWeM9aDZlw)(void);
-static N_INLINE(void, popFrame)(void);
 
 /* section: NIM_merge_DATA */
 N_LIB_PRIVATE TNimType NTI__F8OvqlxXyGXRSiK9c1fCDVw_;
@@ -131,12 +120,6 @@ N_LIB_PRIVATE TNimType NTI__9a5v4OQPlGqsA25ioN8hFYA_;
 /* section: NIM_merge_VARS */
 N_LIB_PRIVATE tyObject_TimezonecolonObjectType___F8OvqlxXyGXRSiK9c1fCDVw* utcInstance__oeKVHn4dFpBJO35HhEkelw;
 N_LIB_PRIVATE tyObject_TimezonecolonObjectType___F8OvqlxXyGXRSiK9c1fCDVw* localInstance__cLtN9cK9bCe6IPhJ3UFNLNKA;
-extern TFrame* framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw;
-extern TFrame* framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw;
-extern TFrame* framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw;
-extern TFrame* framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw;
-extern TFrame* framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw;
-extern TFrame* framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw;
 
 /* section: NIM_merge_PROCS */
 static N_NIMCALL(void, Marker_tyRef__HsJiUUcO9cHBdUCi0HwkSTA)(void* p, NI op) {
@@ -156,38 +139,14 @@ static N_NIMCALL(void, TM__6NbDwwj5FY059b1gz2AsAZQ_4)(void) {
 static N_NIMCALL(void, TM__6NbDwwj5FY059b1gz2AsAZQ_5)(void) {
 	nimGCvisit((void*)localInstance__cLtN9cK9bCe6IPhJ3UFNLNKA, 0);
 }
-static N_INLINE(void, nimFrame)(TFrame* s) {
-	{
-		if (!(framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw == NIM_NIL)) goto LA3_;
-		(*s).calldepth = ((NI16) 0);
-	}
-	goto LA1_;
-	LA3_: ;
-	{
-		(*s).calldepth = (NI16)((*framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw).calldepth + ((NI16) 1));
-	}
-	LA1_: ;
-	(*s).prev = framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw;
-	framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw = s;
-	{
-		if (!((*s).calldepth == ((NI16) 2000))) goto LA8_;
-		callDepthLimitReached__mMRdr4sgmnykA9aWeM9aDZlw();
-	}
-	LA8_: ;
-}
-static N_INLINE(void, popFrame)(void) {
-	framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw = (*framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw).prev;
-}
 N_LIB_PRIVATE N_NIMCALL(void, stdlib_timesInit000)(void) {
 {
-	nimfr_("times", "times.nim");
 
 	nimRegisterThreadLocalMarker(TM__6NbDwwj5FY059b1gz2AsAZQ_4);
 
 
 	nimRegisterThreadLocalMarker(TM__6NbDwwj5FY059b1gz2AsAZQ_5);
 
-	popFrame();
 }
 }
 
