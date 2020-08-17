@@ -70,15 +70,15 @@ jobs:
 
     - name: Compile (Linux)
       if: runner.os == 'Linux'
-      run: nim compileToC --nimcache:dist/lin/ $MAIN_MODULE
+      run: nim compileToC --nimcache:dist/lin/ ${{ MAIN_MODULE }}
 
     - name: Compile (Windows)
       if: runner.os == 'Windows'
-      run: nim compileToC --nimcache:dist/win/ $MAIN_MODULE
+      run: nim compileToC --nimcache:dist/win/ ${{ MAIN_MODULE }}
 
     - name: Compile (Mac)
       if: runner.os == 'macOS'
-      run: nim compileToC --nimcache:dist/mac/ $MAIN_MODULE
+      run: nim compileToC --nimcache:dist/mac/ ${{ MAIN_MODULE }}
 
     - name: Cache Nim
       uses: actions/cache@v1
