@@ -20,17 +20,10 @@ jobs:
     - name: Set Environment Variables
       uses: allenevans/set-env@v1.0.0
       with:
-        PACKAGE_NAME: "faster_than_walk"
+        PACKAGE_NAME:    "faster_than_walk"
         PACKAGE_VERSION: "1.9"
-        MAIN_MODULE: "src/faster_than_walk.nim"
-        TWINE_NON_INTERACTIVE: 1
-        CHOOSENIM_NO_ANALYTICS: 1
-        PYTHONDONTWRITEBYTECODE: 1
-        GITHUB_TOKEN:   ${{ secrets.COMMIT_TOKEN }}
-        TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
-        TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-        #TWINE_REPOSITORY_URL: "https://test.pypi.org/legacy/"
-        #TWINE_REPOSITORY: "https://test.pypi.org/legacy/"
+        MAIN_MODULE:     "src/faster_than_walk.nim"
+        GITHUB_TOKEN:    ${{ secrets.COMMIT_TOKEN }}
 
 
     - name: Update Python PIP
@@ -83,7 +76,7 @@ jobs:
 
 
     - name: Nim Check
-      if: runner.os == 'Linux' || runner.os == 'macOS'
+      if: runner.os == 'Linux'
       run: nim check --styleCheck:hint $MAIN_MODULE
 
 
@@ -122,7 +115,7 @@ jobs:
 
 
     - name: Clean out
-      if: runner.os == 'Linux' || runner.os == 'macOS'
+      if: runner.os == 'Linux'
       run: rm --force --verbose dist/lin/*.json dist/win/*.json dist/mac/*.json dist/lin/*.o dist/win/*.o dist/mac/*.o
 
 
