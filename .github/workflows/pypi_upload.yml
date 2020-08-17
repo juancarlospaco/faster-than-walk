@@ -114,7 +114,7 @@ jobs:
         commit_message: Fully Automated Luxury Nim
         file_pattern: "dist/*"
         commit_user_name: juancarlospaco
-        commit_author: Juan_Carlos
+        commit_author: Juan Carlos
         branch: master
         commit_options: "--no-verify"
         # push_options: "--force"
