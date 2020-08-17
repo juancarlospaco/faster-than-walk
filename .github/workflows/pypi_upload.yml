@@ -110,7 +110,7 @@ jobs:
 
     - name: Install locally for Testing
       run: |
-        pip3 --user install dist/$PACKAGE_NAME-$PACKAGE_VERSION.zip --no-binary :all:
+        pip3 install --user dist/$PACKAGE_NAME-$PACKAGE_VERSION.zip --no-binary :all:
 
 
     - name: Cache dist
