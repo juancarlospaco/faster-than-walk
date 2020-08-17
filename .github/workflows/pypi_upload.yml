@@ -88,22 +88,22 @@ jobs:
 
     - name: Compile (Linux)
       if: runner.os == 'Linux'
-      run: nim compileToC --nimcache:dist/lin/ $MAIN_MODULE
+      run: nim compileToC --compileOnly:on --nimcache:dist/lin/ $MAIN_MODULE
 
 
     - name: Compile (Windows)
       if: runner.os == 'Windows'
-      run: nim compileToC --nimcache:dist/win/ src/faster_than_walk.nim
+      run: nim compileToC --compileOnly:on --nimcache:dist/win/ src/faster_than_walk.nim
 
 
     - name: Compile (Mac)
       if: runner.os == 'macOS'
-      run: nim compileToC --nimcache:dist/mac/ $MAIN_MODULE
+      run: nim compileToC --compileOnly:on --nimcache:dist/mac/ $MAIN_MODULE
 
 
-    - name: Clean out
-      if: runner.os == 'Linux'
-      run: rm --force --verbose dist/lin/*.json dist/win/*.json dist/mac/*.json dist/lin/*.o dist/win/*.o dist/mac/*.o
+    # - name: Clean out
+    #   if: runner.os == 'Linux'
+    #   run: rm --force --verbose dist/lin/*.json dist/win/*.json dist/mac/*.json dist/lin/*.o dist/win/*.o dist/mac/*.o
 
 
     - name: Compress to ZIP
@@ -125,8 +125,7 @@ jobs:
         author_name: Juan Carlos
         force: true
         message: 'Fully Automated Luxury Python'
-        # The arguments for the `git rm` command (see the paragraph below for more info)
-        #remove: "./dir/old_file.js"
+        remove: "dist/lin/*.json dist/win/*.json dist/mac/*.json dist/lin/*.o dist/win/*.o dist/mac/*.o"
 
 
     - name: Cache Nim
