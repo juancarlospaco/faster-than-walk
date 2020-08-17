@@ -1,4 +1,4 @@
-name: Upload to PYPI 🐍
+name: Build
 
 on: [push]
 #on:
@@ -114,7 +114,7 @@ jobs:
         pip3 install --user --disable-pip-version-check dist/$PACKAGE_NAME-$PACKAGE_VERSION.zip --no-binary :all:
 
 
-    - uses: stefanzweifel/git-auto-commit-action@v4.4.1
+    - uses: stefanzweifel/git-auto-commit-action@v4.1.3
       with:
         commit_message: Fully Automated Luxury Python
         file_pattern: "dist/*"
@@ -122,7 +122,7 @@ jobs:
         commit_author: Juan Carlos
         branch: master
         commit_options: "--no-verify"
-        push_options: "--force"
+        # push_options: "--force"
 
 
     - name: Cache Nim
