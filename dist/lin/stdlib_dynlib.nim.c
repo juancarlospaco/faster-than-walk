@@ -35,6 +35,6 @@ N_LIB_PRIVATE N_NIMCALL(void*, symAddr__ALH9bdNwXEzg7MPq4PA9csvw)(void* lib, NCS
 N_LIB_PRIVATE N_NIMCALL(void*, loadLib__3W0xEugBG13TxVu4hk9b9b5g)(void) {
 	void* result;
 	result = (void*)0;
-	result = dlopen(NIM_NIL, RTLD_NOW);
+	result = dlopen(NIM_NIL, ((int) 2));
 	return result;
 }
