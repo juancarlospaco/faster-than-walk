@@ -98,7 +98,7 @@ typedef N_NIMCALL_PTR(void*, tyProc__iv6n7tcGawU401muvntJ9cA) (void* aX60gensym4
 typedef NCSTRING tyArray__WyQFihCfh52rD9axBQqkIJw[6];
 typedef NU8 tySet_tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg;
 typedef NU8 tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg;
-typedef char tyArray__XKk9bNZbVEtY3RuROG9aRBgw[256];
+typedef NIM_CHAR tyArray__dTlC27m9c9aWd5dvuePYanug[256];
 typedef NimStringDesc* tyArray__nHXaesL0DJZHyVS07ARPRA[1];
 struct RootObj {
 TNimType* m_type;
@@ -933,8 +933,8 @@ NIM_BOOL* nimErr_;
 		item = (NimStringDesc*)0;
 		nimZeroMem((void*)(&fX60gensym135_), sizeof(glob_t));
 		resX60gensym135_ = (NI)0;
-		fX60gensym135_.gl_offs = ((size_t) 0);
-		fX60gensym135_.gl_pathc = ((size_t) 0);
+		fX60gensym135_.gl_offs = ((NI) 0);
+		fX60gensym135_.gl_pathc = ((NI) 0);
 		fX60gensym135_.gl_pathv = NIM_NIL;
 		T2_ = (int)0;
 		T2_ = glob(nimToCStringConv(globpattern), ((int) 0), NIM_NIL, (&fX60gensym135_));
@@ -942,17 +942,17 @@ NIM_BOOL* nimErr_;
 		{
 			if (!(resX60gensym135_ == ((NI) 0))) goto LA6_;
 			{
-				NU64 iX60gensym135_;
-				NU64 colontmp_;
-				NU64 res;
-				iX60gensym135_ = (NU64)0;
-				colontmp_ = (NU64)0;
-				colontmp_ = ((NU64) ((NU)((NU64)(fX60gensym135_.gl_pathc) - (NU64)(((NU) 1)))));
-				res = 0ULL;
+				NI iX60gensym135_;
+				NI colontmp_;
+				NI res;
+				iX60gensym135_ = (NI)0;
+				colontmp_ = (NI)0;
+				colontmp_ = (NI)(fX60gensym135_.gl_pathc - ((NI) 1));
+				res = ((NI) 0);
 				{
 					while (1) {
 						NimStringDesc* pathX60gensym135_;
-						if (!((NU64)(res) <= (NU64)(colontmp_))) goto LA10;
+						if (!(res <= colontmp_)) goto LA10;
 						iX60gensym135_ = res;
 						pathX60gensym135_ = cstrToNimstr(fX60gensym135_.gl_pathv[iX60gensym135_]);
 						{
@@ -1518,8 +1518,8 @@ NIM_BOOL* nimErr_;
 			item = (NimStringDesc*)0;
 			nimZeroMem((void*)(&fX60gensym145_), sizeof(glob_t));
 			resX60gensym145_ = (NI)0;
-			fX60gensym145_.gl_offs = ((size_t) 0);
-			fX60gensym145_.gl_pathc = ((size_t) 0);
+			fX60gensym145_.gl_offs = ((NI) 0);
+			fX60gensym145_.gl_pathc = ((NI) 0);
 			fX60gensym145_.gl_pathv = NIM_NIL;
 			T7_ = (int)0;
 			T7_ = glob(nimToCStringConv(globpattern), ((int) 0), NIM_NIL, (&fX60gensym145_));
@@ -1527,17 +1527,17 @@ NIM_BOOL* nimErr_;
 			{
 				if (!(resX60gensym145_ == ((NI) 0))) goto LA11_;
 				{
-					NU64 iX60gensym145_;
-					NU64 colontmp_;
-					NU64 res;
-					iX60gensym145_ = (NU64)0;
-					colontmp_ = (NU64)0;
-					colontmp_ = ((NU64) ((NU)((NU64)(fX60gensym145_.gl_pathc) - (NU64)(((NU) 1)))));
-					res = 0ULL;
+					NI iX60gensym145_;
+					NI colontmp_;
+					NI res;
+					iX60gensym145_ = (NI)0;
+					colontmp_ = (NI)0;
+					colontmp_ = (NI)(fX60gensym145_.gl_pathc - ((NI) 1));
+					res = ((NI) 0);
 					{
 						while (1) {
 							NimStringDesc* pathX60gensym145_;
-							if (!((NU64)(res) <= (NU64)(colontmp_))) goto LA15;
+							if (!(res <= colontmp_)) goto LA15;
 							iX60gensym145_ = res;
 							pathX60gensym145_ = cstrToNimstr(fX60gensym145_.gl_pathv[iX60gensym145_]);
 							{
@@ -1579,8 +1579,8 @@ NIM_BOOL* nimErr_;
 			item_2 = (NimStringDesc*)0;
 			nimZeroMem((void*)(&fX60gensym140_), sizeof(glob_t));
 			resX60gensym140_ = (NI)0;
-			fX60gensym140_.gl_offs = ((size_t) 0);
-			fX60gensym140_.gl_pathc = ((size_t) 0);
+			fX60gensym140_.gl_offs = ((NI) 0);
+			fX60gensym140_.gl_pathc = ((NI) 0);
 			fX60gensym140_.gl_pathv = NIM_NIL;
 			T26_ = (int)0;
 			T26_ = glob(nimToCStringConv(globpattern), ((int) 0), NIM_NIL, (&fX60gensym140_));
@@ -1588,17 +1588,17 @@ NIM_BOOL* nimErr_;
 			{
 				if (!(resX60gensym140_ == ((NI) 0))) goto LA30_;
 				{
-					NU64 iX60gensym140_;
-					NU64 colontmp__2;
-					NU64 res_2;
-					iX60gensym140_ = (NU64)0;
-					colontmp__2 = (NU64)0;
-					colontmp__2 = ((NU64) ((NU)((NU64)(fX60gensym140_.gl_pathc) - (NU64)(((NU) 1)))));
-					res_2 = 0ULL;
+					NI iX60gensym140_;
+					NI colontmp__2;
+					NI res_2;
+					iX60gensym140_ = (NI)0;
+					colontmp__2 = (NI)0;
+					colontmp__2 = (NI)(fX60gensym140_.gl_pathc - ((NI) 1));
+					res_2 = ((NI) 0);
 					{
 						while (1) {
 							NimStringDesc* pathX60gensym140_;
-							if (!((NU64)(res_2) <= (NU64)(colontmp__2))) goto LA34;
+							if (!(res_2 <= colontmp__2)) goto LA34;
 							iX60gensym140_ = res_2;
 							pathX60gensym140_ = cstrToNimstr(fX60gensym140_.gl_pathv[iX60gensym140_]);
 							{
