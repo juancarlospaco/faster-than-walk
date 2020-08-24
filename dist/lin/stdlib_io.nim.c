@@ -67,7 +67,7 @@ static N_INLINE(NCSTRING, nimToCStringConv)(NimStringDesc* s) {
 N_LIB_PRIVATE N_NIMCALL(void, echoBinSafe)(NimStringDesc** args, NI argsLen_0) {
 	int T6_;
 	int T7_;
-	flockfile(stdout);
+	flockfile(__stdoutp);
 	{
 		NimStringDesc** s;
 		NI i;
@@ -82,17 +82,17 @@ N_LIB_PRIVATE N_NIMCALL(void, echoBinSafe)(NimStringDesc** args, NI argsLen_0) {
 				T4_ = (void*)0;
 				T4_ = ((void*) (nimToCStringConv((*s))));
 				T5_ = (int)0;
-				T5_ = fwrite(T4_, ((size_t) (((*s) ? (*s)->Sup.len : 0))), ((size_t) 1), stdout);
+				T5_ = fwrite(T4_, ((size_t) (((*s) ? (*s)->Sup.len : 0))), ((size_t) 1), __stdoutp);
 				(void)(T5_);
 				i += ((NI) 1);
 			} LA3: ;
 		}
 	}
 	T6_ = (int)0;
-	T6_ = fwrite(((void*) ("\012")), ((size_t) 1), ((size_t) 1), stdout);
+	T6_ = fwrite(((void*) ("\012")), ((size_t) 1), ((size_t) 1), __stdoutp);
 	(void)(T6_);
 	T7_ = (int)0;
-	T7_ = fflush(stdout);
+	T7_ = fflush(__stdoutp);
 	(void)(T7_);
-	funlockfile(stdout);
+	funlockfile(__stdoutp);
 }
