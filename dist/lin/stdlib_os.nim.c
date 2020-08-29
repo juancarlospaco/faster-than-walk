@@ -152,6 +152,7 @@ STRING_LITERAL(TM__yu6cxgKBBXbNsTkT9cyMd4g_5, "unknown OS error", 16);
 /* section: NIM_merge_VARS */
 N_LIB_PRIVATE NIM_BOOL envComputed__LLyFo9bsdu1ZXMDvAe8DhrQ;
 N_LIB_PRIVATE tySequence__sM4lkSb7zS6F7OVMvW9cffQ* environment__mlhK49b6YMgc9cgrcYkKq9a3g;
+extern NCSTRING* environ;
 extern NIM_BOOL nimInErrorMode__759bT87luu8XGcbkw13FUjA;
 
 /* section: NIM_merge_PROCS */
