@@ -240,7 +240,6 @@ NI len;
 TNimNode** sons;
 };
 typedef tyProc__T4eqaYlFJYZUv9aG9b1TV0bQ tyArray__9aTRall1siQT9bXabu2aKXUg[3500];
-typedef long tyArray__TcvIiMAJvcwzNLsZkfnFnQ[25];
 typedef N_NIMCALL_PTR(void, Finalizer) (void* self);
 struct tyObject_Defect__LbeSGvgPzGzXnW9caIkJqMA {
   Exception Sup;
@@ -924,13 +923,13 @@ N_LIB_PRIVATE N_NOINLINE(void, raiseOutOfMem__mMRdr4sgmnykA9aWeM9aDZlw)(void) {
 		outOfMemHook__kZNaA7u1MfSW5ZeoGvw8xg();
 	}
 	LA3_: ;
-	rawWrite(stderr, "out of memory\012");
+	rawWrite(__stderrp, "out of memory\012");
 	exit(((NI) 1));
 }
 static N_INLINE(void*, osAllocPages__HMOhWrY1QMa49a2BcJwSDZQsystem)(NI size) {
 	void* result;
 	result = (void*)0;
-	result = mmap(NIM_NIL, ((size_t) (size)), ((int) 3), ((int) 34), ((int) -1), ((NI) 0));
+	result = mmap(NIM_NIL, ((size_t) (size)), ((int) 3), ((int) 4098), ((int) -1), ((NI) 0));
 	{
 		NIM_BOOL T3_;
 		T3_ = (NIM_BOOL)0;
@@ -947,7 +946,7 @@ static N_INLINE(void*, osAllocPages__HMOhWrY1QMa49a2BcJwSDZQsystem)(NI size) {
 static N_INLINE(void*, osTryAllocPages__HMOhWrY1QMa49a2BcJwSDZQ_2system)(NI size) {
 	void* result;
 	result = (void*)0;
-	result = mmap(NIM_NIL, ((size_t) (size)), ((int) 3), ((int) 34), ((int) -1), ((NI) 0));
+	result = mmap(NIM_NIL, ((size_t) (size)), ((int) 3), ((int) 4098), ((int) -1), ((NI) 0));
 	{
 		if (!(result == ((void*) (((NI) -1))))) goto LA3_;
 		result = NIM_NIL;
@@ -2474,7 +2473,7 @@ N_LIB_PRIVATE N_NIMCALL(void, nimRegisterThreadLocalMarker)(tyProc__T4eqaYlFJYZU
 	goto LA1_;
 	LA3_: ;
 	{
-		rawWrite(stderr, "[GC] cannot register thread local variable; too many thread loc"
+		rawWrite(__stderrp, "[GC] cannot register thread local variable; too many thread loc"
 "al variables");
 		exit(((NI) 1));
 	}
@@ -2495,7 +2494,7 @@ N_LIB_PRIVATE N_NIMCALL(void, nimRegisterGlobalMarker)(tyProc__T4eqaYlFJYZUv9aG9
 	goto LA1_;
 	LA3_: ;
 	{
-		rawWrite(stderr, "[GC] cannot register global variable; too many global variables");
+		rawWrite(__stderrp, "[GC] cannot register global variable; too many global variables");
 		exit(((NI) 1));
 	}
 	LA1_: ;
@@ -2800,7 +2799,7 @@ NIM_BOOL* nimErr_;
 	{
 		int T4_;
 		T4_ = (int)0;
-		T4_ = setjmp(registers);
+		T4_ = _setjmp(registers);
 		if (!(T4_ == ((NI32) 0))) goto LA5_;
 		{
 			tyObject_GcStack__7fytPA5bBsob6See21YMRA* stack;
@@ -4772,7 +4771,7 @@ static N_INLINE(void, popCurrentException)(void) {
 	currException__9bVPeDJlYTi9bQApZpfH8wjg = (*currException__9bVPeDJlYTi9bQApZpfH8wjg).up;
 }
 N_LIB_PRIVATE N_NIMCALL(void, writeToStdErr__a2kDfqdSc1eYf0ZCWOGinQ)(NCSTRING msg) {
-	rawWrite(stderr, msg);
+	rawWrite(__stderrp, msg);
 }
 N_LIB_PRIVATE N_NIMCALL(void, showErrorMessage__zsORN9crdKxsL9cHrQcdHSMw)(NCSTRING data) {
 	NIM_BOOL toWrite;
