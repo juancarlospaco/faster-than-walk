@@ -84,7 +84,7 @@ jobs:
 
     - name: Delay                       # Linux must finish last.
       if: runner.os == 'Linux'
-      run: sleep 5m
+      run: sleep 8m
 
 
     - name: SemVer                      # Use Git Hash as versioning.
