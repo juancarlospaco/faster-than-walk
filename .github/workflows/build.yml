@@ -83,8 +83,8 @@ jobs:
     - name: Compile Debug & import (Unix)
       if: runner.os == 'Linux' || runner.os == 'macOS'
       run: |
-        nim c --app:lib --out:faster_than_walk.so src/faster_than_walk.nim
-        python3 -c "import $PACKAGE_NAME"
+        nim c --app:lib --out:${{ env.PACKAGE_NAME }}.so ${{ env.MAIN_MODULE }}
+        python3 -c "import ${{ env.PACKAGE_NAME }}"
 
 
     - name: Compile Debug & import (Windows)
