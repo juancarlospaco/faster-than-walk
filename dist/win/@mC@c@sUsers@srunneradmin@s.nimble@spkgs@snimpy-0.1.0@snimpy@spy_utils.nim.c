@@ -22,17 +22,9 @@
 #undef unix
 
 /* section: NIM_merge_FRAME_DEFINES */
-  #  define nimfr_(proc, file) \
-      TFrame FR_; \
-      FR_.procname = proc; FR_.filename = file; FR_.line = 0; FR_.len = 0; nimFrame(&FR_);
+#define nimfr_(x, y)
+#define nimln_(x, y)
 
-  #  define nimfrs_(proc, file, slots, length) \
-      struct {TFrame* prev;NCSTRING procname;NI line;NCSTRING filename; NI len; VarSlot s[slots];} FR_; \
-      FR_.procname = proc; FR_.filename = file; FR_.line = 0; FR_.len = length; nimFrame((TFrame*)&FR_);
-
-  #  define nimln_(n, file) \
-      FR_.line = n; FR_.filename = file;
-  
 /* section: NIM_merge_FORWARD_TYPES */
 typedef struct NimStringDesc NimStringDesc;
 typedef struct TGenericSeq TGenericSeq;
@@ -242,21 +234,16 @@ struct tySequence__uB9b75OUPRENsBAu4AnoePA {
 
 /* section: NIM_merge_PROC_HEADERS */
 static N_INLINE(NIM_BOOL, checkObjSubclass__dy3LelvW4G2VSkE8TdlDDgpy_utils)(void* o, tyObject_PyTypeObject3Obj__cRsC9bGvH9bX6A9aVx8UB6I5g* ty);
-static N_INLINE(void, nimFrame)(TFrame* s);
-N_LIB_PRIVATE N_NOINLINE(void, callDepthLimitReached__mMRdr4sgmnykA9aWeM9aDZlw)(void);
-static N_INLINE(void, popFrame)(void);
+static N_INLINE(NIM_BOOL*, nimErrorFlag)(void);
 N_LIB_PRIVATE N_NIMCALL(void, conversionToStringError__2YA4NXAzmPMdXt3hDLwaKQ)(void);
 N_LIB_PRIVATE N_NIMCALL(void*, newObj)(TNimType* typ, NI size);
 N_LIB_PRIVATE N_NIMCALL(NimStringDesc*, copyString)(NimStringDesc* src);
 N_LIB_PRIVATE N_NIMCALL(void, raiseExceptionEx)(Exception* e, NCSTRING ename, NCSTRING procname, NCSTRING filename, NI line);
 static N_INLINE(void, decRef__CnqcscfOCAX2jCHv3dRPDw_2py_utils)(void* p);
 static N_INLINE(tyObject_PyObjectObj__aD5pkFWInXrZXinZ42cDEg*, to__4gaYCHYBaCTIs6wfSrqsEApy_lib)(void* p);
-N_LIB_PRIVATE N_NOINLINE(void, raiseOverflow)(void);
 N_NIMCALL(NimStringDesc*, mnewString)(NI len);
-N_LIB_PRIVATE N_NOINLINE(void, raiseRangeErrorI)(NI64 i, NI64 a, NI64 b);
 static N_INLINE(void, copyMem__i80o3k0SgEI5gTRCzYdyWAsystem)(void* dest, void* source, NI size);
 static N_INLINE(void, nimCopyMem)(void* dest, void* source, NI size);
-N_LIB_PRIVATE N_NOINLINE(void, raiseIndexError2)(NI i, NI n);
 
 /* section: NIM_merge_DATA */
 extern TNimType NTI__vU9aO9cTqOMn6CBzhV8rX7Sw_;
@@ -265,99 +252,73 @@ STRING_LITERAL(TM__yNJ2G9b01RlVILlUjgj0ESA_2, "Can\'t convert python obj to stri
 
 /* section: NIM_merge_VARS */
 extern tyObject_PyLibcolonObjectType___bTw708kK89b8Vj9cmSu9a4zig* pyLib__nxKBiAukGMNwnUq9bpn9adyw;
-extern TFrame* framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw;
-extern TFrame* framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw;
-extern TFrame* framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw;
-extern TFrame* framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw;
-extern TFrame* framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw;
-extern TFrame* framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw;
+extern NIM_BOOL nimInErrorMode__759bT87luu8XGcbkw13FUjA;
 extern NU pyObjectStartOffset__g20dGCi2MffsHqmxIpqX7Q;
 
 /* section: NIM_merge_PROCS */
-static N_INLINE(void, nimFrame)(TFrame* s) {
-	{
-		if (!(framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw == NIM_NIL)) goto LA3_;
-		(*s).calldepth = ((NI16) 0);
-	}
-	goto LA1_;
-	LA3_: ;
-	{
-		(*s).calldepth = (NI16)((*framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw).calldepth + ((NI16) 1));
-	}
-	LA1_: ;
-	(*s).prev = framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw;
-	framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw = s;
-	{
-		if (!((*s).calldepth == ((NI16) 2000))) goto LA8_;
-		callDepthLimitReached__mMRdr4sgmnykA9aWeM9aDZlw();
-	}
-	LA8_: ;
-}
-static N_INLINE(void, popFrame)(void) {
-	framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw = (*framePtr__HRfVMH3jYeBJz6Q6X9b6Ptw).prev;
+static N_INLINE(NIM_BOOL*, nimErrorFlag)(void) {
+	NIM_BOOL* result;
+	result = (NIM_BOOL*)0;
+	result = (&nimInErrorMode__759bT87luu8XGcbkw13FUjA);
+	return result;
 }
 static N_INLINE(NIM_BOOL, checkObjSubclass__dy3LelvW4G2VSkE8TdlDDgpy_utils)(void* o, tyObject_PyTypeObject3Obj__cRsC9bGvH9bX6A9aVx8UB6I5g* ty) {
 	NIM_BOOL result;
 	tyObject_PyTypeObject3Obj__cRsC9bGvH9bX6A9aVx8UB6I5g* typ;
 	NIM_BOOL T1_;
 	int T3_;
-	nimfr_("checkObjSubclass", "py_utils.nim");
+NIM_BOOL* nimErr_;
+{nimErr_ = nimErrorFlag();
 	result = (NIM_BOOL)0;
-	nimln_(20, "py_utils.nim");
 	typ = ((tyObject_PyTypeObject3Obj__cRsC9bGvH9bX6A9aVx8UB6I5g*) ((*((tyObject_PyObjectObj__aD5pkFWInXrZXinZ42cDEg*) (o))).ob_type));
-	nimln_(21, "py_utils.nim");
 	T1_ = (NIM_BOOL)0;
 	T1_ = (ty == typ);
 	if (T1_) goto LA2_;
 	T3_ = (int)0;
 	T3_ = (*pyLib__nxKBiAukGMNwnUq9bpn9adyw).PyType_IsSubtype(typ, ty);
+	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 	T1_ = !((T3_ == ((NI32) 0)));
 	LA2_: ;
 	result = T1_;
-	popFrame();
+	}BeforeRet_: ;
 	return result;
 }
 N_LIB_PRIVATE N_NIMCALL(void, conversionToStringError__2YA4NXAzmPMdXt3hDLwaKQ)(void) {
 	Exception* T1_;
-	nimfr_("conversionToStringError", "py_utils.nim");
-	nimln_(24, "py_utils.nim");
+NIM_BOOL* nimErr_;
+{nimErr_ = nimErrorFlag();
 	(*pyLib__nxKBiAukGMNwnUq9bpn9adyw).PyErr_Clear();
+	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 	T1_ = (Exception*)0;
 	T1_ = (Exception*) newObj((&NTI__vU9aO9cTqOMn6CBzhV8rX7Sw_), sizeof(Exception));
 	(*T1_).Sup.m_type = (&NTI__XEycrCsme5C8CVWAYEcdBQ_);
 	(*T1_).name = "Exception";
 	(*T1_).message = copyString(((NimStringDesc*) &TM__yNJ2G9b01RlVILlUjgj0ESA_2));
 	(*T1_).parent = NIM_NIL;
-	nimln_(25, "py_utils.nim");
 	raiseExceptionEx((Exception*)T1_, "Exception", "conversionToStringError", "py_utils.nim", 25);
-	popFrame();
+	goto BeforeRet_;
+	}BeforeRet_: ;
 }
 static N_INLINE(tyObject_PyObjectObj__aD5pkFWInXrZXinZ42cDEg*, to__4gaYCHYBaCTIs6wfSrqsEApy_lib)(void* p) {
 	tyObject_PyObjectObj__aD5pkFWInXrZXinZ42cDEg* result;
-	nimfr_("to", "py_lib.nim");
 	result = (tyObject_PyObjectObj__aD5pkFWInXrZXinZ42cDEg*)0;
-	nimln_(150, "py_lib.nim");
 	result = ((tyObject_PyObjectObj__aD5pkFWInXrZXinZ42cDEg*) ((NU)((NU64)(((NU) (ptrdiff_t) (p))) + (NU64)(pyObjectStartOffset__g20dGCi2MffsHqmxIpqX7Q))));
-	popFrame();
 	return result;
 }
 static N_INLINE(void, decRef__CnqcscfOCAX2jCHv3dRPDw_2py_utils)(void* p) {
 	tyObject_PyObjectObj__aD5pkFWInXrZXinZ42cDEg* o;
-	NI TM__yNJ2G9b01RlVILlUjgj0ESA_3;
-	nimfr_("decRef", "py_utils.nim");
-	nimln_(10, "py_utils.nim");
+NIM_BOOL* nimErr_;
+{nimErr_ = nimErrorFlag();
 	o = to__4gaYCHYBaCTIs6wfSrqsEApy_lib(p);
-	nimln_(11, "py_utils.nim");
-	if (nimSubInt((*o).ob_refcnt, ((NI) 1), &TM__yNJ2G9b01RlVILlUjgj0ESA_3)) { raiseOverflow(); };
-	(*o).ob_refcnt = (NI)(TM__yNJ2G9b01RlVILlUjgj0ESA_3);
-	nimln_(12, "py_utils.nim");
+	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
+	(*o).ob_refcnt -= ((NI) 1);
 	{
 		if (!((*o).ob_refcnt == ((NI) 0))) goto LA3_;
-		nimln_(13, "py_utils.nim");
 		(*pyLib__nxKBiAukGMNwnUq9bpn9adyw).PyDealloc(p);
+		if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 	}
 	LA3_: ;
-	popFrame();
+	}BeforeRet_: ;
 }
 static N_INLINE(void, nimCopyMem)(void* dest, void* source, NI size) {
 	void* T1_;
@@ -372,36 +333,36 @@ N_LIB_PRIVATE N_NIMCALL(NIM_BOOL, pyStringToNim__9cjH8eaYe0aMdbQ9bg4rwiDw)(void*
 	NIM_CHAR* s;
 	NI l;
 	void* b;
-	nimfr_("pyStringToNim", "py_utils.nim");
-{	result = (NIM_BOOL)0;
+NIM_BOOL* nimErr_;
+{nimErr_ = nimErrorFlag();
+	result = (NIM_BOOL)0;
 	s = (NIM_CHAR*)0;
 	l = (NI)0;
 	b = (void*)0;
-	nimln_(32, "py_utils.nim");
 	{
 		NIM_BOOL T3_;
 		T3_ = (NIM_BOOL)0;
 		T3_ = checkObjSubclass__dy3LelvW4G2VSkE8TdlDDgpy_utils(o, (*pyLib__nxKBiAukGMNwnUq9bpn9adyw).PyUnicode_Type);
+		if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 		if (!T3_) goto LA4_;
-		nimln_(33, "py_utils.nim");
 		b = (*pyLib__nxKBiAukGMNwnUq9bpn9adyw).PyUnicode_AsUTF8String(o);
-		nimln_(34, "py_utils.nim");
+		if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 		{
 			if (!(b == 0)) goto LA8_;
-			nimln_(35, "py_utils.nim");
 			conversionToStringError__2YA4NXAzmPMdXt3hDLwaKQ();
+			if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 		}
 		LA8_: ;
-		nimln_(36, "py_utils.nim");
 		{
 			int T12_;
 			T12_ = (int)0;
 			T12_ = (*pyLib__nxKBiAukGMNwnUq9bpn9adyw).PyBytes_AsStringAndSize(b, &s, (&l));
+			if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 			if (!!((T12_ == ((NI32) 0)))) goto LA13_;
-			nimln_(37, "py_utils.nim");
 			decRef__CnqcscfOCAX2jCHv3dRPDw_2py_utils(b);
-			nimln_(38, "py_utils.nim");
+			if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 			conversionToStringError__2YA4NXAzmPMdXt3hDLwaKQ();
+			if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 		}
 		LA13_: ;
 	}
@@ -409,50 +370,40 @@ N_LIB_PRIVATE N_NIMCALL(NIM_BOOL, pyStringToNim__9cjH8eaYe0aMdbQ9bg4rwiDw)(void*
 	LA4_: ;
 	{
 		NIM_BOOL T16_;
-		nimln_(39, "py_utils.nim");
 		T16_ = (NIM_BOOL)0;
 		T16_ = checkObjSubclass__dy3LelvW4G2VSkE8TdlDDgpy_utils(o, (*pyLib__nxKBiAukGMNwnUq9bpn9adyw).PyBytes_Type);
+		if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 		if (!T16_) goto LA17_;
-		nimln_(40, "py_utils.nim");
 		{
 			int T21_;
 			T21_ = (int)0;
 			T21_ = (*pyLib__nxKBiAukGMNwnUq9bpn9adyw).PyBytes_AsStringAndSize(o, &s, (&l));
+			if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 			if (!!((T21_ == ((NI32) 0)))) goto LA22_;
-			nimln_(41, "py_utils.nim");
 			conversionToStringError__2YA4NXAzmPMdXt3hDLwaKQ();
+			if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 		}
 		LA22_: ;
 	}
 	goto LA1_;
 	LA17_: ;
 	{
-		nimln_(43, "py_utils.nim");
 		goto BeforeRet_;
 	}
 	LA1_: ;
-	nimln_(45, "py_utils.nim");
-	if ((l) < ((NI) 0) || (l) > ((NI) IL64(9223372036854775807))){ raiseRangeErrorI(l, ((NI) 0), ((NI) IL64(9223372036854775807))); }
 	(*output) = mnewString(((NI) (l)));
-	nimln_(46, "py_utils.nim");
 	{
 		if (!!((l == ((NI) 0)))) goto LA27_;
-		nimln_(47, "py_utils.nim");
-		if ((NU)(((NI) 0)) >= (NU)((*output) ? (*output)->Sup.len : 0)){ raiseIndexError2(((NI) 0),((*output) ? (*output)->Sup.len : 0)-1); }
-		if ((l) < ((NI) 0) || (l) > ((NI) IL64(9223372036854775807))){ raiseRangeErrorI(l, ((NI) 0), ((NI) IL64(9223372036854775807))); }
 		copyMem__i80o3k0SgEI5gTRCzYdyWAsystem(((void*) ((&(*output)->data[((NI) 0)]))), ((void*) (s)), ((NI) (l)));
 	}
 	LA27_: ;
-	nimln_(49, "py_utils.nim");
 	{
 		if (!!((b == 0))) goto LA31_;
-		nimln_(50, "py_utils.nim");
 		decRef__CnqcscfOCAX2jCHv3dRPDw_2py_utils(b);
+		if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 	}
 	LA31_: ;
-	nimln_(52, "py_utils.nim");
 	result = NIM_TRUE;
 	}BeforeRet_: ;
-	popFrame();
 	return result;
 }
