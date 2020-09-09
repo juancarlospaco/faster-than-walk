@@ -1,6 +1,5 @@
 Metadata-Version: 2.1
 Name: faster-than-walk
-Version: 1.9
 Summary: Faster recursive os.walk replacement for Python
 Home-page: https://github.com/juancarlospaco/faster-than-walk
 Author: Juan Carlos
@@ -41,3 +40,4 @@ Classifier: Programming Language :: Python :: Implementation :: CPython
 Classifier: Topic :: Software Development
 Requires-Python: >=3.8
 Description-Content-Type: text/markdown
+Version: 
