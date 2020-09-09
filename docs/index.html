@@ -47,12 +47,21 @@ function main() {
 
   toggleSwitch.addEventListener('change', switchTheme, false);
 
-  const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
-  if (currentTheme) {
-    document.documentElement.setAttribute('data-theme', currentTheme);
 
-    if (currentTheme === 'dark') {
-      toggleSwitch.checked = true;
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.documentElement.setAttribute('data-theme', "dark");
+    toggleSwitch.checked = true;
+  } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+    document.documentElement.setAttribute('data-theme', "light");
+    toggleSwitch.checked = false;
+  } else {
+    const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+    if (currentTheme) {
+      document.documentElement.setAttribute('data-theme', currentTheme);
+
+      if (currentTheme === 'dark') {
+        toggleSwitch.checked = true;
+      }
     }
   }
 }
@@ -74,9 +83,6 @@ function main() {
   </div>
   <div id="global-links">
     <ul class="simple">
-    <li>
-      <a href="theindex.html">Index</a>
-    </li>
     </ul>
   </div>
   <div id="searchInputDiv">
@@ -162,7 +168,7 @@ Faster os.walk(), similar to walks but optimized for Files or Folders only.
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2020-09-09 03:02:05 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2020-09-09 20:53:24 UTC</small>
       </div>
     </div>
   </div>
