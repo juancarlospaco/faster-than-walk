@@ -175,7 +175,7 @@ jobs:
 
     - name: Delay (Linux) # Linux should finish last.
       if: runner.os == 'Linux'
-      run: sleep 6m
+      run: sleep 9m
 
 
     - name: Compress to ZIP (Unix)  # Make Python package
