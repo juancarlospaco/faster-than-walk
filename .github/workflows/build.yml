@@ -52,6 +52,9 @@ jobs:
         MAIN_MODULE:           "src/faster_than_walk.nim"
         PACKAGE_NAME:          "faster_than_walk"
         PACKAGE_VERSION:       ${{ steps.vars.outputs.sha_short }}
+        TWINE_USERNAME:        ${{ secrets.PYPI_USERNAME }}
+        TWINE_PASSWORD:        ${{ secrets.PYPI_PASSWORD }}
+        TWINE_NON_INTERACTIVE: 1
 
 
     - name: Clone Nim                   # Clone Nim
@@ -161,9 +164,9 @@ jobs:
         date +"%y.%m.%d" >>  dist/$PACKAGE_NAME.egg-info/PKG-INFO
 
 
-    # - name: Delay                       # Linux must finish last.
-    #   if: runner.os == 'Linux'
-    #   run: sleep 5m
+    - name: Delay                       # Linux must finish last.
+      if: runner.os == 'Linux'
+      run: sleep 5m
 
 
     - name: Compress to ZIP  # Make Python package
@@ -194,24 +197,15 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 
+    - name: Upload to PYPI  # If everything worked, then upload to PYPI
+      if: runner.os == 'Linux'
+      run: |
+        pip3 install --quiet --upgrade --disable-pip-version-check twine
+        twine upload --verbose --disable-progress-bar --comment "Powered by https://Nim-lang.org" dist/*.zip
+
+
     - name: Cache Nim # Cache the Nim compiler build
       uses: actions/cache@v1
       with:
         path: $PWD/Nim/
         key: ${{ runner.os }}-nim
-
-
-
-
-  after_build:
-    needs: build
-    name: Upload to PYPI
-    runs-on: ubuntu-latest
-    steps:
-
-    - name: Upload to PYPI
-      uses: pypa/gh-action-pypi-publish@master
-      with:
-        user:         ${{ secrets.PYPI_USERNAME }}
-        password:     ${{ secrets.PYPI_PASSWORD }}
-
