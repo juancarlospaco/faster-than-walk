@@ -591,9 +591,9 @@ NIM_BOOL* nimErr_;
 												NIM_BOOL T70_;
 												NI T74_;
 												T70_ = (NIM_BOOL)0;
-												T70_ = ((12 &(1U<<((NU)(k)&7U)))!=0);
+												T70_ = ((12 &((NU8)1<<((NU)(k)&7U)))!=0);
 												if (!(T70_)) goto LA71_;
-												T70_ = ((colontmp__2 &(1U<<((NU)(k)&7U)))!=0);
+												T70_ = ((colontmp__2 &((NU8)1<<((NU)(k)&7U)))!=0);
 												LA71_: ;
 												if (!T70_) goto LA72_;
 												stack = (tySequence__sM4lkSb7zS6F7OVMvW9cffQ*) incrSeqV3((TGenericSeq*)(stack), (&NTI__sM4lkSb7zS6F7OVMvW9cffQ_));
@@ -602,7 +602,7 @@ NIM_BOOL* nimErr_;
 											}
 											LA72_: ;
 											{
-												if (!((colontmp_ &(1U<<((NU)(k)&7U)))!=0)) goto LA77_;
+												if (!((colontmp_ &((NU8)1<<((NU)(k)&7U)))!=0)) goto LA77_;
 												{
 													if (!NIM_FALSE) goto LA81_;
 													item = rel;
@@ -714,9 +714,9 @@ NIM_BOOL* nimErr_;
 											NIM_BOOL T124_;
 											NI T128_;
 											T124_ = (NIM_BOOL)0;
-											T124_ = ((12 &(1U<<((NU)(k)&7U)))!=0);
+											T124_ = ((12 &((NU8)1<<((NU)(k)&7U)))!=0);
 											if (!(T124_)) goto LA125_;
-											T124_ = ((colontmp__2 &(1U<<((NU)(k)&7U)))!=0);
+											T124_ = ((colontmp__2 &((NU8)1<<((NU)(k)&7U)))!=0);
 											LA125_: ;
 											if (!T124_) goto LA126_;
 											stack = (tySequence__sM4lkSb7zS6F7OVMvW9cffQ*) incrSeqV3((TGenericSeq*)(stack), (&NTI__sM4lkSb7zS6F7OVMvW9cffQ_));
@@ -725,7 +725,7 @@ NIM_BOOL* nimErr_;
 										}
 										LA126_: ;
 										{
-											if (!((colontmp_ &(1U<<((NU)(k)&7U)))!=0)) goto LA131_;
+											if (!((colontmp_ &((NU8)1<<((NU)(k)&7U)))!=0)) goto LA131_;
 											{
 												if (!NIM_FALSE) goto LA135_;
 												item = rel_2;
@@ -1160,9 +1160,9 @@ NIM_BOOL* nimErr_;
 													NIM_BOOL T59_;
 													NI T63_;
 													T59_ = (NIM_BOOL)0;
-													T59_ = ((12 &(1U<<((NU)(k)&7U)))!=0);
+													T59_ = ((12 &((NU8)1<<((NU)(k)&7U)))!=0);
 													if (!(T59_)) goto LA60_;
-													T59_ = ((4 &(1U<<((NU)(k)&7U)))!=0);
+													T59_ = ((4 &((NU8)1<<((NU)(k)&7U)))!=0);
 													LA60_: ;
 													if (!T59_) goto LA61_;
 													stack = (tySequence__sM4lkSb7zS6F7OVMvW9cffQ*) incrSeqV3((TGenericSeq*)(stack), (&NTI__sM4lkSb7zS6F7OVMvW9cffQ_));
@@ -1172,7 +1172,7 @@ NIM_BOOL* nimErr_;
 												LA61_: ;
 												{
 													NI T73_;
-													if (!((1 &(1U<<((NU)(k)&7U)))!=0)) goto LA66_;
+													if (!((1 &((NU8)1<<((NU)(k)&7U)))!=0)) goto LA66_;
 													{
 														if (!relative) goto LA70_;
 														item = rel;
@@ -1228,9 +1228,9 @@ NIM_BOOL* nimErr_;
 												NIM_BOOL T90_;
 												NI T94_;
 												T90_ = (NIM_BOOL)0;
-												T90_ = ((12 &(1U<<((NU)(k)&7U)))!=0);
+												T90_ = ((12 &((NU8)1<<((NU)(k)&7U)))!=0);
 												if (!(T90_)) goto LA91_;
-												T90_ = ((4 &(1U<<((NU)(k)&7U)))!=0);
+												T90_ = ((4 &((NU8)1<<((NU)(k)&7U)))!=0);
 												LA91_: ;
 												if (!T90_) goto LA92_;
 												stack = (tySequence__sM4lkSb7zS6F7OVMvW9cffQ*) incrSeqV3((TGenericSeq*)(stack), (&NTI__sM4lkSb7zS6F7OVMvW9cffQ_));
@@ -1240,7 +1240,7 @@ NIM_BOOL* nimErr_;
 											LA92_: ;
 											{
 												NI T104_;
-												if (!((1 &(1U<<((NU)(k)&7U)))!=0)) goto LA97_;
+												if (!((1 &((NU8)1<<((NU)(k)&7U)))!=0)) goto LA97_;
 												{
 													if (!relative) goto LA101_;
 													item = rel_2;

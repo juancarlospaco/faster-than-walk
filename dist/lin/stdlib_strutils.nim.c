@@ -136,7 +136,7 @@ N_LIB_PRIVATE N_NOINLINE(void, invalidFormatString__8vOMwvNB8blLQSoRXfInAg)(void
 	(*T1_).Sup.Sup.name = "ValueError";
 	(*T1_).Sup.Sup.message = copyString(((NimStringDesc*) &TM__JGc9b9bh2D3nTdUR7TGyq8aA_2));
 	(*T1_).Sup.Sup.parent = NIM_NIL;
-	raiseExceptionEx((Exception*)T1_, "ValueError", "invalidFormatString", "strutils.nim", 2716);
+	raiseExceptionEx((Exception*)T1_, "ValueError", "invalidFormatString", "strutils.nim", 2735);
 	goto BeforeRet_;
 	}BeforeRet_: ;
 }
