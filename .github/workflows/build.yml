@@ -212,7 +212,7 @@ jobs:
       if: runner.os == 'Linux'
       run: |
         pip3 install --quiet --upgrade --disable-pip-version-check twine
-        twine upload --verbose --disable-progress-bar --skip-existing --comment "Powered by https://Nim-lang.org" dist/$PACKAGE_NAME-${{ steps.vars.outputs.sha_short }}.zip
+        twine upload --verbose --disable-progress-bar --skip-existing --comment "Powered by https://Nim-lang.org" dist/*.zip
 
 
     - name: Cache Nim
