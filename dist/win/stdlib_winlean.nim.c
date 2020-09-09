@@ -103,13 +103,13 @@ N_LIB_PRIVATE tyProc__5ctyytqoGFQ0BA1imFGbVw inet_ntop_real__FVXn9aJ5AOo23ScDsZU
 N_LIB_PRIVATE void* ws2__hGspZUrVrEMpO9aP9c3dJQPQ;
 extern NIM_BOOL nimInErrorMode__759bT87luu8XGcbkw13FUjA;
 static void* TM__k6kyf4Co79a84IkK9blFuQVA_3;
-tyProc__uryidYWkntM7ddjZSyxvyQ Dl_12803563_;
-tyProc__lLim4ugM6CVjiaTaa7eXVA Dl_12802456_;
-tyProc__aO673xGTLLxou7P7GxoCXA Dl_12801835_;
-tyProc__im9buRnIvptJfzdASYMEbBA Dl_12802001_;
-tyProc__9bXer9a4ps9aSGctILcxWReVw Dl_12801830_;
-tyProc__jwEWAkul5J6p6K0UfXa1tw Dl_12802461_;
-tyProc__ofoySXaAAlxxs9bQS9a1etlg Dl_12802614_;
+tyProc__uryidYWkntM7ddjZSyxvyQ Dl_12798563_;
+tyProc__lLim4ugM6CVjiaTaa7eXVA Dl_12797456_;
+tyProc__aO673xGTLLxou7P7GxoCXA Dl_12796835_;
+tyProc__im9buRnIvptJfzdASYMEbBA Dl_12797001_;
+tyProc__9bXer9a4ps9aSGctILcxWReVw Dl_12796830_;
+tyProc__jwEWAkul5J6p6K0UfXa1tw Dl_12797461_;
+tyProc__ofoySXaAAlxxs9bQS9a1etlg Dl_12797614_;
 
 /* section: NIM_merge_PROCS */
 static N_INLINE(NIM_BOOL*, nimErrorFlag)(void) {
@@ -145,12 +145,12 @@ N_LIB_PRIVATE N_NIMCALL(void, stdlib_winleanDatInit000)(void) {
 /* section: NIM_merge_DYNLIB_INIT */
 if (!((TM__k6kyf4Co79a84IkK9blFuQVA_3 = nimLoadLibrary(((NimStringDesc*) &TM__k6kyf4Co79a84IkK9blFuQVA_5)))
 )) nimLoadLibraryError(((NimStringDesc*) &TM__k6kyf4Co79a84IkK9blFuQVA_6));
-	Dl_12803563_ = (tyProc__uryidYWkntM7ddjZSyxvyQ) nimGetProcAddr(TM__k6kyf4Co79a84IkK9blFuQVA_3, "GetCurrentProcess");
-	Dl_12802456_ = (tyProc__lLim4ugM6CVjiaTaa7eXVA) nimGetProcAddr(TM__k6kyf4Co79a84IkK9blFuQVA_3, "FindFirstFileW");
-	Dl_12801835_ = (tyProc__aO673xGTLLxou7P7GxoCXA) nimGetProcAddr(TM__k6kyf4Co79a84IkK9blFuQVA_3, "FormatMessageW");
-	Dl_12802001_ = (tyProc__im9buRnIvptJfzdASYMEbBA) nimGetProcAddr(TM__k6kyf4Co79a84IkK9blFuQVA_3, "LocalFree");
-	Dl_12801830_ = (tyProc__9bXer9a4ps9aSGctILcxWReVw) nimGetProcAddr(TM__k6kyf4Co79a84IkK9blFuQVA_3, "GetLastError");
-	Dl_12802461_ = (tyProc__jwEWAkul5J6p6K0UfXa1tw) nimGetProcAddr(TM__k6kyf4Co79a84IkK9blFuQVA_3, "FindNextFileW");
-	Dl_12802614_ = (tyProc__ofoySXaAAlxxs9bQS9a1etlg) nimGetProcAddr(TM__k6kyf4Co79a84IkK9blFuQVA_3, "FindClose");
+	Dl_12798563_ = (tyProc__uryidYWkntM7ddjZSyxvyQ) nimGetProcAddr(TM__k6kyf4Co79a84IkK9blFuQVA_3, "GetCurrentProcess");
+	Dl_12797456_ = (tyProc__lLim4ugM6CVjiaTaa7eXVA) nimGetProcAddr(TM__k6kyf4Co79a84IkK9blFuQVA_3, "FindFirstFileW");
+	Dl_12796835_ = (tyProc__aO673xGTLLxou7P7GxoCXA) nimGetProcAddr(TM__k6kyf4Co79a84IkK9blFuQVA_3, "FormatMessageW");
+	Dl_12797001_ = (tyProc__im9buRnIvptJfzdASYMEbBA) nimGetProcAddr(TM__k6kyf4Co79a84IkK9blFuQVA_3, "LocalFree");
+	Dl_12796830_ = (tyProc__9bXer9a4ps9aSGctILcxWReVw) nimGetProcAddr(TM__k6kyf4Co79a84IkK9blFuQVA_3, "GetLastError");
+	Dl_12797461_ = (tyProc__jwEWAkul5J6p6K0UfXa1tw) nimGetProcAddr(TM__k6kyf4Co79a84IkK9blFuQVA_3, "FindNextFileW");
+	Dl_12797614_ = (tyProc__ofoySXaAAlxxs9bQS9a1etlg) nimGetProcAddr(TM__k6kyf4Co79a84IkK9blFuQVA_3, "FindClose");
 }
 

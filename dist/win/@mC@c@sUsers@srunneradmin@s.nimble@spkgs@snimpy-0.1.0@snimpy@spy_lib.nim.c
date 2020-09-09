@@ -349,7 +349,7 @@ N_LIB_PRIVATE NIM_BOOL pyThreadFrameInited__0LBR4zzVR5uWvgtv8SrMjg;
 N_LIB_PRIVATE tySequence__M73GJ9bOx1XdoIRnhIyhqTQ* exportedModules__8kMAOMTFJYz2QnlnegLbYw;
 extern NIM_BOOL nimInErrorMode__759bT87luu8XGcbkw13FUjA;
 static void* TM__XnAUe69cYg8yQhnmiRJUnHw_5;
-tyProc__Ph37G33p2ec6K0xFeDk1cQ Dl_17665570_;
+tyProc__Ph37G33p2ec6K0xFeDk1cQ Dl_17660570_;
 
 /* section: NIM_merge_PROCS */
 static N_NIMCALL(void, Marker_tySequence__M73GJ9bOx1XdoIRnhIyhqTQ)(void* p, NI op) {
@@ -1515,6 +1515,6 @@ NTI__M73GJ9bOx1XdoIRnhIyhqTQ_.marker = Marker_tySequence__M73GJ9bOx1XdoIRnhIyhqT
 /* section: NIM_merge_DYNLIB_INIT */
 if (!((TM__XnAUe69cYg8yQhnmiRJUnHw_5 = nimLoadLibrary(((NimStringDesc*) &TM__XnAUe69cYg8yQhnmiRJUnHw_7)))
 )) nimLoadLibraryError(((NimStringDesc*) &TM__XnAUe69cYg8yQhnmiRJUnHw_8));
-	Dl_17665570_ = (tyProc__Ph37G33p2ec6K0xFeDk1cQ) nimGetProcAddr(TM__XnAUe69cYg8yQhnmiRJUnHw_5, "K32EnumProcessModules");
+	Dl_17660570_ = (tyProc__Ph37G33p2ec6K0xFeDk1cQ) nimGetProcAddr(TM__XnAUe69cYg8yQhnmiRJUnHw_5, "K32EnumProcessModules");
 }
 

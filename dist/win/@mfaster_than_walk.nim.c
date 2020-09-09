@@ -317,9 +317,9 @@ STRING_LITERAL(TM__xMHGPK32qaROpInjrbPI7w_14, "walk_files", 10);
 /* section: NIM_merge_VARS */
 N_LIB_PRIVATE tyObject_PyModuleDesc__gBC8z6Ez5xj3dXoP0ylCRA gPythonLocalModuleDesc__rWSOv8OWHGeHMsEAMshUQA;
 extern NIM_BOOL nimInErrorMode__759bT87luu8XGcbkw13FUjA;
-extern tyProc__jwEWAkul5J6p6K0UfXa1tw Dl_12802461_;
-extern tyProc__9bXer9a4ps9aSGctILcxWReVw Dl_12801830_;
-extern tyProc__ofoySXaAAlxxs9bQS9a1etlg Dl_12802614_;
+extern tyProc__jwEWAkul5J6p6K0UfXa1tw Dl_12797461_;
+extern tyProc__9bXer9a4ps9aSGctILcxWReVw Dl_12796830_;
+extern tyProc__ofoySXaAAlxxs9bQS9a1etlg Dl_12797614_;
 extern Exception* currException__9bVPeDJlYTi9bQApZpfH8wjg;
 extern Exception* currException__9bVPeDJlYTi9bQApZpfH8wjg;
 extern Exception* currException__9bVPeDJlYTi9bQApZpfH8wjg;
@@ -578,9 +578,9 @@ NIM_BOOL* nimErr_;
 										NIM_BOOL T59_;
 										NI T63_;
 										T59_ = (NIM_BOOL)0;
-										T59_ = ((12 &(1U<<((NU)(k)&7U)))!=0);
+										T59_ = ((12 &((NU8)1<<((NU)(k)&7U)))!=0);
 										if (!(T59_)) goto LA60_;
-										T59_ = ((colontmp__2 &(1U<<((NU)(k)&7U)))!=0);
+										T59_ = ((colontmp__2 &((NU8)1<<((NU)(k)&7U)))!=0);
 										LA60_: ;
 										if (!T59_) goto LA61_;
 										stack = (tySequence__sM4lkSb7zS6F7OVMvW9cffQ*) incrSeqV3((TGenericSeq*)(stack), (&NTI__sM4lkSb7zS6F7OVMvW9cffQ_));
@@ -589,7 +589,7 @@ NIM_BOOL* nimErr_;
 									}
 									LA61_: ;
 									{
-										if (!((colontmp_ &(1U<<((NU)(k)&7U)))!=0)) goto LA66_;
+										if (!((colontmp_ &((NU8)1<<((NU)(k)&7U)))!=0)) goto LA66_;
 										{
 											if (!NIM_FALSE) goto LA70_;
 											item = rel;
@@ -668,9 +668,9 @@ NIM_BOOL* nimErr_;
 									NI32 T99_;
 									NI32 errCode;
 									T99_ = (NI32)0;
-									T99_ = Dl_12802461_(h, (&f));
+									T99_ = Dl_12797461_(h, (&f));
 									if (!(T99_ == ((NI32) 0))) goto LA100_;
-									errCode = Dl_12801830_();
+									errCode = Dl_12796830_();
 									{
 										if (!(errCode == ((NI32) 18))) goto LA104_;
 										goto LA34;
@@ -690,7 +690,7 @@ NIM_BOOL* nimErr_;
 							LA33_:;
 						}
 						{
-							Dl_12802614_(h);
+							Dl_12797614_(h);
 						}
 						if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 					}
@@ -898,9 +898,9 @@ NIM_BOOL* nimErr_;
 						NI32 T37_;
 						NI32 errCodeX60gensym130_;
 						T37_ = (NI32)0;
-						T37_ = Dl_12802461_(resX60gensym130_, (&fX60gensym130_));
+						T37_ = Dl_12797461_(resX60gensym130_, (&fX60gensym130_));
 						if (!(T37_ == ((NI32) 0))) goto LA38_;
-						errCodeX60gensym130_ = Dl_12801830_();
+						errCodeX60gensym130_ = Dl_12796830_();
 						{
 							if (!(errCodeX60gensym130_ == ((NI32) 18))) goto LA42_;
 							goto LA7;
@@ -920,7 +920,7 @@ NIM_BOOL* nimErr_;
 				LA6_:;
 			}
 			{
-				Dl_12802614_(resX60gensym130_);
+				Dl_12797614_(resX60gensym130_);
 			}
 			if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 		}
@@ -1102,9 +1102,9 @@ NIM_BOOL* nimErr_;
 											NIM_BOOL T48_;
 											NI T52_;
 											T48_ = (NIM_BOOL)0;
-											T48_ = ((12 &(1U<<((NU)(k)&7U)))!=0);
+											T48_ = ((12 &((NU8)1<<((NU)(k)&7U)))!=0);
 											if (!(T48_)) goto LA49_;
-											T48_ = ((4 &(1U<<((NU)(k)&7U)))!=0);
+											T48_ = ((4 &((NU8)1<<((NU)(k)&7U)))!=0);
 											LA49_: ;
 											if (!T48_) goto LA50_;
 											stack = (tySequence__sM4lkSb7zS6F7OVMvW9cffQ*) incrSeqV3((TGenericSeq*)(stack), (&NTI__sM4lkSb7zS6F7OVMvW9cffQ_));
@@ -1114,7 +1114,7 @@ NIM_BOOL* nimErr_;
 										LA50_: ;
 										{
 											NI T62_;
-											if (!((1 &(1U<<((NU)(k)&7U)))!=0)) goto LA55_;
+											if (!((1 &((NU8)1<<((NU)(k)&7U)))!=0)) goto LA55_;
 											{
 												if (!relative) goto LA59_;
 												item = rel;
@@ -1137,9 +1137,9 @@ NIM_BOOL* nimErr_;
 										NI32 T65_;
 										NI32 errCode;
 										T65_ = (NI32)0;
-										T65_ = Dl_12802461_(h, (&f));
+										T65_ = Dl_12797461_(h, (&f));
 										if (!(T65_ == ((NI32) 0))) goto LA66_;
-										errCode = Dl_12801830_();
+										errCode = Dl_12796830_();
 										{
 											if (!(errCode == ((NI32) 18))) goto LA70_;
 											goto LA23;
@@ -1159,7 +1159,7 @@ NIM_BOOL* nimErr_;
 								LA22_:;
 							}
 							{
-								Dl_12802614_(h);
+								Dl_12797614_(h);
 							}
 							if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 						}
@@ -1258,9 +1258,9 @@ NIM_BOOL* nimErr_;
 							NI32 T115_;
 							NI32 errCode_2;
 							T115_ = (NI32)0;
-							T115_ = Dl_12802461_(h_2, (&f_2));
+							T115_ = Dl_12797461_(h_2, (&f_2));
 							if (!(T115_ == ((NI32) 0))) goto LA116_;
-							errCode_2 = Dl_12801830_();
+							errCode_2 = Dl_12796830_();
 							{
 								if (!(errCode_2 == ((NI32) 18))) goto LA120_;
 								goto LA89;
@@ -1280,7 +1280,7 @@ NIM_BOOL* nimErr_;
 					LA88_:;
 				}
 				{
-					Dl_12802614_(h_2);
+					Dl_12797614_(h_2);
 				}
 				if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 			}
@@ -1467,9 +1467,9 @@ NIM_BOOL* nimErr_;
 							NI32 T42_;
 							NI32 errCodeX60gensym152_;
 							T42_ = (NI32)0;
-							T42_ = Dl_12802461_(resX60gensym152_, (&fX60gensym152_));
+							T42_ = Dl_12797461_(resX60gensym152_, (&fX60gensym152_));
 							if (!(T42_ == ((NI32) 0))) goto LA43_;
-							errCodeX60gensym152_ = Dl_12801830_();
+							errCodeX60gensym152_ = Dl_12796830_();
 							{
 								if (!(errCodeX60gensym152_ == ((NI32) 18))) goto LA47_;
 								goto LA12;
@@ -1489,7 +1489,7 @@ NIM_BOOL* nimErr_;
 					LA11_:;
 				}
 				{
-					Dl_12802614_(resX60gensym152_);
+					Dl_12797614_(resX60gensym152_);
 				}
 				if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 			}
@@ -1592,9 +1592,9 @@ NIM_BOOL* nimErr_;
 							NI32 T89_;
 							NI32 errCodeX60gensym140_;
 							T89_ = (NI32)0;
-							T89_ = Dl_12802461_(resX60gensym140_, (&fX60gensym140_));
+							T89_ = Dl_12797461_(resX60gensym140_, (&fX60gensym140_));
 							if (!(T89_ == ((NI32) 0))) goto LA90_;
-							errCodeX60gensym140_ = Dl_12801830_();
+							errCodeX60gensym140_ = Dl_12796830_();
 							{
 								if (!(errCodeX60gensym140_ == ((NI32) 18))) goto LA94_;
 								goto LA59;
@@ -1614,7 +1614,7 @@ NIM_BOOL* nimErr_;
 					LA58_:;
 				}
 				{
-					Dl_12802614_(resX60gensym140_);
+					Dl_12797614_(resX60gensym140_);
 				}
 				if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 			}
