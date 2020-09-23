@@ -337,7 +337,6 @@ tyObject_PyObjectObj__aD5pkFWInXrZXinZ42cDEg py_object;
 };
 struct tyObject_RefHeader__Gi7WQzlT1ZRToh9a2ueYb4A {
 NI rc;
-NI rootIdx;
 };
 struct tyObject_PyIteratorDesc__3Lh9c29bpC2Iomkl9cQO9cGqEw {
 NCSTRING name;
@@ -473,10 +472,9 @@ N_LIB_PRIVATE N_NIMCALL(void, raiseExceptionEx)(Exception* e, NCSTRING ename, NC
 N_LIB_PRIVATE N_CDECL(void, destructNimObj__5aiupm4TAhj22Yu9cWwwuVg)(void* o);
 static N_INLINE(tyObject_PyNimObjectcolonObjectType___EzO9cx6qeJIOpzFHShySXxA*, toNim__BNt3aWEMNlje8KgYqFe8Vwnimpy)(void* p);
 N_LIB_PRIVATE N_NIMCALL(void, eq___9aHPRYV2Es9b6HoBXSux2fIA)(tyObject_PyNimObjectcolonObjectType___EzO9cx6qeJIOpzFHShySXxA** dest, tyObject_PyNimObjectcolonObjectType___EzO9cx6qeJIOpzFHShySXxA* src);
-static N_INLINE(void, nimIncRefCyclic)(void* p);
+static N_INLINE(void, nimIncRef)(void* p);
 static N_INLINE(NI, minuspercent___dgYAo7RfdUVVpvkfKDym8w_2system)(NI x, NI y);
-static N_INLINE(NIM_BOOL, nimDecRefIsLastCyclicDyn)(void* p);
-N_LIB_PRIVATE N_NOINLINE(void, rememberCycle__LoYD9cYK9aJvrcDizBN64qaQ)(NIM_BOOL isDestroyAction, tyObject_RefHeader__Gi7WQzlT1ZRToh9a2ueYb4A* s, TNimTypeV2* desc);
+static N_INLINE(NIM_BOOL, nimDecRefIsLast)(void* p);
 N_LIB_PRIVATE N_NIMCALL(void, nimDestroyAndDispose)(void* p);
 N_LIB_PRIVATE N_NIMCALL(void, GC_unref__V00IOKEw3gof5QirD62FWg)(tyObject_PyNimObjectcolonObjectType___EzO9cx6qeJIOpzFHShySXxA* x);
 N_LIB_PRIVATE N_NIMCALL(void, eqdestroy___zuudnfhDYQLtdykrHki7vg)(tyObject_PyNimObjectcolonObjectType___EzO9cx6qeJIOpzFHShySXxA** dest);
@@ -696,54 +694,46 @@ static N_INLINE(NI, minuspercent___dgYAo7RfdUVVpvkfKDym8w_2system)(NI x, NI y) {
 	result = ((NI) ((NU)((NU64)(((NU) (x))) - (NU64)(((NU) (y))))));
 	return result;
 }
-static N_INLINE(void, nimIncRefCyclic)(void* p) {
-	tyObject_RefHeader__Gi7WQzlT1ZRToh9a2ueYb4A* h;
+static N_INLINE(void, nimIncRef)(void* p) {
 	NI T1_;
 	T1_ = (NI)0;
-	T1_ = minuspercent___dgYAo7RfdUVVpvkfKDym8w_2system(((NI) (ptrdiff_t) (p)), ((NI) 16));
-	h = ((tyObject_RefHeader__Gi7WQzlT1ZRToh9a2ueYb4A*) (T1_));
-	(*h).rc += ((NI) 16);
-	(*h).rc = (NI)((*h).rc & ((NI) -4));
+	T1_ = minuspercent___dgYAo7RfdUVVpvkfKDym8w_2system(((NI) (ptrdiff_t) (p)), ((NI) 8));
+	(*((tyObject_RefHeader__Gi7WQzlT1ZRToh9a2ueYb4A*) (T1_))).rc += ((NI) 8);
 }
-static N_INLINE(NIM_BOOL, nimDecRefIsLastCyclicDyn)(void* p) {
+static N_INLINE(NIM_BOOL, nimDecRefIsLast)(void* p) {
 	NIM_BOOL result;
-NIM_BOOL* nimErr_;
-{nimErr_ = nimErrorFlag();
 	result = (NIM_BOOL)0;
 	{
 		tyObject_RefHeader__Gi7WQzlT1ZRToh9a2ueYb4A* cell;
 		NI T5_;
 		if (!!((p == NIM_NIL))) goto LA3_;
 		T5_ = (NI)0;
-		T5_ = minuspercent___dgYAo7RfdUVVpvkfKDym8w_2system(((NI) (ptrdiff_t) (p)), ((NI) 16));
+		T5_ = minuspercent___dgYAo7RfdUVVpvkfKDym8w_2system(((NI) (ptrdiff_t) (p)), ((NI) 8));
 		cell = ((tyObject_RefHeader__Gi7WQzlT1ZRToh9a2ueYb4A*) (T5_));
 		{
-			if (!((NI)((*cell).rc & ((NI) -16)) == ((NI) 0))) goto LA8_;
+			if (!((NI)((*cell).rc & ((NI) -8)) == ((NI) 0))) goto LA8_;
 			result = NIM_TRUE;
 		}
 		goto LA6_;
 		LA8_: ;
 		{
-			(*cell).rc -= ((NI) 16);
+			(*cell).rc -= ((NI) 8);
 		}
 		LA6_: ;
-		rememberCycle__LoYD9cYK9aJvrcDizBN64qaQ(result, cell, (*((TNimTypeV2**) (p))));
-		if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 	}
 	LA3_: ;
-	}BeforeRet_: ;
 	return result;
 }
 N_LIB_PRIVATE N_NIMCALL(void, eq___9aHPRYV2Es9b6HoBXSux2fIA)(tyObject_PyNimObjectcolonObjectType___EzO9cx6qeJIOpzFHShySXxA** dest, tyObject_PyNimObjectcolonObjectType___EzO9cx6qeJIOpzFHShySXxA* src) {
 	{
 		if (!src) goto LA3_;
-		nimIncRefCyclic(src);
+		nimIncRef(src);
 	}
 	LA3_: ;
 	{
 		NIM_BOOL T7_;
 		T7_ = (NIM_BOOL)0;
-		T7_ = nimDecRefIsLastCyclicDyn((*dest));
+		T7_ = nimDecRefIsLast((*dest));
 		if (!T7_) goto LA8_;
 		nimDestroyAndDispose((*dest));
 	}
@@ -762,7 +752,7 @@ N_LIB_PRIVATE N_NIMCALL(void, eqdestroy___zuudnfhDYQLtdykrHki7vg)(tyObject_PyNim
 	{
 		NIM_BOOL T3_;
 		T3_ = (NIM_BOOL)0;
-		T3_ = nimDecRefIsLastCyclicDyn((*dest));
+		T3_ = nimDecRefIsLast((*dest));
 		if (!T3_) goto LA4_;
 		nimDestroyAndDispose((*dest));
 	}
@@ -797,7 +787,7 @@ N_LIB_PRIVATE N_NIMCALL(void, eqdestroy___nhBvu2PN5EryTOF9bq9aUf3g)(tyObject_PyI
 	{
 		NIM_BOOL T3_;
 		T3_ = (NIM_BOOL)0;
-		T3_ = nimDecRefIsLastCyclicDyn((*dest).iter.ClE_0);
+		T3_ = nimDecRefIsLast((*dest).iter.ClE_0);
 		if (!T3_) goto LA4_;
 		nimDestroyAndDispose((*dest).iter.ClE_0);
 	}
