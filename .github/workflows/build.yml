@@ -51,7 +51,7 @@ jobs:
     - name: Set Environment Variables
       uses: allenevans/set-env@v1.0.0
       with:
-        NIM_VERSION:           "1.2.6"
+        NIM_VERSION:           "devel" # "1.2.6"
         MAIN_MODULE:           "src/faster_than_walk.nim"
         PACKAGE_NAME:          "faster_than_walk"
         TWINE_USERNAME:        ${{ secrets.PYPI_USERNAME }}
@@ -61,13 +61,13 @@ jobs:
           compileToC --compileOnly:on --colors:off --threads:off
           -d:release -d:danger -d:lto -d:strip --app:lib
           -d:nimBinaryStdFiles -d:noSignalHandler
-          --opt:speed --cpu:amd64 --forceBuild --gc:markAndSweep --panics:on
+          --opt:speed --cpu:amd64 --forceBuild --gc:orc --panics:on
           --stackTrace:off --excessiveStackTrace:off --experimental:parallel
 
 
     - name: Clone Nim
       run: |
-        git clone -q --depth 1 --branch v${{ env.NIM_VERSION }} https://github.com/nim-lang/Nim.git
+        git clone -q --depth 1 --branch ${{ env.NIM_VERSION }} https://github.com/nim-lang/Nim.git
         echo "::add-path::$PWD/Nim/bin"
 
 
@@ -208,11 +208,11 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 
-    - name: Upload to PYPI (Linux)  # If everything worked, then upload to PYPI
-      if: runner.os == 'Linux'
-      run: |
-        pip3 install --quiet --upgrade --disable-pip-version-check twine
-        twine upload --verbose --disable-progress-bar --skip-existing --comment "Powered by https://Nim-lang.org" dist/*.zip
+    # - name: Upload to PYPI (Linux)  # If everything worked, then upload to PYPI
+    #   if: runner.os == 'Linux'
+    #   run: |
+    #     pip3 install --quiet --upgrade --disable-pip-version-check twine
+    #     twine upload --verbose --disable-progress-bar --skip-existing --comment "Powered by https://Nim-lang.org" dist/*.zip
 
 
     - name: Cache Nim
