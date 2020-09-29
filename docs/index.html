@@ -99,11 +99,13 @@ function main() {
      yieldfiles: bool = true; debugs: bool = false; check_folders: bool = false): seq[string]"><wbr />walk<span class="attachedType"></span></a></li>
   <li><a class="reference" href="#walk_glob%2Cstring"
     title="walk_glob(globpattern: string): seq[string]"><wbr />walk_<wbr />glob<span class="attachedType"></span></a></li>
-  <li><a class="reference" href="#walk_simple%2Cstring%2Cbool%2Cbool%2Cbool"
-    title="walk_simple(folderpath: string; recursive: bool = true; relative: bool = false;
-            check_folders: bool = false): seq[string]"><wbr />walk_<wbr />simple<span class="attachedType"></span></a></li>
-  <li><a class="reference" href="#walk_files%2Cstring%2Cbool"
-    title="walk_files(globpattern: string; folders_only: bool = false): seq[string]"><wbr />walk_<wbr />files<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#walk_simple%2Cstring%2Cbool%2Cbool"
+    title="walk_simple(folderpath: string; relative: bool = false; check_folders: bool = false): seq[
+    string]"><wbr />walk_<wbr />simple<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#walk_folders%2Cstring"
+    title="walk_folders(globpattern: string): seq[string]"><wbr />walk_<wbr />folders<span class="attachedType"></span></a></li>
+  <li><a class="reference" href="#walk_files%2Cstring"
+    title="walk_files(globpattern: string): seq[string]"><wbr />walk_<wbr />files<span class="attachedType"></span></a></li>
 
   </ul>
 </li>
@@ -135,8 +137,8 @@ Faster os.walk(), followlinks follows SymLinks, yieldfiles yields files else fol
 Faster os.walk() using 1 standard POSIX like Glob Pattern string, return 1 list of strings.
 
 </dd>
-<a id="walk_simple,string,bool,bool,bool"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#walk_simple%2Cstring%2Cbool%2Cbool%2Cbool"><span class="Identifier">walk_simple</span></a><span class="Other">(</span><span class="Identifier">folderpath</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">;</span> <span class="Identifier">recursive</span><span class="Other">:</span> <span class="Identifier">bool</span> <span class="Other">=</span> <span class="Identifier">true</span><span class="Other">;</span> <span class="Identifier">relative</span><span class="Other">:</span> <span class="Identifier">bool</span> <span class="Other">=</span> <span class="Identifier">false</span><span class="Other">;</span>
+<a id="walk_simple,string,bool,bool"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#walk_simple%2Cstring%2Cbool%2Cbool"><span class="Identifier">walk_simple</span></a><span class="Other">(</span><span class="Identifier">folderpath</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">;</span> <span class="Identifier">relative</span><span class="Other">:</span> <span class="Identifier">bool</span> <span class="Other">=</span> <span class="Identifier">false</span><span class="Other">;</span>
                 <span class="Identifier">check_folders</span><span class="Other">:</span> <span class="Identifier">bool</span> <span class="Other">=</span> <span class="Identifier">false</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">OSError</span><span class="Other">]</span><span class="Other">,</span>
     <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">ReadDirEffect</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
@@ -144,9 +146,16 @@ Faster os.walk() using 1 standard POSIX like Glob Pattern string, return 1 list 
 Faster os.walk(), it only takes the path, return 1 list of strings.
 
 </dd>
-<a id="walk_files,string,bool"></a>
-<dt><pre><span class="Keyword">proc</span> <a href="#walk_files%2Cstring%2Cbool"><span class="Identifier">walk_files</span></a><span class="Other">(</span><span class="Identifier">globpattern</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">;</span> <span class="Identifier">folders_only</span><span class="Other">:</span> <span class="Identifier">bool</span> <span class="Other">=</span> <span class="Identifier">false</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma">
-    <span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">ReadDirEffect</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
+<a id="walk_folders,string"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#walk_folders%2Cstring"><span class="Identifier">walk_folders</span></a><span class="Other">(</span><span class="Identifier">globpattern</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span>
+    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">ReadDirEffect</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
+<dd>
+
+Faster os.walk(), similar to walks but optimized for Files or Folders only.
+
+</dd>
+<a id="walk_files,string"></a>
+<dt><pre><span class="Keyword">proc</span> <a href="#walk_files%2Cstring"><span class="Identifier">walk_files</span></a><span class="Other">(</span><span class="Identifier">globpattern</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">]</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">ReadDirEffect</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 
 Faster os.walk(), similar to walks but optimized for Files or Folders only.
@@ -162,7 +171,7 @@ Faster os.walk(), similar to walks but optimized for Files or Folders only.
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2020-09-23 04:24:20 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2020-09-29 12:30:14 UTC</small>
       </div>
     </div>
   </div>
