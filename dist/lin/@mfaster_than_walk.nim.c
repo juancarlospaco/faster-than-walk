@@ -47,7 +47,6 @@ typedef struct Exception Exception;
 typedef struct RootObj RootObj;
 typedef struct tySequence__uB9b75OUPRENsBAu4AnoePA tySequence__uB9b75OUPRENsBAu4AnoePA;
 typedef struct tySequence__uB9b75OUPRENsBAu4AnoePA_Content tySequence__uB9b75OUPRENsBAu4AnoePA_Content;
-typedef struct tyTuple__LCURwohbLBusrL8hdCnvng tyTuple__LCURwohbLBusrL8hdCnvng;
 typedef struct tyObject_PyMethodDef__9aWi1PsmvCuTKIYDHHnhfcw tyObject_PyMethodDef__9aWi1PsmvCuTKIYDHHnhfcw;
 typedef struct tyObject_PyTypeDesc__BKCcJxogshNojOoN23Qfbg tyObject_PyTypeDesc__BKCcJxogshNojOoN23Qfbg;
 typedef struct tyObject_PyTypeObject3Obj__cRsC9bGvH9bX6A9aVx8UB6I5g tyObject_PyTypeObject3Obj__cRsC9bGvH9bX6A9aVx8UB6I5g;
@@ -117,12 +116,7 @@ Exception* up;
 };
 typedef NCSTRING tyArray__NmEsK2qSxmxyFA4fWeYieg[1];
 typedef NCSTRING tyUncheckedArray__nvS6J9clHMUMHfoZd8Ad2zg[1];
-typedef NCSTRING tyArray__OMzq4WtdIKLHN1dhogrWLA[4];
-struct tyTuple__LCURwohbLBusrL8hdCnvng {
-tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg Field0;
-NimStringV2 Field1;
-};
-typedef NCSTRING tyArray__jieoU9cfWs1Krn17l9aYsDyg[2];
+typedef NCSTRING tyArray__iRfL3zsdcaf12aAZXBSJ6w[3];
 struct tyObject_PyMethodDef__9aWi1PsmvCuTKIYDHHnhfcw {
 NCSTRING ml_name;
 tyProc__uQWqJp3WAx8fOY1h9aCwjIg ml_meth;
@@ -282,12 +276,13 @@ N_LIB_PRIVATE N_NIMCALL(void*, noinline__51nak27P4W6IWblJlmgg0w_2)(void* args, v
 N_LIB_PRIVATE N_NIMCALL(tySequence__sM4lkSb7zS6F7OVMvW9cffQ, walk_glob__T0p28lhyF7ws9aW2ZqYXykA)(NimStringV2 globpattern);
 N_LIB_PRIVATE N_CDECL(void*, walk_simplePy_wrapper__IzdXrRRm9a7J5XcJ9cia4k8w)(void* selfX60gensym29_, void* args, void* kwargs);
 N_LIB_PRIVATE N_NIMCALL(void*, noinline__51nak27P4W6IWblJlmgg0w_3)(void* args, void* kwargs);
-N_LIB_PRIVATE N_NIMCALL(tySequence__sM4lkSb7zS6F7OVMvW9cffQ, walk_simple__yeWwaNnXkLouUEYHUHdZ9bw)(NimStringV2 folderpath, NIM_BOOL recursive, NIM_BOOL relative, NIM_BOOL check_folders);
-N_LIB_PRIVATE N_NIMCALL(void, eqsink___eJvma6sOTizgxElKpB2yuQ)(tyTuple__LCURwohbLBusrL8hdCnvng* dest, tyTuple__LCURwohbLBusrL8hdCnvng src);
-N_LIB_PRIVATE N_NIMCALL(void, eqdestroy___9bqov6Wj01jiBsy3mzTHnMQ)(tyTuple__LCURwohbLBusrL8hdCnvng* dest);
-N_LIB_PRIVATE N_CDECL(void*, walk_filesPy_wrapper__JwrG9cd19al6MQlO6PfA9bUzg)(void* selfX60gensym39_, void* args, void* kwargs);
+N_LIB_PRIVATE N_NIMCALL(tySequence__sM4lkSb7zS6F7OVMvW9cffQ, walk_simple__jB3ccVK5GT4z9b3ZjSF9bygA)(NimStringV2 folderpath, NIM_BOOL relative, NIM_BOOL check_folders);
+N_LIB_PRIVATE N_CDECL(void*, walk_foldersPy_wrapper__oO2Zw1nfQFjMJHCALA7evw)(void* selfX60gensym37_, void* args, void* kwargs);
 N_LIB_PRIVATE N_NIMCALL(void*, noinline__51nak27P4W6IWblJlmgg0w_4)(void* args, void* kwargs);
-N_LIB_PRIVATE N_NIMCALL(tySequence__sM4lkSb7zS6F7OVMvW9cffQ, walk_files__ToYLunVJTl6uByayJPO9amA)(NimStringV2 globpattern, NIM_BOOL folders_only);
+N_LIB_PRIVATE N_NIMCALL(tySequence__sM4lkSb7zS6F7OVMvW9cffQ, walk_folders__T0p28lhyF7ws9aW2ZqYXykA_2)(NimStringV2 globpattern);
+N_LIB_PRIVATE N_CDECL(void*, walk_filesPy_wrapper__zbH75IbixNVMbbsRXbH8pQ)(void* selfX60gensym43_, void* args, void* kwargs);
+N_LIB_PRIVATE N_NIMCALL(void*, noinline__51nak27P4W6IWblJlmgg0w_5)(void* args, void* kwargs);
+N_LIB_PRIVATE N_NIMCALL(tySequence__sM4lkSb7zS6F7OVMvW9cffQ, walk_files__T0p28lhyF7ws9aW2ZqYXykA_3)(NimStringV2 globpattern);
 N_LIB_PRIVATE N_NIMCALL(NIM_BOOL, nosfileExists)(NimStringV2 filename);
 N_LIB_PRIVATE N_NIMCALL(void, nimTestErrorFlag)(void);
 static N_INLINE(void, initStackBottomWith)(void* locals);
@@ -333,8 +328,7 @@ static const struct {
   NI cap; NIM_CHAR data[9+1];
 } TM__xMHGPK32qaROpInjrbPI7w_15 = { 9 | NIM_STRLIT_FLAG, "walk_glob" };
 static const NimStringV2 TM__xMHGPK32qaROpInjrbPI7w_16 = {9, (NimStrPayload*)&TM__xMHGPK32qaROpInjrbPI7w_15};
-static NIM_CONST tyArray__OMzq4WtdIKLHN1dhogrWLA TM__xMHGPK32qaROpInjrbPI7w_17 = {"folderpath",
-"recursive",
+static NIM_CONST tyArray__iRfL3zsdcaf12aAZXBSJ6w TM__xMHGPK32qaROpInjrbPI7w_17 = {"folderpath",
 "relative",
 "check_folders"}
 ;
@@ -344,15 +338,14 @@ static const struct {
 static const NimStringV2 TM__xMHGPK32qaROpInjrbPI7w_19 = {11, (NimStrPayload*)&TM__xMHGPK32qaROpInjrbPI7w_18};
 static const NimStringV2 TM__xMHGPK32qaROpInjrbPI7w_20 = {1, (NimStrPayload*)&TM__xMHGPK32qaROpInjrbPI7w_10};
 static const NimStringV2 TM__xMHGPK32qaROpInjrbPI7w_21 = {2, (NimStrPayload*)&TM__xMHGPK32qaROpInjrbPI7w_12};
-static const NimStringV2 TM__xMHGPK32qaROpInjrbPI7w_22 = {1, (NimStrPayload*)&TM__xMHGPK32qaROpInjrbPI7w_10};
-static const NimStringV2 TM__xMHGPK32qaROpInjrbPI7w_23 = {2, (NimStrPayload*)&TM__xMHGPK32qaROpInjrbPI7w_12};
-static NIM_CONST tyArray__jieoU9cfWs1Krn17l9aYsDyg TM__xMHGPK32qaROpInjrbPI7w_24 = {"globpattern",
-"folders_only"}
-;
+static const struct {
+  NI cap; NIM_CHAR data[12+1];
+} TM__xMHGPK32qaROpInjrbPI7w_22 = { 12 | NIM_STRLIT_FLAG, "walk_folders" };
+static const NimStringV2 TM__xMHGPK32qaROpInjrbPI7w_23 = {12, (NimStrPayload*)&TM__xMHGPK32qaROpInjrbPI7w_22};
 static const struct {
   NI cap; NIM_CHAR data[10+1];
-} TM__xMHGPK32qaROpInjrbPI7w_25 = { 10 | NIM_STRLIT_FLAG, "walk_files" };
-static const NimStringV2 TM__xMHGPK32qaROpInjrbPI7w_26 = {10, (NimStrPayload*)&TM__xMHGPK32qaROpInjrbPI7w_25};
+} TM__xMHGPK32qaROpInjrbPI7w_24 = { 10 | NIM_STRLIT_FLAG, "walk_files" };
+static const NimStringV2 TM__xMHGPK32qaROpInjrbPI7w_25 = {10, (NimStrPayload*)&TM__xMHGPK32qaROpInjrbPI7w_24};
 
 /* section: NIM_merge_VARS */
 N_LIB_PRIVATE tyObject_PyModuleDesc__gBC8z6Ez5xj3dXoP0ylCRA gPythonLocalModuleDesc__rWSOv8OWHGeHMsEAMshUQA;
@@ -481,7 +474,7 @@ static N_INLINE(NIM_BOOL, eqStrings)(NimStringV2 a, NimStringV2 b) {
 }
 N_LIB_PRIVATE N_NIMCALL(tySequence__sM4lkSb7zS6F7OVMvW9cffQ, walk__mwUPRUU9alsA2N4KRwstzhw)(NimStringV2 folderpath, tySequence__sM4lkSb7zS6F7OVMvW9cffQ extensions, NIM_BOOL followlinks, NIM_BOOL yieldfiles, NIM_BOOL debugs, NIM_BOOL check_folders) {
 	tySequence__sM4lkSb7zS6F7OVMvW9cffQ result;
-	NIM_BOOL* extused;
+	NIM_BOOL* NIM_NOALIAS extused;
 	NIM_BOOL T1_;
 	NIM_BOOL T2_;
 	NI T4_;
@@ -1233,501 +1226,307 @@ N_LIB_PRIVATE N_CDECL(void*, walk_globPy_wrapper__nOBLoCLVUpFZJb3588qANQ)(void* 
 	result = pX60gensym23_(args, kwargs);
 	return result;
 }
-N_LIB_PRIVATE N_NIMCALL(tySequence__sM4lkSb7zS6F7OVMvW9cffQ, walk_simple__yeWwaNnXkLouUEYHUHdZ9bw)(NimStringV2 folderpath, NIM_BOOL recursive, NIM_BOOL relative, NIM_BOOL check_folders) {
+N_LIB_PRIVATE N_NIMCALL(tySequence__sM4lkSb7zS6F7OVMvW9cffQ, walk_simple__jB3ccVK5GT4z9b3ZjSF9bygA)(NimStringV2 folderpath, NIM_BOOL relative, NIM_BOOL check_folders) {
 	tySequence__sM4lkSb7zS6F7OVMvW9cffQ result;
 NIM_BOOL* nimErr_;
 {nimErr_ = nimErrorFlag();
 	result.len = 0; result.p = NIM_NIL;
 	{
-		NIM_BOOL T3_;
-		T3_ = (NIM_BOOL)0;
-		T3_ = NIM_LIKELY(recursive);
-		if (!T3_) goto LA4_;
+		NimStringV2 item;
+		tySequence__sM4lkSb7zS6F7OVMvW9cffQ stack;
+		NIM_BOOL checkDir;
+		item.len = 0; item.p = NIM_NIL;
+		stack.len = 0; stack.p = NIM_NIL;
+		eq___r6aagoRVuov7HvfEjIi3Uw((&stack), TM__xMHGPK32qaROpInjrbPI7w_7);
+		checkDir = check_folders;
 		{
-			NimStringV2 item;
-			tySequence__sM4lkSb7zS6F7OVMvW9cffQ stack;
-			NIM_BOOL checkDir;
-			item.len = 0; item.p = NIM_NIL;
-			stack.len = 0; stack.p = NIM_NIL;
-			eq___r6aagoRVuov7HvfEjIi3Uw((&stack), TM__xMHGPK32qaROpInjrbPI7w_7);
-			checkDir = check_folders;
-			{
-				while (1) {
-					NI T10_;
-					NimStringV2 d;
-					T10_ = stack.len;
-					if (!(((NI) 0) < T10_)) goto LA9;
-					d.len = 0; d.p = NIM_NIL;
-					d = pop__uJq9ayjszaqUcdxv3Rz6G9bQsystem((&stack));
+			while (1) {
+				NI T5_;
+				NimStringV2 d;
+				T5_ = stack.len;
+				if (!(((NI) 0) < T5_)) goto LA4;
+				d.len = 0; d.p = NIM_NIL;
+				d = pop__uJq9ayjszaqUcdxv3Rz6G9bQsystem((&stack));
+				{
+					NimStringV2 p;
+					NimStringV2 colontmp_;
+					tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg k;
+					NimStringV2 T9_;
+					DIR* d_2;
+					p.len = 0; p.p = NIM_NIL;
+					colontmp_.len = 0; colontmp_.p = NIM_NIL;
+					k = (tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg)0;
+					p.len = 0; p.p = NIM_NIL;
+					colontmp_.len = 0; colontmp_.p = NIM_NIL;
+					T9_.len = 0; T9_.p = NIM_NIL;
+					T9_ = slash___gEyhbzZ1UcxyenWRLJRXNQ(folderpath, d);
+					eqsink___aBBXmHFBEivKqERloP6zmA_2((&colontmp_), T9_);
+					d_2 = opendir(nimToCStringConv(colontmp_));
 					{
-						NimStringV2 p;
-						NimStringV2 colontmp_;
-						tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg k;
-						NimStringV2 T14_;
-						DIR* d_2;
-						p.len = 0; p.p = NIM_NIL;
-						colontmp_.len = 0; colontmp_.p = NIM_NIL;
-						k = (tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg)0;
-						p.len = 0; p.p = NIM_NIL;
-						colontmp_.len = 0; colontmp_.p = NIM_NIL;
-						T14_.len = 0; T14_.p = NIM_NIL;
-						T14_ = slash___gEyhbzZ1UcxyenWRLJRXNQ(folderpath, d);
-						eqsink___aBBXmHFBEivKqERloP6zmA_2((&colontmp_), T14_);
-						d_2 = opendir(nimToCStringConv(colontmp_));
+						if (!(d_2 == NIM_NIL)) goto LA12_;
 						{
-							if (!(d_2 == NIM_NIL)) goto LA17_;
-							{
-								NI32 T23_;
-								if (!checkDir) goto LA21_;
-								T23_ = (NI32)0;
-								T23_ = osLastError__9bUWNxbcGnToMWA9b79aTXLIw();
-								raiseOSError__CWyPYlyH9a6rAuZckFyVxPA(T23_, colontmp_);
-								if (NIM_UNLIKELY(*nimErr_)) goto LA13_;
-							}
-							LA21_: ;
+							NI32 T18_;
+							if (!checkDir) goto LA16_;
+							T18_ = (NI32)0;
+							T18_ = osLastError__9bUWNxbcGnToMWA9b79aTXLIw();
+							raiseOSError__CWyPYlyH9a6rAuZckFyVxPA(T18_, colontmp_);
+							if (NIM_UNLIKELY(*nimErr_)) goto LA8_;
 						}
-						goto LA15_;
-						LA17_: ;
+						LA16_: ;
+					}
+					goto LA10_;
+					LA12_: ;
+					{
 						{
-							{
-								while (1) {
+							while (1) {
+								{
+									NimStringV2 y;
+									struct dirent* x;
+									y.len = 0; y.p = NIM_NIL;
+									x = readdir(d_2);
 									{
-										NimStringV2 y;
-										struct dirent* x;
-										y.len = 0; y.p = NIM_NIL;
-										x = readdir(d_2);
-										{
-											if (!(x == NIM_NIL)) goto LA32_;
-											eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&y));
-											goto LA26;
-										}
+										if (!(x == NIM_NIL)) goto LA27_;
+										eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&y));
+										goto LA21;
+									}
+									LA27_: ;
+									y = cstrToNimstr(((NCSTRING) ((*x).d_name)));
+									{
+										NIM_BOOL T31_;
+										NimStringV2 path;
+										NimStringV2 rel;
+										struct stat s;
+										tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg k_2;
+										T31_ = (NIM_BOOL)0;
+										T31_ = !(eqStrings(y, TM__xMHGPK32qaROpInjrbPI7w_20));
+										if (!(T31_)) goto LA32_;
+										T31_ = !(eqStrings(y, TM__xMHGPK32qaROpInjrbPI7w_21));
 										LA32_: ;
-										y = cstrToNimstr(((NCSTRING) ((*x).d_name)));
+										if (!T31_) goto LA33_;
+										path.len = 0; path.p = NIM_NIL;
+										rel.len = 0; rel.p = NIM_NIL;
+										nimZeroMem((void*)(&s), sizeof(struct stat));
+										path = slash___gEyhbzZ1UcxyenWRLJRXNQ(colontmp_, y);
 										{
-											NIM_BOOL T36_;
-											NimStringV2 path;
-											NimStringV2 rel;
-											struct stat s;
-											tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg k_2;
-											T36_ = (NIM_BOOL)0;
-											T36_ = !(eqStrings(y, TM__xMHGPK32qaROpInjrbPI7w_20));
-											if (!(T36_)) goto LA37_;
-											T36_ = !(eqStrings(y, TM__xMHGPK32qaROpInjrbPI7w_21));
-											LA37_: ;
-											if (!T36_) goto LA38_;
-											path.len = 0; path.p = NIM_NIL;
-											rel.len = 0; rel.p = NIM_NIL;
-											nimZeroMem((void*)(&s), sizeof(struct stat));
-											path = slash___gEyhbzZ1UcxyenWRLJRXNQ(colontmp_, y);
+											if (!NIM_FALSE) goto LA38_;
+											eq___aBBXmHFBEivKqERloP6zmA((&y), path);
+										}
+										LA38_: ;
+										k_2 = ((tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg) 0);
+										{
+											NimStringV2 rel_2;
+											if (!!(((*x).d_type == ((NI8) 0)))) goto LA42_;
+											rel_2.len = 0; rel_2.p = NIM_NIL;
 											{
-												if (!NIM_FALSE) goto LA43_;
-												eq___aBBXmHFBEivKqERloP6zmA((&y), path);
-											}
-											LA43_: ;
-											k_2 = ((tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg) 0);
-											{
-												NimStringV2 rel_2;
-												if (!!(((*x).d_type == ((NI8) 0)))) goto LA47_;
-												rel_2.len = 0; rel_2.p = NIM_NIL;
-												{
-													if (!((*x).d_type == ((NI8) 4))) goto LA52_;
-													k_2 = ((tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg) 2);
-												}
-												LA52_: ;
-												{
-													if (!((*x).d_type == ((NI8) 10))) goto LA56_;
-													{
-														NIM_BOOL T60_;
-														T60_ = (NIM_BOOL)0;
-														T60_ = nosdirExists(path);
-														if (!T60_) goto LA61_;
-														k_2 = ((tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg) 3);
-													}
-													goto LA58_;
-													LA61_: ;
-													{
-														k_2 = ((tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg) 1);
-													}
-													LA58_: ;
-												}
-												LA56_: ;
-												k = k_2;
-												eq___aBBXmHFBEivKqERloP6zmA((&p), y);
-												rel_2 = slash___gEyhbzZ1UcxyenWRLJRXNQ(d, p);
-												{
-													NIM_BOOL T66_;
-													NimStringV2 colontmpD_;
-													T66_ = (NIM_BOOL)0;
-													T66_ = (k == ((tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg) 2) || k == ((tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg) 3));
-													if (!(T66_)) goto LA67_;
-													T66_ = (k == ((tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg) 2));
-													LA67_: ;
-													if (!T66_) goto LA68_;
-													colontmpD_.len = 0; colontmpD_.p = NIM_NIL;
-													colontmpD_.len = 0; colontmpD_.p = NIM_NIL;
-													eq___aBBXmHFBEivKqERloP6zmA((&colontmpD_), rel_2);
-													add__dK9ajFgX5RSWQx0eHjjpjSQ((&stack), colontmpD_);
-												}
-												LA68_: ;
-												{
-													NimStringV2 colontmpD__2;
-													NimStringV2 T74_;
-													if (!(k == ((tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg) 0))) goto LA72_;
-													colontmpD__2.len = 0; colontmpD__2.p = NIM_NIL;
-													T74_.len = 0; T74_.p = NIM_NIL;
-													{
-														if (!relative) goto LA77_;
-														eq___aBBXmHFBEivKqERloP6zmA((&item), rel_2);
-													}
-													goto LA75_;
-													LA77_: ;
-													{
-														NimStringV2 T80_;
-														T80_.len = 0; T80_.p = NIM_NIL;
-														T80_ = slash___gEyhbzZ1UcxyenWRLJRXNQ(folderpath, rel_2);
-														eqsink___aBBXmHFBEivKqERloP6zmA_2((&item), T80_);
-													}
-													LA75_: ;
-													colontmpD__2.len = 0; colontmpD__2.p = NIM_NIL;
-													eq___aBBXmHFBEivKqERloP6zmA((&colontmpD__2), item);
-													add__dK9ajFgX5RSWQx0eHjjpjSQ((&result), colontmpD__2);
-												}
-												LA72_: ;
-												eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&rel_2));
-												eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&rel));
-												eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&path));
-												eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&y));
-												goto LA28;
-												{
-													LA49_:;
-												}
-												{
-													eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&rel_2));
-												}
-												if (NIM_UNLIKELY(*nimErr_)) goto LA40_;
+												if (!((*x).d_type == ((NI8) 4))) goto LA47_;
+												k_2 = ((tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg) 2);
 											}
 											LA47_: ;
 											{
-												int T85_;
-												T85_ = (int)0;
-												T85_ = lstat(nimToCStringConv(path), (&s));
-												if (!(T85_ < ((NI32) 0))) goto LA86_;
-												eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&rel));
-												eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&path));
-												eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&y));
-												goto LA26;
+												if (!((*x).d_type == ((NI8) 10))) goto LA51_;
+												{
+													NIM_BOOL T55_;
+													T55_ = (NIM_BOOL)0;
+													T55_ = nosdirExists(path);
+													if (!T55_) goto LA56_;
+													k_2 = ((tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg) 3);
+												}
+												goto LA53_;
+												LA56_: ;
+												{
+													k_2 = ((tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg) 1);
+												}
+												LA53_: ;
 											}
-											LA86_: ;
-											{
-												NIM_BOOL T90_;
-												T90_ = (NIM_BOOL)0;
-												T90_ = S_ISDIR(s.st_mode);
-												if (!T90_) goto LA91_;
-												k_2 = ((tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg) 2);
-											}
-											goto LA88_;
-											LA91_: ;
-											{
-												NIM_BOOL T94_;
-												T94_ = (NIM_BOOL)0;
-												T94_ = S_ISLNK(s.st_mode);
-												if (!T94_) goto LA95_;
-												k_2 = getSymlinkFileKind__wTnLPNAWjgwVnuiJ9ax0ZGQ(path);
-											}
-											goto LA88_;
-											LA95_: ;
-											LA88_: ;
+											LA51_: ;
 											k = k_2;
 											eq___aBBXmHFBEivKqERloP6zmA((&p), y);
-											rel = slash___gEyhbzZ1UcxyenWRLJRXNQ(d, p);
+											rel_2 = slash___gEyhbzZ1UcxyenWRLJRXNQ(d, p);
 											{
-												NIM_BOOL T99_;
-												NimStringV2 colontmpD__3;
-												T99_ = (NIM_BOOL)0;
-												T99_ = (k == ((tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg) 2) || k == ((tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg) 3));
-												if (!(T99_)) goto LA100_;
-												T99_ = (k == ((tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg) 2));
-												LA100_: ;
-												if (!T99_) goto LA101_;
-												colontmpD__3.len = 0; colontmpD__3.p = NIM_NIL;
-												colontmpD__3.len = 0; colontmpD__3.p = NIM_NIL;
-												eq___aBBXmHFBEivKqERloP6zmA((&colontmpD__3), rel);
-												add__dK9ajFgX5RSWQx0eHjjpjSQ((&stack), colontmpD__3);
+												NIM_BOOL T61_;
+												NimStringV2 colontmpD_;
+												T61_ = (NIM_BOOL)0;
+												T61_ = (k == ((tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg) 2) || k == ((tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg) 3));
+												if (!(T61_)) goto LA62_;
+												T61_ = (k == ((tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg) 2));
+												LA62_: ;
+												if (!T61_) goto LA63_;
+												colontmpD_.len = 0; colontmpD_.p = NIM_NIL;
+												colontmpD_.len = 0; colontmpD_.p = NIM_NIL;
+												eq___aBBXmHFBEivKqERloP6zmA((&colontmpD_), rel_2);
+												add__dK9ajFgX5RSWQx0eHjjpjSQ((&stack), colontmpD_);
 											}
-											LA101_: ;
+											LA63_: ;
 											{
-												NimStringV2 colontmpD__4;
-												NimStringV2 T107_;
-												if (!(k == ((tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg) 0))) goto LA105_;
-												colontmpD__4.len = 0; colontmpD__4.p = NIM_NIL;
-												T107_.len = 0; T107_.p = NIM_NIL;
+												NimStringV2 colontmpD__2;
+												NimStringV2 T69_;
+												if (!(k == ((tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg) 0))) goto LA67_;
+												colontmpD__2.len = 0; colontmpD__2.p = NIM_NIL;
+												T69_.len = 0; T69_.p = NIM_NIL;
 												{
-													if (!relative) goto LA110_;
-													eq___aBBXmHFBEivKqERloP6zmA((&item), rel);
+													if (!relative) goto LA72_;
+													eq___aBBXmHFBEivKqERloP6zmA((&item), rel_2);
 												}
-												goto LA108_;
-												LA110_: ;
+												goto LA70_;
+												LA72_: ;
 												{
-													NimStringV2 T113_;
-													T113_.len = 0; T113_.p = NIM_NIL;
-													T113_ = slash___gEyhbzZ1UcxyenWRLJRXNQ(folderpath, rel);
-													eqsink___aBBXmHFBEivKqERloP6zmA_2((&item), T113_);
+													NimStringV2 T75_;
+													T75_.len = 0; T75_.p = NIM_NIL;
+													T75_ = slash___gEyhbzZ1UcxyenWRLJRXNQ(folderpath, rel_2);
+													eqsink___aBBXmHFBEivKqERloP6zmA_2((&item), T75_);
 												}
-												LA108_: ;
-												colontmpD__4.len = 0; colontmpD__4.p = NIM_NIL;
-												eq___aBBXmHFBEivKqERloP6zmA((&colontmpD__4), item);
-												add__dK9ajFgX5RSWQx0eHjjpjSQ((&result), colontmpD__4);
+												LA70_: ;
+												colontmpD__2.len = 0; colontmpD__2.p = NIM_NIL;
+												eq___aBBXmHFBEivKqERloP6zmA((&colontmpD__2), item);
+												add__dK9ajFgX5RSWQx0eHjjpjSQ((&result), colontmpD__2);
 											}
+											LA67_: ;
+											eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&rel_2));
+											eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&rel));
+											eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&path));
+											eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&y));
+											goto LA23;
+											{
+												LA44_:;
+											}
+											{
+												eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&rel_2));
+											}
+											if (NIM_UNLIKELY(*nimErr_)) goto LA35_;
+										}
+										LA42_: ;
+										{
+											int T80_;
+											T80_ = (int)0;
+											T80_ = lstat(nimToCStringConv(path), (&s));
+											if (!(T80_ < ((NI32) 0))) goto LA81_;
+											eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&rel));
+											eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&path));
+											eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&y));
+											goto LA21;
+										}
+										LA81_: ;
+										{
+											NIM_BOOL T85_;
+											T85_ = (NIM_BOOL)0;
+											T85_ = S_ISDIR(s.st_mode);
+											if (!T85_) goto LA86_;
+											k_2 = ((tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg) 2);
+										}
+										goto LA83_;
+										LA86_: ;
+										{
+											NIM_BOOL T89_;
+											T89_ = (NIM_BOOL)0;
+											T89_ = S_ISLNK(s.st_mode);
+											if (!T89_) goto LA90_;
+											k_2 = getSymlinkFileKind__wTnLPNAWjgwVnuiJ9ax0ZGQ(path);
+										}
+										goto LA83_;
+										LA90_: ;
+										LA83_: ;
+										k = k_2;
+										eq___aBBXmHFBEivKqERloP6zmA((&p), y);
+										rel = slash___gEyhbzZ1UcxyenWRLJRXNQ(d, p);
+										{
+											NIM_BOOL T94_;
+											NimStringV2 colontmpD__3;
+											T94_ = (NIM_BOOL)0;
+											T94_ = (k == ((tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg) 2) || k == ((tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg) 3));
+											if (!(T94_)) goto LA95_;
+											T94_ = (k == ((tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg) 2));
+											LA95_: ;
+											if (!T94_) goto LA96_;
+											colontmpD__3.len = 0; colontmpD__3.p = NIM_NIL;
+											colontmpD__3.len = 0; colontmpD__3.p = NIM_NIL;
+											eq___aBBXmHFBEivKqERloP6zmA((&colontmpD__3), rel);
+											add__dK9ajFgX5RSWQx0eHjjpjSQ((&stack), colontmpD__3);
+										}
+										LA96_: ;
+										{
+											NimStringV2 colontmpD__4;
+											NimStringV2 T102_;
+											if (!(k == ((tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg) 0))) goto LA100_;
+											colontmpD__4.len = 0; colontmpD__4.p = NIM_NIL;
+											T102_.len = 0; T102_.p = NIM_NIL;
+											{
+												if (!relative) goto LA105_;
+												eq___aBBXmHFBEivKqERloP6zmA((&item), rel);
+											}
+											goto LA103_;
 											LA105_: ;
 											{
-												LA40_:;
+												NimStringV2 T108_;
+												T108_.len = 0; T108_.p = NIM_NIL;
+												T108_ = slash___gEyhbzZ1UcxyenWRLJRXNQ(folderpath, rel);
+												eqsink___aBBXmHFBEivKqERloP6zmA_2((&item), T108_);
 											}
-											{
-												eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&rel));
-												eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&path));
-											}
-											if (NIM_UNLIKELY(*nimErr_)) goto LA29_;
+											LA103_: ;
+											colontmpD__4.len = 0; colontmpD__4.p = NIM_NIL;
+											eq___aBBXmHFBEivKqERloP6zmA((&colontmpD__4), item);
+											add__dK9ajFgX5RSWQx0eHjjpjSQ((&result), colontmpD__4);
 										}
-										LA38_: ;
+										LA100_: ;
 										{
-											LA29_:;
+											LA35_:;
 										}
 										{
-											eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&y));
+											eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&rel));
+											eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&path));
 										}
-										if (NIM_UNLIKELY(*nimErr_)) goto LA25_;
-									} LA28: ;
-								}
-							} LA26: ;
-							{
-								LA25_:;
+										if (NIM_UNLIKELY(*nimErr_)) goto LA24_;
+									}
+									LA33_: ;
+									{
+										LA24_:;
+									}
+									{
+										eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&y));
+									}
+									if (NIM_UNLIKELY(*nimErr_)) goto LA20_;
+								} LA23: ;
 							}
-							{
-								int T120_;
-								T120_ = (int)0;
-								T120_ = closedir(d_2);
-								(void)(T120_);
-							}
-							if (NIM_UNLIKELY(*nimErr_)) goto LA13_;
-						}
-						LA15_: ;
+						} LA21: ;
 						{
-							LA13_:;
+							LA20_:;
 						}
 						{
-							eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&colontmp_));
-							eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&p));
+							int T115_;
+							T115_ = (int)0;
+							T115_ = closedir(d_2);
+							(void)(T115_);
 						}
-						if (NIM_UNLIKELY(*nimErr_)) goto LA11_;
+						if (NIM_UNLIKELY(*nimErr_)) goto LA8_;
 					}
-					checkDir = NIM_FALSE;
+					LA10_: ;
 					{
-						LA11_:;
+						LA8_:;
 					}
 					{
-						eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&d));
+						eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&colontmp_));
+						eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&p));
 					}
-					if (NIM_UNLIKELY(*nimErr_)) goto LA7_;
-				} LA9: ;
-			}
-			{
-				LA7_:;
-			}
-			{
-				eqdestroy___0RiuPw9cXhtLB9a2rQ2jA69cg((&stack));
-				eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&item));
-			}
-			if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
+					if (NIM_UNLIKELY(*nimErr_)) goto LA6_;
+				}
+				checkDir = NIM_FALSE;
+				{
+					LA6_:;
+				}
+				{
+					eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&d));
+				}
+				if (NIM_UNLIKELY(*nimErr_)) goto LA2_;
+			} LA4: ;
 		}
-	}
-	goto LA1_;
-	LA4_: ;
-	{
 		{
-			tyTuple__LCURwohbLBusrL8hdCnvng item_2;
-			DIR* d_3;
-			nimZeroMem((void*)(&item_2), sizeof(tyTuple__LCURwohbLBusrL8hdCnvng));
-			d_3 = opendir(nimToCStringConv(folderpath));
-			{
-				if (!(d_3 == NIM_NIL)) goto LA132_;
-				{
-					NI32 T138_;
-					if (!check_folders) goto LA136_;
-					T138_ = (NI32)0;
-					T138_ = osLastError__9bUWNxbcGnToMWA9b79aTXLIw();
-					raiseOSError__CWyPYlyH9a6rAuZckFyVxPA(T138_, folderpath);
-					if (NIM_UNLIKELY(*nimErr_)) goto LA129_;
-				}
-				LA136_: ;
-			}
-			goto LA130_;
-			LA132_: ;
-			{
-				{
-					while (1) {
-						{
-							NimStringV2 y_2;
-							struct dirent* x_2;
-							y_2.len = 0; y_2.p = NIM_NIL;
-							x_2 = readdir(d_3);
-							{
-								if (!(x_2 == NIM_NIL)) goto LA147_;
-								eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&y_2));
-								goto LA141;
-							}
-							LA147_: ;
-							y_2 = cstrToNimstr(((NCSTRING) ((*x_2).d_name)));
-							{
-								NIM_BOOL T151_;
-								NimStringV2 path_2;
-								tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg colontmpD__5;
-								NimStringV2 colontmpD__6;
-								NimStringV2 colontmpD__7;
-								struct stat s_2;
-								tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg k_3;
-								tyTuple__LCURwohbLBusrL8hdCnvng T193_;
-								T151_ = (NIM_BOOL)0;
-								T151_ = !(eqStrings(y_2, TM__xMHGPK32qaROpInjrbPI7w_22));
-								if (!(T151_)) goto LA152_;
-								T151_ = !(eqStrings(y_2, TM__xMHGPK32qaROpInjrbPI7w_23));
-								LA152_: ;
-								if (!T151_) goto LA153_;
-								path_2.len = 0; path_2.p = NIM_NIL;
-								colontmpD__5 = (tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg)0;
-								colontmpD__6.len = 0; colontmpD__6.p = NIM_NIL;
-								colontmpD__7.len = 0; colontmpD__7.p = NIM_NIL;
-								nimZeroMem((void*)(&s_2), sizeof(struct stat));
-								path_2 = slash___gEyhbzZ1UcxyenWRLJRXNQ(folderpath, y_2);
-								{
-									if (!!(relative)) goto LA158_;
-									eq___aBBXmHFBEivKqERloP6zmA((&y_2), path_2);
-								}
-								LA158_: ;
-								k_3 = ((tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg) 0);
-								{
-									tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg colontmpD__8;
-									NimStringV2 colontmpD__9;
-									NimStringV2 colontmpD__10;
-									tyTuple__LCURwohbLBusrL8hdCnvng T178_;
-									if (!!(((*x_2).d_type == ((NI8) 0)))) goto LA162_;
-									colontmpD__8 = (tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg)0;
-									colontmpD__9.len = 0; colontmpD__9.p = NIM_NIL;
-									colontmpD__10.len = 0; colontmpD__10.p = NIM_NIL;
-									{
-										if (!((*x_2).d_type == ((NI8) 4))) goto LA166_;
-										k_3 = ((tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg) 2);
-									}
-									LA166_: ;
-									{
-										if (!((*x_2).d_type == ((NI8) 10))) goto LA170_;
-										{
-											NIM_BOOL T174_;
-											T174_ = (NIM_BOOL)0;
-											T174_ = nosdirExists(path_2);
-											if (!T174_) goto LA175_;
-											k_3 = ((tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg) 3);
-										}
-										goto LA172_;
-										LA175_: ;
-										{
-											k_3 = ((tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg) 1);
-										}
-										LA172_: ;
-									}
-									LA170_: ;
-									colontmpD__8 = k_3;
-									T178_.Field0 = colontmpD__8;
-									colontmpD__9.len = 0; colontmpD__9.p = NIM_NIL;
-									eq___aBBXmHFBEivKqERloP6zmA((&colontmpD__9), y_2);
-									T178_.Field1 = colontmpD__9;
-									eqsink___eJvma6sOTizgxElKpB2yuQ((&item_2), T178_);
-									colontmpD__10.len = 0; colontmpD__10.p = NIM_NIL;
-									eq___aBBXmHFBEivKqERloP6zmA((&colontmpD__10), item_2.Field1);
-									add__dK9ajFgX5RSWQx0eHjjpjSQ((&result), colontmpD__10);
-									eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&path_2));
-									eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&y_2));
-									goto LA143;
-								}
-								LA162_: ;
-								{
-									int T181_;
-									T181_ = (int)0;
-									T181_ = lstat(nimToCStringConv(path_2), (&s_2));
-									if (!(T181_ < ((NI32) 0))) goto LA182_;
-									eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&path_2));
-									eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&y_2));
-									goto LA141;
-								}
-								LA182_: ;
-								{
-									NIM_BOOL T186_;
-									T186_ = (NIM_BOOL)0;
-									T186_ = S_ISDIR(s_2.st_mode);
-									if (!T186_) goto LA187_;
-									k_3 = ((tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg) 2);
-								}
-								goto LA184_;
-								LA187_: ;
-								{
-									NIM_BOOL T190_;
-									T190_ = (NIM_BOOL)0;
-									T190_ = S_ISLNK(s_2.st_mode);
-									if (!T190_) goto LA191_;
-									k_3 = getSymlinkFileKind__wTnLPNAWjgwVnuiJ9ax0ZGQ(path_2);
-								}
-								goto LA184_;
-								LA191_: ;
-								LA184_: ;
-								colontmpD__5 = k_3;
-								T193_.Field0 = colontmpD__5;
-								colontmpD__6.len = 0; colontmpD__6.p = NIM_NIL;
-								eq___aBBXmHFBEivKqERloP6zmA((&colontmpD__6), y_2);
-								T193_.Field1 = colontmpD__6;
-								eqsink___eJvma6sOTizgxElKpB2yuQ((&item_2), T193_);
-								colontmpD__7.len = 0; colontmpD__7.p = NIM_NIL;
-								eq___aBBXmHFBEivKqERloP6zmA((&colontmpD__7), item_2.Field1);
-								add__dK9ajFgX5RSWQx0eHjjpjSQ((&result), colontmpD__7);
-								{
-									LA155_:;
-								}
-								{
-									eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&path_2));
-								}
-								if (NIM_UNLIKELY(*nimErr_)) goto LA144_;
-							}
-							LA153_: ;
-							{
-								LA144_:;
-							}
-							{
-								eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&y_2));
-							}
-							if (NIM_UNLIKELY(*nimErr_)) goto LA140_;
-						} LA143: ;
-					}
-				} LA141: ;
-				{
-					LA140_:;
-				}
-				{
-					int T200_;
-					T200_ = (int)0;
-					T200_ = closedir(d_3);
-					(void)(T200_);
-				}
-				if (NIM_UNLIKELY(*nimErr_)) goto LA129_;
-			}
-			LA130_: ;
-			{
-				LA129_:;
-			}
-			{
-				eqdestroy___9bqov6Wj01jiBsy3mzTHnMQ((&item_2));
-			}
-			if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
+			LA2_:;
 		}
+		{
+			eqdestroy___0RiuPw9cXhtLB9a2rQ2jA69cg((&stack));
+			eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&item));
+		}
+		if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 	}
-	LA1_: ;
 	}BeforeRet_: ;
 	return result;
 }
@@ -1736,9 +1535,8 @@ N_LIB_PRIVATE N_NIMCALL(void*, noinline__51nak27P4W6IWblJlmgg0w_3)(void* args, v
 	NimStringV2 arg0folderpath;
 	void* colontmpD_;
 	void* colontmpD__2;
-	NIM_BOOL arg1recursive;
-	NIM_BOOL arg2relative;
-	NIM_BOOL arg3check_folders;
+	NIM_BOOL arg1relative;
+	NIM_BOOL arg2check_folders;
 	tySequence__sM4lkSb7zS6F7OVMvW9cffQ colontmpD__3;
 	tySequence__sM4lkSb7zS6F7OVMvW9cffQ T9_;
 	void* T10_;
@@ -1751,7 +1549,7 @@ NIM_BOOL* nimErr_;
 	{
 		NIM_BOOL T4_;
 		T4_ = (NIM_BOOL)0;
-		T4_ = verifyArgs__8sVYJT4zfbIXMNXtJ2cTng(args, kwargs, ((NI) 4), ((NI) 1), TM__xMHGPK32qaROpInjrbPI7w_17, 4, TM__xMHGPK32qaROpInjrbPI7w_19);
+		T4_ = verifyArgs__8sVYJT4zfbIXMNXtJ2cTng(args, kwargs, ((NI) 3), ((NI) 1), TM__xMHGPK32qaROpInjrbPI7w_17, 3, TM__xMHGPK32qaROpInjrbPI7w_19);
 		if (NIM_UNLIKELY(*nimErr_)) goto LA1_;
 		if (!!(T4_)) goto LA5_;
 		result = ((void*) (NIM_NIL));
@@ -1759,20 +1557,17 @@ NIM_BOOL* nimErr_;
 		goto BeforeRet_;
 	}
 	LA5_: ;
-	arg1recursive = NIM_TRUE;
-	arg2relative = NIM_FALSE;
-	arg3check_folders = NIM_FALSE;
+	arg1relative = NIM_FALSE;
+	arg2check_folders = NIM_FALSE;
 	parseArg__icg9aGIbXA4DEIGHwq7rmAA(args, kwargs, ((NI) 0), "folderpath", (&arg0folderpath));
 	if (NIM_UNLIKELY(*nimErr_)) goto LA1_;
-	parseArg__LZY9aeACpjd5IJS4h2b8lqA(args, kwargs, ((NI) 1), "recursive", (&arg1recursive));
+	parseArg__LZY9aeACpjd5IJS4h2b8lqA(args, kwargs, ((NI) 1), "relative", (&arg1relative));
 	if (NIM_UNLIKELY(*nimErr_)) goto LA1_;
-	parseArg__LZY9aeACpjd5IJS4h2b8lqA(args, kwargs, ((NI) 2), "relative", (&arg2relative));
-	if (NIM_UNLIKELY(*nimErr_)) goto LA1_;
-	parseArg__LZY9aeACpjd5IJS4h2b8lqA(args, kwargs, ((NI) 3), "check_folders", (&arg3check_folders));
+	parseArg__LZY9aeACpjd5IJS4h2b8lqA(args, kwargs, ((NI) 2), "check_folders", (&arg2check_folders));
 	if (NIM_UNLIKELY(*nimErr_)) goto LA1_;
 	colontmpD__3.len = 0; colontmpD__3.p = NIM_NIL;
 	T9_.len = 0; T9_.p = NIM_NIL;
-	T9_ = walk_simple__yeWwaNnXkLouUEYHUHdZ9bw(arg0folderpath, arg1recursive, arg2relative, arg3check_folders);
+	T9_ = walk_simple__jB3ccVK5GT4z9b3ZjSF9bygA(arg0folderpath, arg1relative, arg2check_folders);
 	if (NIM_UNLIKELY(*nimErr_)) goto LA8_;
 	colontmpD__3 = T9_;
 	T10_ = (void*)0;
@@ -1831,140 +1626,70 @@ N_LIB_PRIVATE N_CDECL(void*, walk_simplePy_wrapper__IzdXrRRm9a7J5XcJ9cia4k8w)(vo
 	result = pX60gensym29_(args, kwargs);
 	return result;
 }
-N_LIB_PRIVATE N_NIMCALL(tySequence__sM4lkSb7zS6F7OVMvW9cffQ, walk_files__ToYLunVJTl6uByayJPO9amA)(NimStringV2 globpattern, NIM_BOOL folders_only) {
+N_LIB_PRIVATE N_NIMCALL(tySequence__sM4lkSb7zS6F7OVMvW9cffQ, walk_folders__T0p28lhyF7ws9aW2ZqYXykA_2)(NimStringV2 globpattern) {
 	tySequence__sM4lkSb7zS6F7OVMvW9cffQ result;
 NIM_BOOL* nimErr_;
 {nimErr_ = nimErrorFlag();
 	result.len = 0; result.p = NIM_NIL;
 	{
-		NIM_BOOL T3_;
-		T3_ = (NIM_BOOL)0;
-		T3_ = NIM_UNLIKELY(folders_only);
-		if (!T3_) goto LA4_;
+		NimStringV2 item;
+		glob_t fX60gensym146_;
+		NI resX60gensym146_;
+		int T2_;
+		item.len = 0; item.p = NIM_NIL;
+		nimZeroMem((void*)(&fX60gensym146_), sizeof(glob_t));
+		resX60gensym146_ = (NI)0;
+		fX60gensym146_.gl_offs = ((size_t) 0);
+		fX60gensym146_.gl_pathc = ((size_t) 0);
+		fX60gensym146_.gl_pathv = NIM_NIL;
+		T2_ = (int)0;
+		T2_ = glob(nimToCStringConv(globpattern), ((int) 0), NIM_NIL, (&fX60gensym146_));
+		resX60gensym146_ = ((NI) (T2_));
 		{
-			NimStringV2 item;
-			glob_t fX60gensym146_;
-			NI resX60gensym146_;
-			int T7_;
-			item.len = 0; item.p = NIM_NIL;
-			nimZeroMem((void*)(&fX60gensym146_), sizeof(glob_t));
-			resX60gensym146_ = (NI)0;
-			fX60gensym146_.gl_offs = ((size_t) 0);
-			fX60gensym146_.gl_pathc = ((size_t) 0);
-			fX60gensym146_.gl_pathv = NIM_NIL;
-			T7_ = (int)0;
-			T7_ = glob(nimToCStringConv(globpattern), ((int) 0), NIM_NIL, (&fX60gensym146_));
-			resX60gensym146_ = ((NI) (T7_));
+			if (!(resX60gensym146_ == ((NI) 0))) goto LA6_;
 			{
-				if (!(resX60gensym146_ == ((NI) 0))) goto LA11_;
+				NU64 iX60gensym146_;
+				NU64 colontmp_;
+				NU64 res;
+				iX60gensym146_ = (NU64)0;
+				colontmp_ = (NU64)0;
+				colontmp_ = ((NU64) ((NU)((NU64)(fX60gensym146_.gl_pathc) - (NU64)(((NU) 1)))));
+				res = 0ULL;
 				{
-					NU64 iX60gensym146_;
-					NU64 colontmp_;
-					NU64 res;
-					iX60gensym146_ = (NU64)0;
-					colontmp_ = (NU64)0;
-					colontmp_ = ((NU64) ((NU)((NU64)(fX60gensym146_.gl_pathc) - (NU64)(((NU) 1)))));
-					res = 0ULL;
-					{
-						while (1) {
-							NimStringV2 pathX60gensym146_;
-							if (!((NU64)(res) <= (NU64)(colontmp_))) goto LA15;
-							pathX60gensym146_.len = 0; pathX60gensym146_.p = NIM_NIL;
-							iX60gensym146_ = res;
-							pathX60gensym146_ = cstrToNimstr(fX60gensym146_.gl_pathv[iX60gensym146_]);
-							{
-								NIM_BOOL T18_;
-								NimStringV2 colontmpD_;
-								T18_ = (NIM_BOOL)0;
-								T18_ = nosdirExists(pathX60gensym146_);
-								if (!T18_) goto LA19_;
-								colontmpD_.len = 0; colontmpD_.p = NIM_NIL;
-								item = pathX60gensym146_;
-								colontmpD_.len = 0; colontmpD_.p = NIM_NIL;
-								eq___aBBXmHFBEivKqERloP6zmA((&colontmpD_), item);
-								add__dK9ajFgX5RSWQx0eHjjpjSQ((&result), colontmpD_);
-							}
-							LA19_: ;
-							res += ((NI) 1);
-							eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&pathX60gensym146_));
-						} LA15: ;
-					}
+					while (1) {
+						NimStringV2 pathX60gensym146_;
+						if (!((NU64)(res) <= (NU64)(colontmp_))) goto LA10;
+						pathX60gensym146_.len = 0; pathX60gensym146_.p = NIM_NIL;
+						iX60gensym146_ = res;
+						pathX60gensym146_ = cstrToNimstr(fX60gensym146_.gl_pathv[iX60gensym146_]);
+						{
+							NIM_BOOL T13_;
+							NimStringV2 colontmpD_;
+							T13_ = (NIM_BOOL)0;
+							T13_ = nosdirExists(pathX60gensym146_);
+							if (!T13_) goto LA14_;
+							colontmpD_.len = 0; colontmpD_.p = NIM_NIL;
+							item = pathX60gensym146_;
+							colontmpD_.len = 0; colontmpD_.p = NIM_NIL;
+							eq___aBBXmHFBEivKqERloP6zmA((&colontmpD_), item);
+							add__dK9ajFgX5RSWQx0eHjjpjSQ((&result), colontmpD_);
+						}
+						LA14_: ;
+						res += ((NI) 1);
+						eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&pathX60gensym146_));
+					} LA10: ;
 				}
 			}
-			LA11_: ;
-			{
-				LA8_:;
-			}
-			{
-				globfree((&fX60gensym146_));
-			}
-			if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 		}
-	}
-	goto LA1_;
-	LA4_: ;
-	{
+		LA6_: ;
 		{
-			NimStringV2 item_2;
-			glob_t fX60gensym141_;
-			NI resX60gensym141_;
-			int T25_;
-			item_2.len = 0; item_2.p = NIM_NIL;
-			nimZeroMem((void*)(&fX60gensym141_), sizeof(glob_t));
-			resX60gensym141_ = (NI)0;
-			fX60gensym141_.gl_offs = ((size_t) 0);
-			fX60gensym141_.gl_pathc = ((size_t) 0);
-			fX60gensym141_.gl_pathv = NIM_NIL;
-			T25_ = (int)0;
-			T25_ = glob(nimToCStringConv(globpattern), ((int) 0), NIM_NIL, (&fX60gensym141_));
-			resX60gensym141_ = ((NI) (T25_));
-			{
-				if (!(resX60gensym141_ == ((NI) 0))) goto LA29_;
-				{
-					NU64 iX60gensym141_;
-					NU64 colontmp__2;
-					NU64 res_2;
-					iX60gensym141_ = (NU64)0;
-					colontmp__2 = (NU64)0;
-					colontmp__2 = ((NU64) ((NU)((NU64)(fX60gensym141_.gl_pathc) - (NU64)(((NU) 1)))));
-					res_2 = 0ULL;
-					{
-						while (1) {
-							NimStringV2 pathX60gensym141_;
-							if (!((NU64)(res_2) <= (NU64)(colontmp__2))) goto LA33;
-							pathX60gensym141_.len = 0; pathX60gensym141_.p = NIM_NIL;
-							iX60gensym141_ = res_2;
-							pathX60gensym141_ = cstrToNimstr(fX60gensym141_.gl_pathv[iX60gensym141_]);
-							{
-								NIM_BOOL T36_;
-								NimStringV2 colontmpD__2;
-								T36_ = (NIM_BOOL)0;
-								T36_ = nosfileExists(pathX60gensym141_);
-								if (!T36_) goto LA37_;
-								colontmpD__2.len = 0; colontmpD__2.p = NIM_NIL;
-								item_2 = pathX60gensym141_;
-								colontmpD__2.len = 0; colontmpD__2.p = NIM_NIL;
-								eq___aBBXmHFBEivKqERloP6zmA((&colontmpD__2), item_2);
-								add__dK9ajFgX5RSWQx0eHjjpjSQ((&result), colontmpD__2);
-							}
-							LA37_: ;
-							res_2 += ((NI) 1);
-							eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&pathX60gensym141_));
-						} LA33: ;
-					}
-				}
-			}
-			LA29_: ;
-			{
-				LA26_:;
-			}
-			{
-				globfree((&fX60gensym141_));
-			}
-			if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
+			LA3_:;
 		}
+		{
+			globfree((&fX60gensym146_));
+		}
+		if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
 	}
-	LA1_: ;
 	}BeforeRet_: ;
 	return result;
 }
@@ -1973,7 +1698,6 @@ N_LIB_PRIVATE N_NIMCALL(void*, noinline__51nak27P4W6IWblJlmgg0w_4)(void* args, v
 	NimStringV2 arg0globpattern;
 	void* colontmpD_;
 	void* colontmpD__2;
-	NIM_BOOL arg1folders_only;
 	tySequence__sM4lkSb7zS6F7OVMvW9cffQ colontmpD__3;
 	void* T9_;
 NIM_BOOL* nimErr_;
@@ -1985,7 +1709,7 @@ NIM_BOOL* nimErr_;
 	{
 		NIM_BOOL T4_;
 		T4_ = (NIM_BOOL)0;
-		T4_ = verifyArgs__8sVYJT4zfbIXMNXtJ2cTng(args, kwargs, ((NI) 2), ((NI) 1), TM__xMHGPK32qaROpInjrbPI7w_24, 2, TM__xMHGPK32qaROpInjrbPI7w_26);
+		T4_ = verifyArgs__8sVYJT4zfbIXMNXtJ2cTng(args, kwargs, ((NI) 1), ((NI) 1), TM__xMHGPK32qaROpInjrbPI7w_14, 1, TM__xMHGPK32qaROpInjrbPI7w_23);
 		if (NIM_UNLIKELY(*nimErr_)) goto LA1_;
 		if (!!(T4_)) goto LA5_;
 		result = ((void*) (NIM_NIL));
@@ -1993,13 +1717,10 @@ NIM_BOOL* nimErr_;
 		goto BeforeRet_;
 	}
 	LA5_: ;
-	arg1folders_only = NIM_FALSE;
 	parseArg__icg9aGIbXA4DEIGHwq7rmAA(args, kwargs, ((NI) 0), "globpattern", (&arg0globpattern));
 	if (NIM_UNLIKELY(*nimErr_)) goto LA1_;
-	parseArg__LZY9aeACpjd5IJS4h2b8lqA(args, kwargs, ((NI) 1), "folders_only", (&arg1folders_only));
-	if (NIM_UNLIKELY(*nimErr_)) goto LA1_;
 	colontmpD__3.len = 0; colontmpD__3.p = NIM_NIL;
-	colontmpD__3 = walk_files__ToYLunVJTl6uByayJPO9amA(arg0globpattern, arg1folders_only);
+	colontmpD__3 = walk_folders__T0p28lhyF7ws9aW2ZqYXykA_2(arg0globpattern);
 	T9_ = (void*)0;
 	T9_ = nimValueToPy__D3zjW9cYtGQuRuwL28IPiignimpy(colontmpD__3);
 	if (NIM_UNLIKELY(*nimErr_)) goto LA8_;
@@ -2015,13 +1736,13 @@ NIM_BOOL* nimErr_;
 	if (NIM_UNLIKELY(*nimErr_)) {
 		LA7_:;
 		if (isObj(nimBorrowCurrentException()->Sup.m_type, "|Exception|RootObj|")) {
-			Exception* eX60gensym39_;
+			Exception* eX60gensym37_;
 			void* T16_;
 			*nimErr_ = NIM_FALSE;
-			eX60gensym39_ = (Exception*)0;
-			eX60gensym39_ = getCurrentException();
+			eX60gensym37_ = (Exception*)0;
+			eX60gensym37_ = getCurrentException();
 			T16_ = (void*)0;
-			T16_ = pythonException__Zl8uxcjgHaQZB15tcqXlTA(eX60gensym39_);
+			T16_ = pythonException__Zl8uxcjgHaQZB15tcqXlTA(eX60gensym37_);
 			if (NIM_UNLIKELY(*nimErr_)) goto LA15_;
 			colontmpD__2 = T16_;
 			result = colontmpD__2;
@@ -2029,7 +1750,7 @@ NIM_BOOL* nimErr_;
 				LA15_:;
 			}
 			{
-				eqdestroy___9b46FHs5hLnvqpMZEZWi31w(&eX60gensym39_);
+				eqdestroy___9b46FHs5hLnvqpMZEZWi31w(&eX60gensym37_);
 			}
 			if (NIM_UNLIKELY(*nimErr_)) goto LA13_;
 			popCurrentException();
@@ -2047,13 +1768,164 @@ NIM_BOOL* nimErr_;
 	}BeforeRet_: ;
 	return result;
 }
-N_LIB_PRIVATE N_CDECL(void*, walk_filesPy_wrapper__JwrG9cd19al6MQlO6PfA9bUzg)(void* selfX60gensym39_, void* args, void* kwargs) {
+N_LIB_PRIVATE N_CDECL(void*, walk_foldersPy_wrapper__oO2Zw1nfQFjMJHCALA7evw)(void* selfX60gensym37_, void* args, void* kwargs) {
 	void* result;
-	tyProc__iv6n7tcGawU401muvntJ9cA volatile pX60gensym39_;
+	tyProc__iv6n7tcGawU401muvntJ9cA volatile pX60gensym37_;
 	result = (void*)0;
 	updateStackBottom__FRn3WNsRdbdvfuL6O7x1BQnimpy();
-	pX60gensym39_ = noinline__51nak27P4W6IWblJlmgg0w_4;
-	result = pX60gensym39_(args, kwargs);
+	pX60gensym37_ = noinline__51nak27P4W6IWblJlmgg0w_4;
+	result = pX60gensym37_(args, kwargs);
+	return result;
+}
+N_LIB_PRIVATE N_NIMCALL(tySequence__sM4lkSb7zS6F7OVMvW9cffQ, walk_files__T0p28lhyF7ws9aW2ZqYXykA_3)(NimStringV2 globpattern) {
+	tySequence__sM4lkSb7zS6F7OVMvW9cffQ result;
+NIM_BOOL* nimErr_;
+{nimErr_ = nimErrorFlag();
+	result.len = 0; result.p = NIM_NIL;
+	{
+		NimStringV2 item;
+		glob_t fX60gensym141_;
+		NI resX60gensym141_;
+		int T2_;
+		item.len = 0; item.p = NIM_NIL;
+		nimZeroMem((void*)(&fX60gensym141_), sizeof(glob_t));
+		resX60gensym141_ = (NI)0;
+		fX60gensym141_.gl_offs = ((size_t) 0);
+		fX60gensym141_.gl_pathc = ((size_t) 0);
+		fX60gensym141_.gl_pathv = NIM_NIL;
+		T2_ = (int)0;
+		T2_ = glob(nimToCStringConv(globpattern), ((int) 0), NIM_NIL, (&fX60gensym141_));
+		resX60gensym141_ = ((NI) (T2_));
+		{
+			if (!(resX60gensym141_ == ((NI) 0))) goto LA6_;
+			{
+				NU64 iX60gensym141_;
+				NU64 colontmp_;
+				NU64 res;
+				iX60gensym141_ = (NU64)0;
+				colontmp_ = (NU64)0;
+				colontmp_ = ((NU64) ((NU)((NU64)(fX60gensym141_.gl_pathc) - (NU64)(((NU) 1)))));
+				res = 0ULL;
+				{
+					while (1) {
+						NimStringV2 pathX60gensym141_;
+						if (!((NU64)(res) <= (NU64)(colontmp_))) goto LA10;
+						pathX60gensym141_.len = 0; pathX60gensym141_.p = NIM_NIL;
+						iX60gensym141_ = res;
+						pathX60gensym141_ = cstrToNimstr(fX60gensym141_.gl_pathv[iX60gensym141_]);
+						{
+							NIM_BOOL T13_;
+							NimStringV2 colontmpD_;
+							T13_ = (NIM_BOOL)0;
+							T13_ = nosfileExists(pathX60gensym141_);
+							if (!T13_) goto LA14_;
+							colontmpD_.len = 0; colontmpD_.p = NIM_NIL;
+							item = pathX60gensym141_;
+							colontmpD_.len = 0; colontmpD_.p = NIM_NIL;
+							eq___aBBXmHFBEivKqERloP6zmA((&colontmpD_), item);
+							add__dK9ajFgX5RSWQx0eHjjpjSQ((&result), colontmpD_);
+						}
+						LA14_: ;
+						res += ((NI) 1);
+						eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&pathX60gensym141_));
+					} LA10: ;
+				}
+			}
+		}
+		LA6_: ;
+		{
+			LA3_:;
+		}
+		{
+			globfree((&fX60gensym141_));
+		}
+		if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
+	}
+	}BeforeRet_: ;
+	return result;
+}
+N_LIB_PRIVATE N_NIMCALL(void*, noinline__51nak27P4W6IWblJlmgg0w_5)(void* args, void* kwargs) {
+	void* result;
+	NimStringV2 arg0globpattern;
+	void* colontmpD_;
+	void* colontmpD__2;
+	tySequence__sM4lkSb7zS6F7OVMvW9cffQ colontmpD__3;
+	void* T9_;
+NIM_BOOL* nimErr_;
+{nimErr_ = nimErrorFlag();
+	result = (void*)0;
+	arg0globpattern.len = 0; arg0globpattern.p = NIM_NIL;
+	colontmpD_ = (void*)0;
+	colontmpD__2 = (void*)0;
+	{
+		NIM_BOOL T4_;
+		T4_ = (NIM_BOOL)0;
+		T4_ = verifyArgs__8sVYJT4zfbIXMNXtJ2cTng(args, kwargs, ((NI) 1), ((NI) 1), TM__xMHGPK32qaROpInjrbPI7w_14, 1, TM__xMHGPK32qaROpInjrbPI7w_25);
+		if (NIM_UNLIKELY(*nimErr_)) goto LA1_;
+		if (!!(T4_)) goto LA5_;
+		result = ((void*) (NIM_NIL));
+		eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&arg0globpattern));
+		goto BeforeRet_;
+	}
+	LA5_: ;
+	parseArg__icg9aGIbXA4DEIGHwq7rmAA(args, kwargs, ((NI) 0), "globpattern", (&arg0globpattern));
+	if (NIM_UNLIKELY(*nimErr_)) goto LA1_;
+	colontmpD__3.len = 0; colontmpD__3.p = NIM_NIL;
+	colontmpD__3 = walk_files__T0p28lhyF7ws9aW2ZqYXykA_3(arg0globpattern);
+	T9_ = (void*)0;
+	T9_ = nimValueToPy__D3zjW9cYtGQuRuwL28IPiignimpy(colontmpD__3);
+	if (NIM_UNLIKELY(*nimErr_)) goto LA8_;
+	colontmpD_ = T9_;
+	result = colontmpD_;
+	{
+		LA8_:;
+	}
+	{
+		eqdestroy___0RiuPw9cXhtLB9a2rQ2jA69cg((&colontmpD__3));
+	}
+	if (NIM_UNLIKELY(*nimErr_)) goto LA7_;
+	if (NIM_UNLIKELY(*nimErr_)) {
+		LA7_:;
+		if (isObj(nimBorrowCurrentException()->Sup.m_type, "|Exception|RootObj|")) {
+			Exception* eX60gensym43_;
+			void* T16_;
+			*nimErr_ = NIM_FALSE;
+			eX60gensym43_ = (Exception*)0;
+			eX60gensym43_ = getCurrentException();
+			T16_ = (void*)0;
+			T16_ = pythonException__Zl8uxcjgHaQZB15tcqXlTA(eX60gensym43_);
+			if (NIM_UNLIKELY(*nimErr_)) goto LA15_;
+			colontmpD__2 = T16_;
+			result = colontmpD__2;
+			{
+				LA15_:;
+			}
+			{
+				eqdestroy___9b46FHs5hLnvqpMZEZWi31w(&eX60gensym43_);
+			}
+			if (NIM_UNLIKELY(*nimErr_)) goto LA13_;
+			popCurrentException();
+			LA13_:;
+		}
+	}
+	if (NIM_UNLIKELY(*nimErr_)) goto LA1_;
+	{
+		LA1_:;
+	}
+	{
+		eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&arg0globpattern));
+	}
+	if (NIM_UNLIKELY(*nimErr_)) goto BeforeRet_;
+	}BeforeRet_: ;
+	return result;
+}
+N_LIB_PRIVATE N_CDECL(void*, walk_filesPy_wrapper__zbH75IbixNVMbbsRXbH8pQ)(void* selfX60gensym43_, void* args, void* kwargs) {
+	void* result;
+	tyProc__iv6n7tcGawU401muvntJ9cA volatile pX60gensym43_;
+	result = (void*)0;
+	updateStackBottom__FRn3WNsRdbdvfuL6O7x1BQnimpy();
+	pX60gensym43_ = noinline__51nak27P4W6IWblJlmgg0w_5;
+	result = pX60gensym43_(args, kwargs);
 	return result;
 }
 static N_INLINE(void, initStackBottomWith)(void* locals) {
@@ -2100,8 +1972,10 @@ N_LIB_PRIVATE N_NIMCALL(void, NimMainModule)(void) {
 "g, return 1 list of strings.", walk_globPy_wrapper__nOBLoCLVUpFZJb3588qANQ);
 	addMethod__TpUnmhxGlZgxTBTLPiE3nw((&gPythonLocalModuleDesc__rWSOv8OWHGeHMsEAMshUQA), "walk_simple", "Faster os.walk(), it only takes the path, return 1 list of stri"
 "ngs.", walk_simplePy_wrapper__IzdXrRRm9a7J5XcJ9cia4k8w);
+	addMethod__TpUnmhxGlZgxTBTLPiE3nw((&gPythonLocalModuleDesc__rWSOv8OWHGeHMsEAMshUQA), "walk_folders", "Faster os.walk(), similar to walks but optimized for Files or F"
+"olders only.", walk_foldersPy_wrapper__oO2Zw1nfQFjMJHCALA7evw);
 	addMethod__TpUnmhxGlZgxTBTLPiE3nw((&gPythonLocalModuleDesc__rWSOv8OWHGeHMsEAMshUQA), "walk_files", "Faster os.walk(), similar to walks but optimized for Files or F"
-"olders only.", walk_filesPy_wrapper__JwrG9cd19al6MQlO6PfA9bUzg);
+"olders only.", walk_filesPy_wrapper__zbH75IbixNVMbbsRXbH8pQ);
 	nimTestErrorFlag();
 }
 }

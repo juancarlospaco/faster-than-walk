@@ -42,7 +42,6 @@ typedef struct RootObj RootObj;
 typedef struct TNimTypeV2 TNimTypeV2;
 typedef struct tySequence__uB9b75OUPRENsBAu4AnoePA tySequence__uB9b75OUPRENsBAu4AnoePA;
 typedef struct tySequence__uB9b75OUPRENsBAu4AnoePA_Content tySequence__uB9b75OUPRENsBAu4AnoePA_Content;
-typedef struct tyTuple__LCURwohbLBusrL8hdCnvng tyTuple__LCURwohbLBusrL8hdCnvng;
 typedef struct tyObject_StackTraceEntry__oLyohQ7O2XOvGnflOss8EA tyObject_StackTraceEntry__oLyohQ7O2XOvGnflOss8EA;
 
 /* section: NIM_merge_TYPES */
@@ -91,10 +90,6 @@ struct tyObject_OSError__BeJgrOdDsczOwEWOZbRfKA {
 NI32 errorCode;
 };
 typedef NU8 tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg;
-struct tyTuple__LCURwohbLBusrL8hdCnvng {
-tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg Field0;
-NimStringV2 Field1;
-};
 
 
 #ifndef tySequence__sM4lkSb7zS6F7OVMvW9cffQ_Content_PP
@@ -143,7 +138,6 @@ N_LIB_PRIVATE N_NIMCALL(void, raiseExceptionEx)(Exception* e, NCSTRING ename, NC
 static N_INLINE(void, nimZeroMem)(void* p, NI size);
 static N_INLINE(void, nimSetMem__zxfKBYntu9cBapkhrCOk1fgmemory)(void* a, int v, NI size);
 static N_INLINE(NCSTRING, nimToCStringConv)(NimStringV2 s);
-N_LIB_PRIVATE N_NIMCALL(void, eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ)(NimStringV2* dest);
 
 /* section: NIM_merge_DATA */
 static const struct {
@@ -520,15 +514,6 @@ N_LIB_PRIVATE N_NIMCALL(tyEnum_PathComponent__9c1SIU9cO1wHcl09b703A9cDrg, getSym
 	}
 	LA1_: ;
 	return result;
-}
-N_LIB_PRIVATE N_NIMCALL(void, eqsink___eJvma6sOTizgxElKpB2yuQ)(tyTuple__LCURwohbLBusrL8hdCnvng* dest, tyTuple__LCURwohbLBusrL8hdCnvng src) {
-	(*dest).Field0 = src.Field0;
-	if ((*dest).Field1.p != src.Field1.p) {	eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&(*dest).Field1));
-	}
-(*dest).Field1.len = src.Field1.len; (*dest).Field1.p = src.Field1.p;
-}
-N_LIB_PRIVATE N_NIMCALL(void, eqdestroy___9bqov6Wj01jiBsy3mzTHnMQ)(tyTuple__LCURwohbLBusrL8hdCnvng* dest) {
-	eqdestroy___dS1BF3Vxjg9aJMmmhVJKSpQ((&(*dest).Field1));
 }
 N_LIB_PRIVATE N_NIMCALL(NIM_BOOL, nosfileExists)(NimStringV2 filename) {
 	NIM_BOOL result;
