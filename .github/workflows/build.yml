@@ -1,8 +1,4 @@
 name: Build
-<<<<<<< HEAD
-
-=======
->>>>>>> 91567dfbd88bcbd42055586b00112f98a52f5e0c
 on:
   push:
     paths:
@@ -55,12 +51,8 @@ jobs:
     - name: Set Environment Variables
       uses: allenevans/set-env@v1.0.0
       with:
-<<<<<<< HEAD
         NIM_VERSION:           "1.4.0"
         PACKAGE_NAME:          "faster_than_walk"
-=======
-        NIM_VERSION:           "devel" # "1.2.6"
->>>>>>> 91567dfbd88bcbd42055586b00112f98a52f5e0c
         MAIN_MODULE:           "src/faster_than_walk.nim"
         PACKAGE_NAME:          "faster_than_walk"
         TWINE_USERNAME:        ${{ secrets.PYPI_USERNAME }}
@@ -68,30 +60,15 @@ jobs:
         TWINE_NON_INTERACTIVE: 1
         NIM_COMMON_OPTIONS:    >-
           compileToC --compileOnly:on --colors:off --threads:off
-<<<<<<< HEAD
-          -d:release -d:danger -d:lto -d:strip -d:ssl --app:lib --sinkInference:on
-          -d:nimBinaryStdFiles -d:noSignalHandler -d:nimDisableCertificateValidation
-          --opt:speed --cpu:amd64 --forceBuild --gc:arc --panics:on
-          --stackTrace:off --excessiveStackTrace:off --experimental:parallel
-
-
-    - name: Update Python PIP
-      run: pip3 install --quiet --upgrade --disable-pip-version-check pip twine
-=======
           -d:release -d:danger -d:lto -d:strip --app:lib
           -d:nimBinaryStdFiles -d:noSignalHandler
           --opt:speed --cpu:amd64 --forceBuild --gc:arc --panics:on
           --stackTrace:off --excessiveStackTrace:off --experimental:parallel
->>>>>>> 91567dfbd88bcbd42055586b00112f98a52f5e0c
 
 
     - name: Clone Nim
       run: |
-<<<<<<< HEAD
         git clone -q --depth 1 --branch v${{ env.NIM_VERSION }} https://github.com/nim-lang/Nim.git
-=======
-        git clone -q --depth 1 --branch ${{ env.NIM_VERSION }} https://github.com/nim-lang/Nim.git
->>>>>>> 91567dfbd88bcbd42055586b00112f98a52f5e0c
         echo "::add-path::$PWD/Nim/bin"
 
 
@@ -146,17 +123,6 @@ jobs:
     - name: Generate Documentation (Linux)
       if: runner.os == 'Linux'
       run: |
-<<<<<<< HEAD
-        cp --force $PWD/setup.cfg dist/setup.cfg
-        date +"%y.%m.%d" >> dist/setup.cfg
-        cp --force $PWD/PKG-INFO dist/$PACKAGE_NAME.egg-info/PKG-INFO
-        date +"%y.%m.%d" >> dist/$PACKAGE_NAME.egg-info/PKG-INFO
-
-    - name: Generate Documentation (Linux)
-      if: runner.os == 'Linux'
-      run: |
-=======
->>>>>>> 91567dfbd88bcbd42055586b00112f98a52f5e0c
         nim doc --out:docs/index.html ${{ env.MAIN_MODULE }}
         nim rst2tex --out:docs/${{ env.PACKAGE_NAME }}.tex ${{ env.MAIN_MODULE }}
 
@@ -175,7 +141,6 @@ jobs:
         python.exe -c "print(__import__('${{ env.PACKAGE_NAME }}').__file__)"
 
 
-<<<<<<< HEAD
     - name: Clean out C (Linux)
       if: runner.os == 'Linux'
       shell: bash
@@ -210,30 +175,6 @@ jobs:
       if: runner.os == 'Windows'
       shell: bash
       run: nim ${{ env.NIM_COMMON_OPTIONS }} --nimcache:dist/win --tlsEmulation:on ${{ env.MAIN_MODULE }}
-=======
-    - name: Compile to C (Linux)
-      if: runner.os == 'Linux'
-      shell: bash
-      run: |
-        rm -f dist/lin/*.c
-        nim ${{ env.NIM_COMMON_OPTIONS }} --nimcache:dist/lin --tlsEmulation:off ${{ env.MAIN_MODULE }}
-
-
-    - name: Compile to C (Mac)
-      if: runner.os == 'macOS'
-      shell: bash
-      run: |
-        rm -f dist/mac/*.c
-        nim ${{ env.NIM_COMMON_OPTIONS }} --nimcache:dist/mac --tlsEmulation:off ${{ env.MAIN_MODULE }}
-
-
-    - name: Compile to C (Windows)
-      if: runner.os == 'Windows'
-      shell: bash
-      run: |
-        rm -f dist/win/*.c
-        nim ${{ env.NIM_COMMON_OPTIONS }} --nimcache:dist/win --tlsEmulation:on ${{ env.MAIN_MODULE }}
->>>>>>> 91567dfbd88bcbd42055586b00112f98a52f5e0c
 
 
     - name: Clean out
@@ -250,7 +191,6 @@ jobs:
         echo ${{ steps.vars.outputs.semver_date }} >>  dist/$PACKAGE_NAME.egg-info/PKG-INFO
 
 
-<<<<<<< HEAD
     - name: SemVer
       shell: bash
       run: |
@@ -260,8 +200,6 @@ jobs:
         echo ${{ steps.vars.outputs.semver_date }} >>  dist/$PACKAGE_NAME.egg-info/PKG-INFO
 
 
-=======
->>>>>>> 91567dfbd88bcbd42055586b00112f98a52f5e0c
     - name: Delay (Linux) # Linux should finish last.
       if: runner.os == 'Linux'
       run: sleep 9m
@@ -277,11 +215,7 @@ jobs:
 
 
     - name: Commit Code
-<<<<<<< HEAD
       uses: EndBug/add-and-commit@v5  # Commit everything to Git repo
-=======
-      uses: EndBug/add-and-commit@v4  # Commit everything to Git repo
->>>>>>> 91567dfbd88bcbd42055586b00112f98a52f5e0c
       with:
         add: 'dist --force'
         force: true
