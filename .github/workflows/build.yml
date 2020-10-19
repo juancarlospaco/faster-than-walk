@@ -91,9 +91,9 @@ jobs:
       if: runner.os == 'Linux'
       run: |
         cp --force $PWD/setup.cfg dist/setup.cfg
-        date +"%y.%m.%d" >>       dist/setup.cfg
-        cp --force $PWD/PKG-INFO  dist/$PACKAGE_NAME.egg-info/PKG-INFO
-        date +"%y.%m.%d" >>       dist/$PACKAGE_NAME.egg-info/PKG-INFO
+        date +"%y.%m.%d" >> dist/setup.cfg
+        cp --force $PWD/PKG-INFO dist/$PACKAGE_NAME.egg-info/PKG-INFO
+        date +"%y.%m.%d" >> dist/$PACKAGE_NAME.egg-info/PKG-INFO
 
 
     - name: Nim Check
