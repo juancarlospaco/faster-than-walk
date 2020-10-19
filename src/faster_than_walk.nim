@@ -3,7 +3,7 @@ import os, strutils, nimpy
 
 proc walk*(folderpath: string, extensions: seq[string] = @[""], followlinks : bool = false, yieldfiles: bool = true, debugs: bool = false, check_folders: bool = false): seq[string] {.exportpy.} =
   ## Faster os.walk(), followlinks follows SymLinks, yieldfiles yields files else folders, return 1 list of strings.
-  let extused = create(bool, sizeOf(bool))  # Optimization.
+  let extused = create(bool)
   extused[] = extensions != @[""] and extensions.len > 0
   for item in walkDirRec(folderpath, {if yieldfiles: pcFile else: pcDir}, {if followlinks: pcLinkToDir else: pcDir}, checkDir=check_folders):
     if unlikely(debugs): echo item
