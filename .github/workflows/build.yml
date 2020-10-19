@@ -119,6 +119,12 @@ jobs:
         cp --force $PWD/PKG-INFO dist/$PACKAGE_NAME.egg-info/PKG-INFO
         date +"%y.%m.%d" >> dist/$PACKAGE_NAME.egg-info/PKG-INFO
 
+    - name: Generate Documentation (Linux)
+      if: runner.os == 'Linux'
+      run: |
+        nim doc --out:docs/index.html ${{ env.MAIN_MODULE }}
+        nim rst2tex --out:docs/${{ env.PACKAGE_NAME }}.tex ${{ env.MAIN_MODULE }}
+
 
     - name: Compile Debug & import (Unix)
       if: runner.os == 'Linux' || runner.os == 'macOS'
