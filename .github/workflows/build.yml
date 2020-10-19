@@ -54,7 +54,6 @@ jobs:
         NIM_VERSION:           "1.4.0"
         PACKAGE_NAME:          "faster_than_walk"
         MAIN_MODULE:           "src/faster_than_walk.nim"
-        PACKAGE_NAME:          "faster_than_walk"
         TWINE_USERNAME:        ${{ secrets.PYPI_USERNAME }}
         TWINE_PASSWORD:        ${{ secrets.PYPI_PASSWORD }}
         TWINE_NON_INTERACTIVE: 1
