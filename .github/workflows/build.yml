@@ -214,19 +214,21 @@ jobs:
 
 
     - name: Commit Code
-      uses: EndBug/add-and-commit@v5  # Commit everything to Git repo
+      uses: EndBug/add-and-commit@v4  # Commit everything to Git repo
       with:
-        add: 'dist --force'
+        add: 'dist'
+        force: true
         message: ${{ steps.vars.outputs.semver_date }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 
     - name: Commit Documentation (Linux)
-      uses: EndBug/add-and-commit@v5  # Commit everything to Git repo
+      uses: EndBug/add-and-commit@v4  # Commit everything to Git repo
       if: runner.os == 'Linux'
       with:
-        add: 'docs --force'
+        add: 'docs'
+        force: true
         message: 'Fully Automated Luxury Documentation'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
