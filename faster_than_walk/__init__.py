@@ -4,4 +4,4 @@ sys.path.insert(0, str(pathlib.Path(__file__).parent))
 
 import nimporter
 
-from . faster_than_requests import *
+from . faster_than_walk import *
